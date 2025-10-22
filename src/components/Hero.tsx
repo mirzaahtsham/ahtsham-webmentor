@@ -51,9 +51,9 @@ export function Hero() {
           </div>
           
           <h1 className="text-5xl md:text-7xl mb-6">
-            Full-Stack <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Developer</span>
+            Web Designer & <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Developer</span>
             <br />
-            & <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">Content Creator</span>
+            & <span className="text-transparent leading-relaxed font-medium bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400"> Content Creator</span>
           </h1>
           
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
