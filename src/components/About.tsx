@@ -44,7 +44,7 @@ export function About() {
           {/* Content */}
           <div>
             <div className="mb-6">
-              <p className="text-yellow-400 mb-2">Hi, I'm Mirza Ahtsham — Developer & Creator</p>
+              <p className="text-yellow-400 mb-2">Hi, I&#39;m Ahtsham — Developer & Creator</p>
               <h3 className="text-3xl mb-4">
                 Passionate about creating 
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400"> exceptional digital experiences</span>
