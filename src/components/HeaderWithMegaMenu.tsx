@@ -86,8 +86,8 @@ export function HeaderWithMegaMenu() {
                      <Link
                   href="/services"
                   className="text-muted-foreground dark:text-gray-300 hover:text-foreground dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
-                >
-                </Link>Services
+                >Services
+                </Link>
                   {/* </button> */}
                   
                   {/* Mega Menu Dropdown */}
