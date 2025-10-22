@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Menu, X, Sun, Moon, Code, Palette, Smartphone, Cloud, Layers, FileText, Mail, Briefcase } from "lucide-react";
 import { useTheme } from "./ThemeProvider";
@@ -63,18 +63,18 @@ export function HeaderWithMegaMenu() {
 
               {/* Desktop Navigation */}
               <nav className="hidden md:flex items-center gap-2 bg-muted/50 dark:bg-gray-800/50 rounded-full px-3 py-2 border border-border dark:border-gray-700">
-                {/* <a
-                  href="#"
+                <a
+                  href="/"
                   className="text-muted-foreground dark:text-gray-300 hover:text-foreground dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
                 >
                   Home
-                </a> */}
-                <a
-                  href="localhost:3000/#about"
+                </a>
+                <Link
+                  href="/#about"
                   className="text-muted-foreground dark:text-gray-300 hover:text-foreground dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
                 >
                   About
-                </a>
+                </Link>
                 
                 {/* Services with Mega Menu */}
                 <div 
@@ -83,11 +83,11 @@ export function HeaderWithMegaMenu() {
                   onMouseLeave={() => setActiveMenu(null)}
                 >
                   <button className="text-muted-foreground dark:text-gray-300 hover:text-foreground dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300">
-                     <a
-                  href="localhost:3000/services"
+                     <Link
+                  href="/services"
                   className="text-muted-foreground dark:text-gray-300 hover:text-foreground dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
                 >
-                </a>Services
+                </Link>Services
                   </button>
                   
                   {/* Mega Menu Dropdown */}
@@ -100,7 +100,7 @@ export function HeaderWithMegaMenu() {
                           {services.development.map((service, index) => {
                             const Icon = service.icon;
                             return (
-                              <a
+                              <Link
                                 key={index}
                                 href="#"
                                 className="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors group"
@@ -118,7 +118,7 @@ export function HeaderWithMegaMenu() {
                                     </div>
                                   </div>
                                 </div>
-                              </a>
+                              </Link>
                             );
                           })}
                         </div>
@@ -129,7 +129,7 @@ export function HeaderWithMegaMenu() {
                           {services.design.map((service, index) => {
                             const Icon = service.icon;
                             return (
-                              <a
+                              <Link
                                 key={index}
                                 href="#"
                                 className="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors group"
@@ -147,7 +147,7 @@ export function HeaderWithMegaMenu() {
                                     </div>
                                   </div>
                                 </div>
-                              </a>
+                              </Link>
                             );
                           })}
                         </div>
@@ -180,18 +180,18 @@ export function HeaderWithMegaMenu() {
                   )}
                 </div>
 
-                <a
-                  href="localhost:3000/linktree"
+                <Link
+                  href="/linktree"
                   className="text-muted-foreground dark:text-gray-300 hover:text-foreground dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
                 >
                   Linktree
-                </a>
-                <a
+                </Link>
+                <Link
                   href="#"
                   className="text-muted-foreground dark:text-gray-300 hover:text-foreground dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
                 >
                   Contact
-                </a>
+                </Link>
               </nav>
 
               {/* Theme Toggle & CTA Button */}
@@ -245,11 +245,11 @@ export function HeaderWithMegaMenu() {
             {isMobileMenuOpen && (
               <div className="md:hidden py-4 border-t border-border mt-4">
                 <nav className="flex flex-col gap-4">
-                  <a href="#" className="text-muted-foreground hover:text-foreground transition-colors py-2">Home</a>
-                  <a href="#" className="text-muted-foreground hover:text-foreground transition-colors py-2">About</a>
-                  <a href="#" className="text-muted-foreground hover:text-foreground transition-colors py-2">Services</a>
-                  <a href="#" className="text-muted-foreground hover:text-foreground transition-colors py-2">Work</a>
-                  <a href="#" className="text-muted-foreground hover:text-foreground transition-colors py-2">Contact</a>
+                  <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors py-2">Home</Link>
+                  <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors py-2">About</Link>
+                  <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors py-2">Services</Link>
+                  <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors py-2">Work</Link>
+                  <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors py-2">Contact</Link>
                   <button 
                     onClick={() => {
                       setIsMobileMenuOpen(false);
