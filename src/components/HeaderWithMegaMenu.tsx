@@ -63,12 +63,12 @@ export function HeaderWithMegaMenu() {
 
               {/* Desktop Navigation */}
               <nav className="hidden md:flex items-center gap-2 bg-muted/50 dark:bg-gray-800/50 rounded-full px-3 py-2 border border-border dark:border-gray-700">
-                <a
+                {/* <a
                   href="/"
                   className="text-muted-foreground dark:text-gray-300 hover:text-foreground dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
                 >
                   Home
-                </a>
+                </a> */}
                 <Link
                   href="/#about"
                   className="text-muted-foreground dark:text-gray-300 hover:text-foreground dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
@@ -82,13 +82,13 @@ export function HeaderWithMegaMenu() {
                   onMouseEnter={() => setActiveMenu("services")}
                   onMouseLeave={() => setActiveMenu(null)}
                 >
-                  <button className="text-muted-foreground dark:text-gray-300 hover:text-foreground dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300">
+                  {/* <button className="text-muted-foreground dark:text-gray-300 hover:text-foreground dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"> */}
                      <Link
                   href="/services"
                   className="text-muted-foreground dark:text-gray-300 hover:text-foreground dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
                 >
                 </Link>Services
-                  </button>
+                  {/* </button> */}
                   
                   {/* Mega Menu Dropdown */}
                   {activeMenu === "services" && (
