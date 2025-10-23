@@ -45,7 +45,7 @@ export function Linktree() {
       icon: <Globe className="w-5 h-5" />,
       title: "Official Website",
       description: "ahtsham.me",
-      url: "ahtsham.me",
+      url: "https://ahtsham.me",
       iconBg: "bg-blue-600"
     },
     {
