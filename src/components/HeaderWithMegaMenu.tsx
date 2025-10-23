@@ -245,11 +245,11 @@ export function HeaderWithMegaMenu() {
             {isMobileMenuOpen && (
               <div className="md:hidden py-4 border-t border-border mt-4">
                 <nav className="flex flex-col gap-4">
-                  <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors py-2">Home</Link>
-                  <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors py-2">About</Link>
-                  <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors py-2">Services</Link>
-                  <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors py-2">Work</Link>
-                  <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors py-2">Contact</Link>
+                  <Link href="/#about" className="text-muted-foreground hover:text-foreground transition-colors py-2">About</Link>
+                  <Link href="/services" className="text-muted-foreground hover:text-foreground transition-colors py-2">Services</Link>
+                  <Link href="/linktree" className="text-muted-foreground hover:text-foreground transition-colors py-2">Linktree</Link>
+                  <Link href="/#testimonials" className="text-muted-foreground hover:text-foreground transition-colors py-2">Testimonials</Link>
+                  <Link href="#faq" className="text-muted-foreground hover:text-foreground transition-colors py-2">FAQ</Link>
                   <button 
                     onClick={() => {
                       setIsMobileMenuOpen(false);

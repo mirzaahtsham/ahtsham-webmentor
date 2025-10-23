@@ -1,7 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ChevronDown } from "lucide-react";
+import { 
+  ChevronDown, 
+  Code, 
+  Clock, 
+  Workflow, 
+  HeadphonesIcon, 
+  Layers, 
+  FolderOpen, 
+  MessageCircle 
+} from "lucide-react";
 
 export function FAQ() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -38,14 +47,17 @@ export function FAQ() {
 
   const faqs = [
     {
+      icon: Code,
       question: "What services do you offer as a full-stack developer?",
       answer: "I offer comprehensive web development services including frontend development with React/Next.js, backend development with Node.js, database design, API development, cloud deployment, and maintenance. I also create technical content and documentation."
     },
     {
+      icon: Clock,
       question: "How long does it typically take to complete a project?",
       answer: "Project timelines vary based on complexity and requirements. A simple website might take 2-3 weeks, while a complex web application could take 2-3 months. I always provide detailed timelines during the initial consultation."
     },
     {
+      icon: Workflow,
       question: "What is your development process?",
       answer: "My process includes: 1) Discovery & Planning, 2) Design & Prototyping, 3) Development & Testing, 4) Deployment & Launch, 5) Maintenance & Support. I maintain clear communication throughout each phase."
     },

@@ -38,7 +38,7 @@ export function Linktree() {
       icon: <Youtube className="w-5 h-5" />,
       title: "YouTube Channel",
       description: "Learn from Ahtsham Web Mentor - 6+ Experience",
-      url: "#",
+      url: "https://www.youtube.com/channel/UCECmARzL9NsJiDpe01t6PWw??sub_confirmation=1",
       iconBg: "bg-red-600"
     },
     {
@@ -69,21 +69,21 @@ export function Linktree() {
       icon: <Facebook className="w-4 h-4" />,
       title: "Facebook",
       description: "1K+ Followers",
-      url: "#",
+      url: "https://www.facebook.com/ahtshamwebdesigngenius/",
       iconBg: "bg-blue-600"
     },
     {
       icon: <Linkedin className="w-4 h-4" />,
       title: "LinkedIn",
       description: "1K+ Followers",
-      url: "#",
+      url: "https://www.linkedin.com/in/mirzaahtsham/",
       iconBg: "bg-blue-700"
     },
     {
       icon: <Instagram className="w-4 h-4" />,
       title: "Instagram",
       description: "500 Followers",
-      url: "#",
+      url: "https://www.instagram.com/WebsiteDesignGenius/",
       iconBg: "bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500"
     },
     {
@@ -97,7 +97,7 @@ export function Linktree() {
       icon: <Twitter className="w-4 h-4" />,
       title: "X (Twitter)",
       description: "Follow for tech updates",
-      url: "#",
+      url: "https://twitter.com/websdesignwala/",
       iconBg: "bg-black"
     },
     // {
@@ -145,7 +145,7 @@ export function Linktree() {
       icon: <Mail className="w-4 h-4" />,
       title: "Email",
       description: "hello@ahtsham.me",
-      url: "#",
+      url: "mailto:hello@ahtsham.me",
       iconBg: "bg-red-600"
     }
   ];
@@ -309,7 +309,7 @@ export function Linktree() {
         </section>
 
         {/* Freelance Platforms */}
-        <section className="mb-8">
+        {/* <section className="mb-8">
           <h2 className="text-white text-sm mb-4 flex items-center gap-2">
             <Star className="w-4 h-4" />
             Freelance Platforms
@@ -319,7 +319,7 @@ export function Linktree() {
               <LinkCard key={index} item={item} size="small" />
             ))}
           </div>
-        </section>
+        </section> */}
 
         {/* Footer Note */}
         <p className="text-center text-xs text-gray-500 mt-12 mb-8">

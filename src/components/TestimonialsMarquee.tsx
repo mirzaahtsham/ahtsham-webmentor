@@ -216,7 +216,7 @@ export function TestimonialsMarquee() {
   );
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 overflow-hidden">
+    <section id="testimonials" className="py-20 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 overflow-hidden">
       <div className="mb-12 text-center">
         <h2 className="text-3xl md:text-4xl mb-4 text-foreground dark:text-white">
           Client Testimonials
