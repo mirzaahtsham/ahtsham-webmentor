@@ -54,10 +54,10 @@ export function HeaderWithMegaMenu() {
               {/* Logo */}
               <div className="text-foreground dark:text-white">
                 <span className={`transition-all duration-500 ${isScrolled ? "text-lg" : "text-xl"}`}>
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+                  <span className="text-transparent font-medium bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
                     Mirza
                   </span>{" "}
-                  Ahtsham
+                  <span className="font-bold">Ahtsham</span>
                 </span>
               </div>
 

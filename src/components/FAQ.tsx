@@ -2,14 +2,15 @@
 
 import { useState, useEffect } from "react";
 import { 
-  ChevronDown, 
-  Code, 
-  Clock, 
-  Workflow, 
-  HeadphonesIcon, 
-  Layers, 
-  FolderOpen, 
-  MessageCircle 
+  ChevronDown,
+  Code,
+  ShoppingBag,
+  Layout,
+  Rocket,
+  Headphones,
+  Wrench,
+  Zap,
+  FileText
 } from "lucide-react";
 
 export function FAQ() {
@@ -46,38 +47,55 @@ export function FAQ() {
   }, []);
 
   const faqs = [
-    {
-      icon: Code,
-      question: "What services do you offer as a full-stack developer?",
-      answer: "I offer comprehensive web development services including frontend development with React/Next.js, backend development with Node.js, database design, API development, cloud deployment, and maintenance. I also create technical content and documentation."
-    },
-    {
-      icon: Clock,
-      question: "How long does it typically take to complete a project?",
-      answer: "Project timelines vary based on complexity and requirements. A simple website might take 2-3 weeks, while a complex web application could take 2-3 months. I always provide detailed timelines during the initial consultation."
-    },
-    {
-      icon: Workflow,
-      question: "What is your development process?",
-      answer: "My process includes: 1) Discovery & Planning, 2) Design & Prototyping, 3) Development & Testing, 4) Deployment & Launch, 5) Maintenance & Support. I maintain clear communication throughout each phase."
-    },
-    {
-      question: "Do you provide ongoing support after project completion?",
-      answer: "Yes! I offer various support packages including bug fixes, updates, performance optimization, and feature enhancements. We can discuss the best support plan for your needs."
-    },
-    {
-      question: "What technologies and frameworks do you specialize in?",
-      answer: "I specialize in React, Next.js, Node.js, TypeScript, Tailwind CSS, MongoDB, PostgreSQL, AWS, and various other modern technologies. I'm always learning and adapting to new tools."
-    },
-    {
-      question: "Can you work with existing projects or only new builds?",
-      answer: "Absolutely! I can work on existing projects, whether it's adding new features, refactoring code, fixing bugs, or completely rebuilding parts of the application. I'm comfortable jumping into codebases at any stage."
-    },
-    {
-      question: "How do you handle project communication and updates?",
-      answer: "I believe in transparent communication. I provide regular updates through your preferred channel (Slack, Email, etc.), weekly progress reports, and am available for calls/meetings as needed."
-    },
-  ];
+  {
+    icon: Code,
+    question: "What services do you offer as a web designer & developer?",
+    answer:
+      "I provide complete website design and development services including WordPress, Shopify, and custom-coded websites using HTML, CSS, JavaScript, Tailwind CSS, and Next.js. I also offer speed optimization, SEO setup, payment gateway integration, and website maintenance."
+  },
+  {
+    icon: ShoppingBag,
+    question: "Do you build Shopify and WooCommerce stores?",
+    answer:
+      "Yes! I specialize in building fully functional eCommerce stores on Shopify and WooCommerce with modern, mobile-friendly layouts, optimized product pages, secure payment gateways, and marketing integrations like Meta Pixel, GA4, and WhatsApp Chat."
+  },
+  {
+    icon: Layout,
+    question: "Can you customize or redesign an existing website?",
+    answer:
+      "Absolutely! Whether you want a fresh design, improved performance, or a migration from one platform to another, I can redesign or rebuild your website without losing SEO value or functionality."
+  },
+  {
+    icon: Wrench,
+    question: "Do you offer website maintenance and support?",
+    answer:
+      "Yes, I offer ongoing support plans that include regular updates, bug fixes, security monitoring, content updates, and performance optimization to keep your site fast and reliable."
+  },
+  {
+    icon: Rocket,
+    question: "How long does it take to complete a project?",
+    answer:
+      "Timelines depend on project complexity. A basic business website typically takes 1–2 weeks, while an eCommerce or custom project may take 3–6 weeks. I always provide a detailed timeline after understanding your requirements."
+  },
+  {
+    icon: Zap,
+    question: "Do you offer website speed and SEO optimization?",
+    answer:
+      "Yes, I specialize in speed optimization using tools like WP Rocket and best SEO practices. I ensure your website loads quickly, performs well on Google PageSpeed Insights, and follows on-page SEO standards for better rankings."
+  },
+  {
+    icon: FileText,
+    question: "Do you create landing pages or custom forms?",
+    answer:
+      "Yes, I design conversion-focused landing pages using Elementor or custom code, and I build multi-step or advanced forms using Contact Form 7, CF7 Pro, or custom JavaScript solutions."
+  },
+  {
+    icon: Headphones,
+    question: "How will we communicate and manage the project?",
+    answer:
+      "I provide regular updates through Email, WhatsApp, or your preferred platform. You’ll get progress reports, preview links, and timely feedback sessions throughout the development process."
+  }
+];
 
   return (
     <section id="faq-section" className="py-20 bg-background dark:bg-gray-900 text-foreground dark:text-white relative">
