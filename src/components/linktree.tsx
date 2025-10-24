@@ -1,14 +1,30 @@
 "use client";
-
 import { 
-  Youtube, 
+  SiGithub,
+  SiLinkedin,
+  SiFiverr,
+  SiUpwork,
+  SiX,
+  SiYoutube,
+  SiFacebook,
+  SiInstagram,
+  SiMedium,
+  SiTiktok,
+  SiWhatsapp,
+  SiUdemy,
+  SiDiscord,
+  SiBuymeacoffee,
+  SiPayoneer,
+  SiNamecheap,
+  SiEnvato,
+  SiPinterest,
+
+
+} from "react-icons/si";
+import { 
   Globe, 
   Calendar, 
-  FileText, 
-  Facebook, 
-  Instagram, 
-  Twitter, 
-  Linkedin, 
+  FileText,
   Music2, 
   Mail, 
   Users, 
@@ -35,18 +51,18 @@ interface LinkItem {
 export function Linktree() {
   const mainPlatforms: LinkItem[] = [
     {
-      icon: <Youtube className="w-5 h-5" />,
+      icon: <SiYoutube className="w-5 h-5" />,
       title: "YouTube Channel",
       description: "Learn from Ahtsham Web Mentor - 6+ Experience",
       url: "https://www.youtube.com/channel/UCECmARzL9NsJiDpe01t6PWw??sub_confirmation=1",
       iconBg: "bg-red-600"
     },
     {
-      icon: <Globe className="w-5 h-5" />,
-      title: "Official Website",
-      description: "ahtsham.me",
-      url: "https://ahtsham.me",
-      iconBg: "bg-blue-600"
+      icon: <SiGithub className="w-5 h-5" />,
+      title: "Github Profile",
+      description: "Git all resources, courses & more",
+      url: "https://github.com/mirzaahtsham/",
+      iconBg: "bg-white/10"
     },
     {
       icon: <Calendar className="w-5 h-5" />,
@@ -66,59 +82,59 @@ export function Linktree() {
 
   const socialMedia: LinkItem[] = [
     {
-      icon: <Facebook className="w-4 h-4" />,
+      icon: <SiFacebook className="w-4 h-4" />,
       title: "Facebook",
       description: "1K+ Followers",
       url: "https://www.facebook.com/ahtshamwebdesigngenius/",
       iconBg: "bg-blue-600"
     },
     {
-      icon: <Linkedin className="w-4 h-4" />,
+      icon: <SiLinkedin className="w-4 h-4" />,
       title: "LinkedIn",
       description: "1K+ Followers",
       url: "https://www.linkedin.com/in/mirzaahtsham/",
       iconBg: "bg-blue-700"
     },
     {
-      icon: <Instagram className="w-4 h-4" />,
+      icon: <SiInstagram className="w-4 h-4" />,
       title: "Instagram",
       description: "500 Followers",
       url: "https://www.instagram.com/WebsiteDesignGenius/",
       iconBg: "bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500"
     },
     {
-      icon: <Music2 className="w-4 h-4" />,
+      icon: <SiTiktok className="w-4 h-4" />,
       title: "TikTok",
       description: "1K+ Followers",
       url: "#",
       iconBg: "bg-black"
     },
     {
-      icon: <Twitter className="w-4 h-4" />,
+      icon: <SiX className="w-4 h-4" />,
       title: "X (Twitter)",
       description: "Follow for tech updates",
       url: "https://twitter.com/websdesignwala/",
       iconBg: "bg-black"
     },
-    // {
-    //   icon: <Mail className="w-4 h-4" />,
-    //   title: "Join Newsletter",
-    //   description: "10K+ Subscribers",
-    //   url: "#",
-    //   iconBg: "bg-yellow-600"
-    // }
+    {
+      icon: <SiPinterest className="w-4 h-4" />,
+      title: "Pinterest",
+      description: "10K+ Subscribers",
+      url: "https://www.pinterest.com/mirzaahtsham/",
+      iconBg: "bg-red-600"
+    }
   ];
 
   const community: LinkItem[] = [
     {
-      icon: <Facebook className="w-4 h-4" />,
+      icon: <SiFacebook className="w-4 h-4" />,
       title: "Facebook Group",
       description: "Learn with Ahtsham Web Mentor - Join our Learning Community",
       url: "#",
       iconBg: "bg-blue-600"
     },
     {
-      icon: <MessageCircle className="w-4 h-4" />,
+      icon: <SiWhatsapp className="w-4 h-4" />,
       title: "WhatsApp Group",
       description: "Learn with Ahtsham Web Mentor - Get Updates & Announcements",
       url: "#",
@@ -135,7 +151,7 @@ export function Linktree() {
 
   const contact: LinkItem[] = [
     {
-      icon: <MessageCircle className="w-4 h-4" />,
+      icon: <SiWhatsapp className="w-4 h-4" />,
       title: "WhatsApp",
       description: "Direct Message",
       url: "#",
@@ -152,23 +168,25 @@ export function Linktree() {
 
   const freelancePlatforms: LinkItem[] = [
     {
-      icon: (
-        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/>
-        </svg>
-      ),
+      icon: <SiUpwork className="w-4 h-4" />,
+      // (
+      //   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+      //     <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/>
+      //   </svg>
+      // ),
       title: "Upwork",
       description: "Top Rated Plus - 90+ years experience",
       url: "#",
       iconBg: "bg-green-600"
     },
     {
-      icon: (
-        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-          <circle cx="4" cy="4" r="2"/>
-          <path d="M8 1h2v8H8zm4 0h2v3h-2zm4 0h2v5h-2zM0 9h24v2H0zm8 3h2v11H8zm4 0h2v8h-2zm4 0h2v6h-2z"/>
-        </svg>
-      ),
+      icon: <SiFiverr className="w-4 h-4" />,
+      // (
+      //   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+      //     <circle cx="4" cy="4" r="2"/>
+      //     <path d="M8 1h2v8H8zm4 0h2v3h-2zm4 0h2v5h-2zM0 9h24v2H0zm8 3h2v11H8zm4 0h2v8h-2zm4 0h2v6h-2z"/>
+      //   </svg>
+      // ),
       title: "Fiverr",
       description: "Professional development Services",
       url: "#",
