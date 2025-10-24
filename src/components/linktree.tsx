@@ -1,5 +1,5 @@
 "use client";
-import { 
+import {
   SiGithub,
   SiLinkedin,
   SiFiverr,
@@ -11,6 +11,7 @@ import {
   SiMedium,
   SiTiktok,
   SiWhatsapp,
+  SiQuora,
   SiUdemy,
   SiDiscord,
   SiBuymeacoffee,
@@ -18,17 +19,19 @@ import {
   SiNamecheap,
   SiEnvato,
   SiPinterest,
+  SiCodechef,
+  SiReddit,
 
 
 } from "react-icons/si";
-import { 
-  Globe, 
-  Calendar, 
+import {
+  Globe,
+  Calendar,
   FileText,
-  Music2, 
-  Mail, 
-  Users, 
-  MessageCircle, 
+  Music2,
+  Mail,
+  Users,
+  MessageCircle,
   // GraduationCap,
   ExternalLink,
   MapPin,
@@ -38,6 +41,7 @@ import {
   // Dribbble,
   // Music
 } from "lucide-react";
+import Image from "next/image";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 interface LinkItem {
@@ -71,13 +75,7 @@ export function Linktree() {
       url: "#",
       iconBg: "bg-green-600"
     },
-    {
-      icon: <FileText className="w-5 h-5" />,
-      title: "Blog",
-      description: "Read my latest articles and insights",
-      url: "#",
-      iconBg: "bg-purple-600"
-    }
+    
   ];
 
   const socialMedia: LinkItem[] = [
@@ -119,19 +117,163 @@ export function Linktree() {
     {
       icon: <SiPinterest className="w-4 h-4" />,
       title: "Pinterest",
-      description: "10K+ Subscribers",
+      description: "Follow for Tech & Design Ideas",
       url: "https://www.pinterest.com/mirzaahtsham/",
       iconBg: "bg-red-600"
     }
   ];
 
-  const community: LinkItem[] = [
+  const articles: LinkItem[] = [
+    {
+      icon: <SiMedium className="w-4 h-4" />,
+      title: "Medium",
+      description: "Read my latest articles on Medium",
+      url: "https://medium.com/@mirzaahtsham/",
+      iconBg: "bg-black"
+    },
+    {
+      icon: <SiQuora className="w-4 h-4" />,
+      title: "Quora",
+      description: "Read my answers on Quora",
+      url: "https://www.quora.com/profile/Mirza-Ahtsham/",
+      iconBg: "bg-red-600"
+    },
+    {
+      icon: <SiLinkedin className="w-4 h-4" />,
+      title: "Linkedin Articles",
+      description: "Read my latest articles on LinkedIn",
+      url: "https://www.linkedin.com/in/mirzaahtsham/recent-activity/articles/",
+      iconBg: "bg-blue-600"
+    },
+    // {
+    //   icon: <SiWhatsapp className="w-4 h-4" />,
+    //   title: "WhatsApp Group",
+    //   description: "Learn with Ahtsham Web Mentor - Get Updates & Announcements",
+    //   url: "#",
+    //   iconBg: "bg-green-600"
+    // },
+    // {
+    //   icon: <GraduationCap className="w-4 h-4" />,
+    //   title: "Skool Community",
+    //   description: "UWS Academy - Exclusive Learning Hub",
+    //   url: "#",
+    //   iconBg: "bg-purple-600"
+    // }
+  ];
+
+  const affiliate: LinkItem[] = [
+    {
+      icon: <SiEnvato className="w-4 h-4" />,
+      title: "Themeforest",
+      description: "Find & Buy Premium Website Themes",
+      url: "https://1.envato.market/R572r2",
+      iconBg: "bg-green-600"
+    },
+    {
+      icon: <SiNamecheap className="w-4 h-4" />,
+      title: "Namecheap",
+      description: "Register Your Domain Names Easily",
+      url: "https://namecheap.pxf.io/EaBbVP",
+      iconBg: "bg-orange-600"
+    },
+    {
+    // ✅ Correct way to load external image
+    icon: (
+      <Image
+        src="https://www.tawk.to/wp-content/uploads/2020/04/tawk-sitelogo.png"
+        alt="Tawk.to"
+        width={20}
+        height={20}
+        className="rounded-sm"
+      />
+    ),
+    title: "Tawk.to",
+    description: "Free Live Chat for Your Website",
+    url: "https://www.tawk.to/?pid=x1fqs0v",
+    iconBg: "bg-white/5",
+  },
+    {
+      icon: <SiPayoneer className="w-4 h-4" />,
+      title: "Payoneer",
+      description: "Global Payment Solutions for Freelancers",
+      url: "http://share.payoneer.com/nav/pUOXZUF_URk3k2r_LSC6J4Ov-GZOhCFvmmn56njGAvzRbPVqHuEJtgmOzrcXwWxlRZOi1daUkfq-PgR20d5IyA2",
+      iconBg: "bg-orange-600"
+    },
+    {
+      icon: <SiBuymeacoffee className="w-4 h-4 text-black" />,
+      title: "Buy Me A Coffee",
+      description: "Support My Work & Projects",
+      url: "https://www.buymeacoffee.com/invite/mirzaahtsham",
+      iconBg: "bg-yellow-500"
+    },
+  ];
+
+  const tutorials: LinkItem[] = [
+    {
+      icon: <SiYoutube className="w-4 h-4" />,
+      title: "Youtube Channel",
+      description: "Watch step-by-step tutorials",
+      url: "https://www.youtube.com/channel/UCECmARzL9NsJiDpe01t6PWw??sub_confirmation=1",
+      iconBg: "bg-red-600"
+    },
+    {
+      icon: <SiUdemy className="w-4 h-4" />,
+      title: "Udemy Courses",
+      description: "Learn with in-depth courses",
+      url: "https://www.udemy.com/user/mirza-ahtsham/",
+      iconBg: "bg-purple-500"
+    },
     {
       icon: <SiFacebook className="w-4 h-4" />,
       title: "Facebook Group",
       description: "Learn with Ahtsham Web Mentor - Join our Learning Community",
-      url: "#",
+      url: "https://www.facebook.com/groups/learnwithahtsham/",
       iconBg: "bg-blue-600"
+    },
+    {
+      icon: <SiWhatsapp className="w-4 h-4" />,
+      title: "WhatsApp Channel",
+      description: "Learn with Ahtsham Web Mentor - Get Updates & Announcements",
+      url: "#",
+      iconBg: "bg-green-600"
+    },
+    // {
+    //   icon: <GraduationCap className="w-4 h-4" />,
+    //   title: "Skool Community",
+    //   description: "UWS Academy - Exclusive Learning Hub",
+    //   url: "#",
+    //   iconBg: "bg-purple-600"
+    // }
+  ];
+
+  const community: LinkItem[] = [
+    {
+      icon: <SiDiscord className="w-4 h-4" />,
+      title: "Discord",
+      description: "Join our Developer Community",
+      url: "https://discord.gg/4RnpzDGv",
+      iconBg: "bg-purple-600"
+    },
+    {
+      icon: <SiCodechef className="w-5 h-5" />,
+      title: "CodeChef ",
+      description: "Practice Coding & Problem Solving",
+      url: "#",
+      iconBg: "bg-[#5B4638]"
+    },
+    {
+      icon: <SiQuora className="w-4 h-4" />,
+      title: "Quora",
+      description: "Direct Message",
+      url: "#",
+      iconBg: "bg-red-600"
+    },
+    {
+      icon: <SiReddit className="w-4 h-4" />,
+      title: "Reddit",
+      description: "Join Discussions & AMA Sessions",
+      url: "https://www.reddit.com/user/mirzaahtsham/",
+      iconBg: "bg-orange-600"
     },
     {
       icon: <SiWhatsapp className="w-4 h-4" />,
@@ -193,13 +335,13 @@ export function Linktree() {
       iconBg: "bg-green-600"
     }
   ];
-
+  const currentYear = new Date().getFullYear();
+  const professionalYears = currentYear - 2015;
   const LinkCard = ({ item, size = "large" }: { item: LinkItem; size?: "large" | "small" }) => (
     <a
       href={item.url}
-      className={`flex items-center gap-4 bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 border border-gray-700 hover:border-gray-600 hover:bg-gray-800/70 transition-all duration-300 group ${
-        size === "small" ? 'min-h-[70px]' : 'min-h-[80px]'
-      }`}
+      className={`flex items-center gap-4 bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 border border-gray-700 hover:border-gray-600 hover:bg-gray-800/70 transition-all duration-300 group ${size === "small" ? 'min-h-[70px]' : 'min-h-[80px]'
+        }`}
     >
       <div className={`${item.iconBg} ${size === 'large' ? 'w-12 h-12' : 'w-10 h-10'} rounded-lg flex items-center justify-center text-white flex-shrink-0`}>
         {item.icon}
@@ -251,12 +393,12 @@ export function Linktree() {
               className="w-full h-full object-cover"
             />
           </div>
-          
+
           <h1 className="text-2xl text-white mb-2">Mirza Ahtsham</h1>
           <p className="text-gray-400 text-sm mb-3">
             Designer, Developer & Trainer - Ahtsham Web Mentor
           </p>
-          
+
           <div className="flex items-center justify-center gap-4 text-xs text-gray-500 mb-3">
             <div className="flex items-center gap-1">
               <MapPin className="w-3 h-3" />
@@ -270,7 +412,7 @@ export function Linktree() {
 
           <div className="inline-flex items-center gap-2 bg-yellow-500/10 border border-yellow-500/30 rounded-full px-4 py-1.5 text-xs">
             <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
-            <span className="text-yellow-500">Complete 1K+ projects - 6+ years experience</span>
+            <span className="text-yellow-500">Complete 1K+ projects - {professionalYears}+ years experience</span>
           </div>
         </div>
 
@@ -300,11 +442,53 @@ export function Linktree() {
           </div>
         </section>
 
+        {/* My Writings & Tutorials */}
+        <section className="mb-8">
+          <h2 className="text-white text-sm mb-4 flex items-center gap-2">
+            <Users className="w-4 h-4" />
+            My Writings
+          </h2>
+          <div className="space-y-3">
+            {articles.map((item, index) => (
+              <LinkCard key={index} item={item} size="small" />
+            ))}
+          </div>
+        </section>
+
+        {/* Video Tutorials */}
+        <section className="mb-8">
+          <h2 className="text-white text-sm mb-4 flex items-center gap-2">
+            <Users className="w-4 h-4" />
+            Video Tutorials
+          </h2>
+          <div className="space-y-3">
+            {tutorials.map((item, index) => (
+              <LinkCard key={index} item={item} size="small" />
+            ))}
+          </div>
+        </section>
+
+        {/* Partner Platforms */}
+        <section className="mb-8">
+          <h2 className="text-white text-sm mb-1 flex items-center gap-2">
+            <Users className="w-4 h-4" />
+            Ahtsham&#39;s Toolkit
+          </h2>
+          <p className="text-xs text-gray-500 mb-4">
+          Recommended tools and platforms I personally use and trust — affiliate links included.
+        </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {affiliate.map((item, index) => (
+              <LinkCard key={index} item={item} size="small" />
+            ))}
+          </div>
+        </section>
+
         {/* Community */}
         <section className="mb-8">
           <h2 className="text-white text-sm mb-4 flex items-center gap-2">
             <Users className="w-4 h-4" />
-            Community
+            Community & Networking
           </h2>
           <div className="space-y-3">
             {community.map((item, index) => (

@@ -149,7 +149,7 @@ export function Footer() {
 
           {/* Column 5 - Affiliated Links */}
           <div>
-            <h4 className="mb-4 text-white">Affiliated Link</h4>
+            <h4 className="mb-4 text-white">Partner Platforms</h4>
             <ul className="space-y-2">
               <li>
                 <a href="https://1.envato.market/R572r2" target="blank" className="text-gray-400 text-sm hover:text-white transition-colors flex items-center gap-2">
