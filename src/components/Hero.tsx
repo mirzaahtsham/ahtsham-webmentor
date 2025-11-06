@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { Button } from "./ui/button";
-import { Github, Linkedin, Mail, Briefcase, ChevronLeft, ChevronRight } from "lucide-react";
+import {  Mail, Briefcase, ChevronLeft, ChevronRight } from "lucide-react";
+import { SiGithub, SiLinkedin, } from "react-icons/si";
 import { ContactFormModal } from "./ContactFormModal";
 
 export function Hero() {
@@ -51,7 +52,7 @@ export function Hero() {
           </div>
           
           <h1 className="text-5xl md:text-7xl mb-6">
-            Web Designer & <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Developer</span>
+            Web Designer & <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 font-bold">Developer</span>
             <br />
             | <span className="text-transparent leading-relaxed font-medium bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400"> Content Creator</span>
           </h1>
@@ -75,13 +76,13 @@ export function Hero() {
           <ContactFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
           <div className="flex gap-6 justify-center mb-12">
-            <a href="#" className="text-gray-400 hover:text-white transition-colors hover:scale-110 transform duration-300">
-              <Github className="w-6 h-6" />
+            <a href="https://github.com/mirzaahtsham/" className="text-gray-400 hover:text-white transition-colors hover:scale-110 transform duration-300">
+              <SiGithub className="w-6 h-6" />
             </a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors hover:scale-110 transform duration-300">
-              <Linkedin className="w-6 h-6" />
+            <a href="https://www.linkedin.com/in/mirzaahtsham/" className="text-gray-400 hover:text-white transition-colors hover:scale-110 transform duration-300">
+              <SiLinkedin className="w-6 h-6" />
             </a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors hover:scale-110 transform duration-300">
+            <a href="mailto:hello@ahtsham.me" className="text-gray-400 hover:text-white transition-colors hover:scale-110 transform duration-300">
               <Mail className="w-6 h-6" />
             </a>
           </div>

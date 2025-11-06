@@ -45,7 +45,7 @@ export function About() {
   const professionalYears = currentYear - 2015;
 
   return (
-    <section className="py-20 bg-background dark:bg-gray-900 text-foreground dark:text-white">
+    <section className="py-20 bg-white dark:bg-gray-800 rounded-lg px-6 ring shadow-xl ring-gray-900/5">
       <div className="container mx-auto px-4">
         {/* Section Title */}
         <div className="text-center mb-12">

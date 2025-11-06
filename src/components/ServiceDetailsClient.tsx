@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Check, Star, Clock, RotateCcw } from "lucide-react";
 import { ContactFormModal } from "./ContactFormModal";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { HeaderWithMegaMenu } from "./HeaderWithMegaMenu";
+import { Footer } from "./Footer";
 import Link from "next/link";
 
 export interface Package {
@@ -43,6 +45,7 @@ export function ServiceDetailClient({ service }: { service: Service }) {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white">
       <div className="max-w-7xl mx-auto px-4 py-8 pt-45">
+        <HeaderWithMegaMenu />
         {/* Back Button */}
         <Link href="/services" className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-6 transition-colors">
           ← Back to Services
@@ -77,6 +80,7 @@ export function ServiceDetailClient({ service }: { service: Service }) {
             </div>
           ))}
         </div>
+        <Footer />
 
       </div>
 

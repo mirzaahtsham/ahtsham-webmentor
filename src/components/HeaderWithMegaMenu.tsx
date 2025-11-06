@@ -56,8 +56,8 @@ export function HeaderWithMegaMenu() {
       >
         <div
           className={`transition-all duration-500 ${isScrolled
-            ? "bg-background/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-lg border-b border-border dark:border-gray-800"
-            : "bg-background/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-xl rounded-2xl border border-border dark:border-gray-800"
+            ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-lg border-b border-border dark:border-white"
+            : "bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-xl rounded-2xl border border-border dark:border-gray-800"
             }`}
         >
           <div
@@ -66,7 +66,7 @@ export function HeaderWithMegaMenu() {
           >
             <div className="flex items-center justify-between">
               {/* Logo */}
-              <div className="text-foreground dark:text-white">
+              <div className="text-gray-800 dark:text-white">
                 <span
                   className={`transition-all duration-500 ${isScrolled ? "text-lg" : "text-xl"
                     }`}
@@ -79,10 +79,10 @@ export function HeaderWithMegaMenu() {
               </div>
 
               {/* Desktop Navigation */}
-              <nav className="hidden md:flex items-center gap-2 bg-muted/50 dark:bg-gray-800/50 rounded-full px-3 py-2 border border-border dark:border-gray-700">
+              <nav className="hidden md:flex items-center gap-2 bg-gray-200/50 dark:bg-gray-800/50 rounded-full px-3 py-2 border border-border dark:border-gray-700">
                 <Link
                   href="/#about"
-                  className="text-muted-foreground dark:text-gray-300 hover:text-foreground dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
+                  className="text-gray-800 dark:text-gray-300 hover:text-pink-600 dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
                 >
                   About
                 </Link>
@@ -95,7 +95,7 @@ export function HeaderWithMegaMenu() {
                 >
                   <Link
                     href="/services"
-                    className="text-muted-foreground dark:text-gray-300 hover:text-foreground dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
+                    className="text-gray-800 dark:text-gray-300 hover:text-pink-600 dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
                   >
                     Services
                   </Link>
@@ -122,10 +122,10 @@ export function HeaderWithMegaMenu() {
                                     <Icon className="w-5 h-5 text-purple-600 dark:text-purple-400" />
                                   </div>
                                   <div>
-                                    <div className="text-sm text-foreground dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                                    <div className="text-sm text-gray-800 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
                                       {service.name}
                                     </div>
-                                    <div className="text-xs text-muted-foreground dark:text-gray-400 mt-0.5">
+                                    <div className="text-xs text-gray-800 dark:text-gray-400 mt-0.5">
                                       {service.description}
                                     </div>
                                   </div>
@@ -153,10 +153,10 @@ export function HeaderWithMegaMenu() {
                                     <Icon className="w-5 h-5 text-pink-600 dark:text-pink-400" />
                                   </div>
                                   <div>
-                                    <div className="text-sm text-foreground dark:text-white group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">
+                                    <div className="text-sm text-gray-800 dark:text-white group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">
                                       {service.name}
                                     </div>
-                                    <div className="text-xs text-muted-foreground dark:text-gray-400 mt-0.5">
+                                    <div className="text-xs text-gray-800 dark:text-gray-400 mt-0.5">
                                       {service.description}
                                     </div>
                                   </div>
@@ -175,10 +175,10 @@ export function HeaderWithMegaMenu() {
                               className="w-full h-24 object-cover rounded-lg"
                             />
                           </div>
-                          <h4 className="text-sm text-foreground dark:text-white mb-1">
+                          <h4 className="text-sm text-gray-800 dark:text-white mb-1">
                             Need Help?
                           </h4>
-                          <p className="text-xs text-muted-foreground dark:text-gray-400 mb-3">
+                          <p className="text-xs text-gray-800 dark:text-gray-400 mb-3">
                             Not sure which service you need? Let's discuss your project.
                           </p>
                           <button
@@ -198,13 +198,13 @@ export function HeaderWithMegaMenu() {
 
                 <Link
                   href="/ahtsham-connect"
-                  className="text-muted-foreground dark:text-gray-300 hover:text-foreground dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
+                  className="text-gray-800 dark:text-gray-300 hover:text-pink-600 dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
                 >
                   Ahtsham Connect
                 </Link>
                 <Link
                   href="#"
-                  className="text-muted-foreground dark:text-gray-300 hover:text-foreground dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
+                  className="text-gray-800 dark:text-gray-300 hover:text-pink-600 dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
                 >
                   Contact
                 </Link>
@@ -247,31 +247,31 @@ export function HeaderWithMegaMenu() {
                 <nav className="flex flex-col gap-4">
                   <Link
                     href="/#about"
-                    className="text-muted-foreground hover:text-foreground transition-colors py-2"
+                    className="text-gray-800 hover:text-pink-600 transition-colors py-2"
                   >
                     About
                   </Link>
                   <Link
                     href="/services"
-                    className="text-muted-foreground hover:text-foreground transition-colors py-2"
+                    className="text-gray-800 hover:text-pink-600 transition-colors py-2"
                   >
                     Services
                   </Link>
                   <Link
-                    href="/linktree"
-                    className="text-muted-foreground hover:text-foreground transition-colors py-2"
+                    href="/ahtsham-connect"
+                    className="text-gray-800 hover:text-pink-600 transition-colors py-2"
                   >
-                    Linktree
+                    Ahtsham Connect
                   </Link>
                   <Link
                     href="/#testimonials"
-                    className="text-muted-foreground hover:text-foreground transition-colors py-2"
+                    className="text-gray-800 hover:text-pink-600 transition-colors py-2"
                   >
                     Testimonials
                   </Link>
                   <Link
                     href="#faq"
-                    className="text-muted-foreground hover:text-foreground transition-colors py-2"
+                    className="text-gray-800 hover:text-pink-600 transition-colors py-2"
                   >
                     FAQ
                   </Link>
