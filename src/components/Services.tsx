@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Search, SlidersHorizontal, Star, Monitor, Smartphone, Palette, Users, Wrench, ExternalLink } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
@@ -96,13 +97,13 @@ export function Services() {
   const filteredServices = services.filter(service => {
     const matchesCategory = activeCategory === "All Categories" || service.category === activeCategory;
     const matchesSearch = service.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         service.description.toLowerCase().includes(searchQuery.toLowerCase());
+      service.description.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
   const getCategoryColor = (categoryName: string) => {
     const category = categories.find(cat => cat.name === categoryName);
-    switch(category?.color) {
+    switch (category?.color) {
       case "blue": return "bg-blue-600";
       case "purple": return "bg-purple-600";
       case "pink": return "bg-pink-600";
@@ -177,11 +178,10 @@ export function Services() {
               <button
                 key={category.name}
                 onClick={() => setActiveCategory(category.name)}
-                className={`px-4 py-2 rounded-lg text-sm transition-all duration-300 flex items-center gap-2 ${
-                  activeCategory === category.name
+                className={`px-4 py-2 rounded-lg text-sm transition-all duration-300 flex items-center gap-2 ${activeCategory === category.name
                     ? `${getCategoryColor(category.name)} text-white shadow-lg`
                     : "bg-gray-800/50 text-gray-400 border border-gray-700 hover:bg-gray-800 hover:text-white"
-                }`}
+                  }`}
               >
                 {category.icon}
                 <span>{category.name}</span>
@@ -251,10 +251,14 @@ export function Services() {
                       <p className="text-xs text-gray-500 mb-1">Starting at</p>
                       <p className="text-white text-xl">${service.price}</p>
                     </div>
-                    <button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 py-2 rounded-lg text-sm transition-all flex items-center gap-2">
+                    <Link
+                      href={`/services/${service.id}`} // use id or a slugified title
+                      className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 py-2 rounded-lg text-sm transition-all flex items-center gap-2"
+                    >
                       View Details
                       <ExternalLink className="w-3 h-3" />
-                    </button>
+                    </Link>
+
                   </div>
                 </div>
               </div>

@@ -9,28 +9,35 @@ import {
   DialogTitle,
 } from "./ui/dialog";
 import { Button } from "./ui/button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from "./ui/select";
 import { Star } from "lucide-react";
 
 interface ContactFormModalProps {
   isOpen: boolean;
   onClose: () => void;
+  selectedPackage?: string; // ✅ add this line
 }
 
 // Floating Label Input Component
-const FloatingInput = ({ 
-  id, 
-  type = "text", 
-  placeholder, 
-  value, 
-  onChange, 
-  required = false 
-}: { 
-  id: string; 
-  type?: string; 
-  placeholder: string; 
-  value: string; 
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void; 
+const FloatingInput = ({
+  id,
+  type = "text",
+  placeholder,
+  value,
+  onChange,
+  required = false
+}: {
+  id: string;
+  type?: string;
+  placeholder: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   required?: boolean;
 }) => {
   return (
@@ -57,18 +64,18 @@ const FloatingInput = ({
 };
 
 // Floating Label Textarea Component
-const FloatingTextarea = ({ 
-  id, 
-  placeholder, 
-  value, 
-  onChange, 
+const FloatingTextarea = ({
+  id,
+  placeholder,
+  value,
+  onChange,
   required = false,
   rows = 4
-}: { 
-  id: string; 
-  placeholder: string; 
-  value: string; 
-  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void; 
+}: {
+  id: string;
+  placeholder: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   required?: boolean;
   rows?: number;
 }) => {
@@ -96,16 +103,16 @@ const FloatingTextarea = ({
 };
 
 // Floating Label Select Component
-const FloatingSelect = ({ 
-  id, 
-  placeholder, 
-  value, 
-  onChange, 
-  options 
-}: { 
-  id: string; 
-  placeholder: string; 
-  value: string; 
+const FloatingSelect = ({
+  id,
+  placeholder,
+  value,
+  onChange,
+  options
+}: {
+  id: string;
+  placeholder: string;
+  value: string;
   onChange: (value: string) => void;
   options: { value: string; label: string }[];
 }) => {
@@ -125,11 +132,10 @@ const FloatingSelect = ({
       </Select>
       <label
         htmlFor={id}
-        className={`absolute left-4 transition-all duration-200 pointer-events-none ${
-          value 
-            ? 'top-2 text-xs text-purple-600 dark:text-purple-400' 
+        className={`absolute left-4 transition-all duration-200 pointer-events-none ${value
+            ? 'top-2 text-xs text-purple-600 dark:text-purple-400'
             : 'top-4 text-gray-500 dark:text-gray-400'
-        }`}
+          }`}
       >
         {placeholder}
       </label>
@@ -183,7 +189,7 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
         return (
           <div className="inline-flex items-center gap-1 px-2 py-0.5 bg-blue-100 dark:bg-blue-900/30 rounded border border-blue-200 dark:border-blue-800">
             <svg className="w-3 h-3 fill-blue-600 dark:fill-blue-400" viewBox="0 0 24 24">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
             </svg>
             <span className="text-xs text-blue-700 dark:text-blue-300">LinkedIn</span>
           </div>
@@ -192,10 +198,10 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
         return (
           <div className="inline-flex items-center gap-1 px-2 py-0.5 bg-red-100 dark:bg-red-900/30 rounded border border-red-200 dark:border-red-800">
             <svg className="w-3 h-3" viewBox="0 0 24 24">
-              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
             </svg>
             <span className="text-xs text-red-700 dark:text-red-300">Google</span>
           </div>
@@ -204,8 +210,8 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
         return (
           <div className="inline-flex items-center gap-1 px-2 py-0.5 bg-green-100 dark:bg-green-900/30 rounded border border-green-200 dark:border-green-800">
             <svg className="w-3 h-3 fill-green-600 dark:fill-green-400" viewBox="0 0 24 24">
-              <circle cx="4" cy="4" r="2"/>
-              <path d="M8 1h2v8H8zm4 0h2v3h-2zm4 0h2v5h-2zM0 9h24v2H0zm8 3h2v11H8zm4 0h2v8h-2zm4 0h2v6h-2z"/>
+              <circle cx="4" cy="4" r="2" />
+              <path d="M8 1h2v8H8zm4 0h2v3h-2zm4 0h2v5h-2zM0 9h24v2H0zm8 3h2v11H8zm4 0h2v8h-2zm4 0h2v6h-2z" />
             </svg>
             <span className="text-xs text-green-700 dark:text-green-300">Fiverr</span>
           </div>
@@ -214,7 +220,7 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
         return (
           <div className="inline-flex items-center gap-1 px-2 py-0.5 bg-emerald-100 dark:bg-emerald-900/30 rounded border border-emerald-200 dark:border-emerald-800">
             <svg className="w-3 h-3 fill-emerald-600 dark:fill-emerald-400" viewBox="0 0 24 24">
-              <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/>
+              <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z" />
             </svg>
             <span className="text-xs text-emerald-700 dark:text-emerald-300">Upwork</span>
           </div>
@@ -242,7 +248,7 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
             <h3 className="text-foreground dark:text-white flex items-center gap-2">
               <span className="text-purple-600">01.</span> Personal Information
             </h3>
-            
+
             <div className="grid md:grid-cols-2 gap-4">
               <FloatingInput
                 id="name"
@@ -417,7 +423,7 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
         {/* Reviews Marquee - Moved to Bottom */}
         <div className="space-y-3 mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 overflow-hidden">
           <h4 className="text-sm text-purple-600 dark:text-purple-400 text-center mb-4">Recent Project Reviews</h4>
-          
+
           {/* Row 1 - RTL */}
           <div className="relative">
             <div className="flex gap-4 animate-marquee-reviews-rtl">
