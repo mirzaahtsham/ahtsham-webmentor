@@ -32,7 +32,7 @@ export default function LoginPage() {
       provider: "github",
       options: {
         // ✅ Redirects dynamically based on your domain (from env)
-      redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/admin/login`,
+      redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/admin/callback`,
       },
     });
     if (error) alert(error.message);
