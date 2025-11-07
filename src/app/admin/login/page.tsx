@@ -11,7 +11,7 @@ export default function LoginPage() {
     // Check for an existing session on mount
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session) {
-        router.push("/admin/services");
+        router.push("/admin/dashboard");
       }
     });
 
@@ -20,7 +20,7 @@ export default function LoginPage() {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
       if (session) {
-        router.push("/admin/services");
+        router.push("/admin/dashboard");
       }
     });
 
@@ -31,7 +31,8 @@ export default function LoginPage() {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "github",
       options: {
-        redirectTo: `${window.location.origin}/admin/login`, // callback URL
+        // ✅ Redirects dynamically based on your domain (from env)
+      redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/admin/login`,
       },
     });
     if (error) alert(error.message);
