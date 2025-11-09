@@ -50,18 +50,18 @@ export function About() {
         {/* Section Title */}
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl mb-4">About Me</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto"></div>
+          <div className="w-20 h-1 bg-linear-to-r from-purple-500 to-pink-500 mx-auto"></div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
           {/* Image */}
           <div className="relative h-full">
-            <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur-lg opacity-30"></div>
+            <div className="absolute -inset-4 bg-linear-to-r from-purple-600 to-pink-600 rounded-lg blur-lg opacity-30"></div>
             <div className="relative h-full">
               <img
                 src="https://webdesigngenius.netlify.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FMirza-Ahtsham-Profile-Image.e354692b.png&w=640&q=75"
                 alt="Mirza Ahtsham"
-                className="w-full rounded-lg object-cover h-full min-h-[600px]"
+                className="w-full rounded-lg object-cover h-full min-h-[400px] md:min-h-[500px] lg:min-h-[600px]"
               />
             </div>
           </div>
@@ -72,7 +72,7 @@ export function About() {
             <div className="mb-6">
               <h2 className="text-3xl font-bold">
                 Hi, I&#39;m Ahtsham —{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-pink-400">
                   Web Designer & Developer
                 </span>
               </h2>

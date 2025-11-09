@@ -50,31 +50,23 @@ export function HeaderWithMegaMenu() {
     <>
       <header
         className={`fixed z-50 transition-all duration-500 ${isScrolled
-          ? "top-0 left-0 right-0"
-          : "top-4 left-4 right-4 md:left-8 md:right-8"
+          ? "top-4 left-4 right-4 md:left-8 md:right-8"
+          : "top-0 left-0 right-0"
           }`}
       >
-        <div
-          className={`transition-all duration-500 ${isScrolled
-            ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-lg border-b border-border dark:border-white"
-            : "bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-xl rounded-2xl border border-border dark:border-gray-800"
-            }`}
-        >
-          <div
-            className={`container mx-auto px-6 transition-all duration-500 ${isScrolled ? "py-3" : "py-4"
-              }`}
-          >
+        <div className={`transition-all duration-500 ${isScrolled
+          ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-xl rounded-2xl border border-border dark:border-gray-800"
+          : "bg-transparent backdrop-blur-none shadow-none border-b border-transparent"
+          }`}>
+          <div className={`container mx-auto px-6 transition-all duration-500 ${isScrolled ? "py-4" : "py-3"}`}>
             <div className="flex items-center justify-between">
               {/* Logo */}
-              <div className="text-gray-800 dark:text-white">
-                <span
-                  className={`transition-all duration-500 ${isScrolled ? "text-lg" : "text-xl"
-                    }`}
-                >
-                  <span className="text-transparent font-medium bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+              <div className="text-foreground dark:text-white">
+                <span className={`transition-all duration-500 ${isScrolled ? "text-lg" : "text-xl"}`}>
+                  <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-pink-400">
                     Mirza
                   </span>{" "}
-                  <span className="font-bold">Ahtsham</span>
+                  Ahtsham
                 </span>
               </div>
 
@@ -86,9 +78,27 @@ export function HeaderWithMegaMenu() {
                 >
                   About
                 </Link>
+                <Link
+                  href="/#experience"
+                  className="text-gray-800 dark:text-gray-300 hover:text-pink-600 dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
+                >
+                  Experience
+                </Link>
+                <Link
+                  href="/#faq-section"
+                  className="text-gray-800 dark:text-gray-300 hover:text-pink-600 dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
+                >
+                  FAQ
+                </Link>
+                <Link
+                  href="/services"
+                  className="text-gray-800 dark:text-gray-300 hover:text-pink-600 dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
+                >
+                  Services
+                </Link>
 
                 {/* Services with Mega Menu */}
-                <div
+                {/* <div
                   className="relative"
                   onMouseEnter={() => setActiveMenu("services")}
                   onMouseLeave={() => setActiveMenu(null)}
@@ -98,14 +108,14 @@ export function HeaderWithMegaMenu() {
                     className="text-gray-800 dark:text-gray-300 hover:text-pink-600 dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
                   >
                     Services
-                  </Link>
+                  </Link> */}
 
                   {/* Mega Menu Dropdown */}
-                  {activeMenu === "services" && (
+                  {/* {activeMenu === "services" && (
                     <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[600px] bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 p-6 animate-in fade-in slide-in-from-top-2 duration-200">
-                      <div className="grid grid-cols-3 gap-6">
+                      <div className="grid grid-cols-3 gap-6"> */}
                         {/* Development Column */}
-                        <div className="space-y-3">
+                        {/* <div className="space-y-3">
                           <h4 className="text-sm text-purple-600 dark:text-purple-400 uppercase tracking-wide mb-3">
                             Development
                           </h4>
@@ -133,10 +143,10 @@ export function HeaderWithMegaMenu() {
                               </Link>
                             );
                           })}
-                        </div>
+                        </div> */}
 
                         {/* Design Column */}
-                        <div className="space-y-3">
+                        {/* <div className="space-y-3">
                           <h4 className="text-sm text-pink-600 dark:text-pink-400 uppercase tracking-wide mb-3">
                             Design
                           </h4>
@@ -164,10 +174,10 @@ export function HeaderWithMegaMenu() {
                               </Link>
                             );
                           })}
-                        </div>
+                        </div> */}
 
                         {/* Featured Card */}
-                        <div className="bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 rounded-xl p-4 border border-purple-200 dark:border-purple-800">
+                        {/* <div className="bg-linear-to-br from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 rounded-xl p-4 border border-purple-200 dark:border-purple-800">
                           <div className="mb-3">
                             <ImageWithFallback
                               src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400"
@@ -186,7 +196,7 @@ export function HeaderWithMegaMenu() {
                               setActiveMenu(null);
                               setIsModalOpen(true);
                             }}
-                            className="w-full px-3 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs rounded-lg hover:shadow-lg transition-all"
+                            className="w-full px-3 py-2 bg-linear-to-r from-purple-600 to-pink-600 text-white text-xs rounded-lg hover:shadow-lg transition-all"
                           >
                             Get Consultation
                           </button>
@@ -194,7 +204,7 @@ export function HeaderWithMegaMenu() {
                       </div>
                     </div>
                   )}
-                </div>
+                </div> */}
 
                 <Link
                   href="/ahtsham-connect"
@@ -216,7 +226,7 @@ export function HeaderWithMegaMenu() {
 
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className={`bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-lg transition-all duration-300 ${isScrolled ? "px-4 py-1.5 text-sm" : "px-6 py-2"
+                  className={`bg-linear-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-lg transition-all duration-300 ${isScrolled ? "px-4 py-1.5 text-sm" : "px-6 py-2"
                     }`}
                 >
                   Hire Me
@@ -280,7 +290,7 @@ export function HeaderWithMegaMenu() {
                       setIsMobileMenuOpen(false);
                       setIsModalOpen(true);
                     }}
-                    className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg transition-all mt-2"
+                    className="px-6 py-2 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-lg transition-all mt-2"
                   >
                     Hire Me
                   </button>

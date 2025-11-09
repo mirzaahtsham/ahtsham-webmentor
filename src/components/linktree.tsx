@@ -340,22 +340,22 @@ export function Linktree() {
   const LinkCard = ({ item, size = "large" }: { item: LinkItem; size?: "large" | "small" }) => (
     <a
       href={item.url}
-      className={`flex items-center gap-4 bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 border border-gray-700 hover:border-gray-600 hover:bg-gray-800/70 transition-all duration-300 group ${size === "small" ? 'min-h-[70px]' : 'min-h-[80px]'
+      className={`flex items-center gap-4 bg-gray-300/50 backdrop-blur-sm rounded-xl p-4 border border-gray-700 hover:border-gray-800 hover:bg-gray-800 hover:text-gray-100 transition-all duration-300 group ${size === "small" ? 'min-h-[70px]' : 'min-h-20'
         }`}
     >
-      <div className={`${item.iconBg} ${size === 'large' ? 'w-12 h-12' : 'w-10 h-10'} rounded-lg flex items-center justify-center text-white flex-shrink-0`}>
+      <div className={`${item.iconBg} ${size === 'large' ? 'w-12 h-12' : 'w-10 h-10'} rounded-lg flex items-center justify-center text-white shrink-0`}>
         {item.icon}
       </div>
       <div className="flex-1 min-w-0">
-        <h3 className={`text-white ${size === 'large' ? 'text-base' : 'text-sm'} mb-0.5`}>{item.title}</h3>
-        <p className={`text-gray-400 ${size === 'large' ? 'text-sm' : 'text-xs'} truncate`}>{item.description}</p>
+        <h3 className={`text-grey-700 ${size === 'large' ? 'text-base' : 'text-sm'} mb-0.5`}>{item.title}</h3>
+        <p className={`text-gray-600 ${size === 'large' ? 'text-sm' : 'text-xs'} truncate`}>{item.description}</p>
       </div>
-      <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors flex-shrink-0" />
+      <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors shrink-0" />
     </a>
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-black to-gray-900">
+    <div className="min-h-screen bg-linear-to-b from-gray-100 to-gray-200">
       {/* Header */}
       {/* <header className="border-b border-gray-800 bg-gray-900/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -386,15 +386,15 @@ export function Linktree() {
       <main className="max-w-2xl mx-auto px-4 py-12 pt-44">
         {/* Profile Section */}
         <div className="text-center mb-8">
-          <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-4 border-gray-800">
+          <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-2 border-gray-800">
             <ImageWithFallback
-              src="https://webdesigngenius.netlify.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FMirza-Ahtsham-Profile-Image.e354692b.png&w=640&q=75"
+              src="https://webdesigngenius.netlify.app/public/Company-icon/ahtsham-logo.webp"
               alt="Mirza Ahtsham Profile Image"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-fill"
             />
           </div>
 
-          <h1 className="text-2xl text-white mb-2">Mirza Ahtsham</h1>
+          <h1 className="text-2xl text-gray-700 font-bold mb-2">Mirza Ahtsham</h1>
           <p className="text-gray-400 text-sm mb-3">
             Designer, Developer & Trainer - Ahtsham Web Mentor
           </p>
@@ -418,7 +418,7 @@ export function Linktree() {
 
         {/* Main Platforms */}
         <section className="mb-8">
-          <h2 className="text-white text-sm mb-4 flex items-center gap-2">
+          <h2 className="text-gray-700 text-sm mb-4 flex items-center gap-2">
             <Users className="w-4 h-4" />
             Main Platforms
           </h2>
@@ -431,7 +431,7 @@ export function Linktree() {
 
         {/* Social Media */}
         <section className="mb-8">
-          <h2 className="text-white text-sm mb-4 flex items-center gap-2">
+          <h2 className="text-gray-700 text-sm mb-4 flex items-center gap-2">
             <Send className="w-4 h-4" />
             Social Media
           </h2>
@@ -444,7 +444,7 @@ export function Linktree() {
 
         {/* My Writings & Tutorials */}
         <section className="mb-8">
-          <h2 className="text-white text-sm mb-4 flex items-center gap-2">
+          <h2 className="text-gray-700 text-sm mb-4 flex items-center gap-2">
             <Users className="w-4 h-4" />
             My Writings
           </h2>
@@ -457,7 +457,7 @@ export function Linktree() {
 
         {/* Video Tutorials */}
         <section className="mb-8">
-          <h2 className="text-white text-sm mb-4 flex items-center gap-2">
+          <h2 className="text-gray-700 text-sm mb-4 flex items-center gap-2">
             <Users className="w-4 h-4" />
             Video Tutorials
           </h2>
@@ -470,7 +470,7 @@ export function Linktree() {
 
         {/* Partner Platforms */}
         <section className="mb-8">
-          <h2 className="text-white text-sm mb-1 flex items-center gap-2">
+          <h2 className="text-gray-700 text-sm mb-1 flex items-center gap-2">
             <Users className="w-4 h-4" />
             Ahtsham&#39;s Toolkit
           </h2>
@@ -486,7 +486,7 @@ export function Linktree() {
 
         {/* Community */}
         <section className="mb-8">
-          <h2 className="text-white text-sm mb-4 flex items-center gap-2">
+          <h2 className="text-gray-700 text-sm mb-4 flex items-center gap-2">
             <Users className="w-4 h-4" />
             Community & Networking
           </h2>
@@ -499,7 +499,7 @@ export function Linktree() {
 
         {/* Contact */}
         <section className="mb-8">
-          <h2 className="text-white text-sm mb-4 flex items-center gap-2">
+          <h2 className="text-gray-700 text-sm mb-4 flex items-center gap-2">
             <MessageCircle className="w-4 h-4" />
             Contact
           </h2>
@@ -524,7 +524,7 @@ export function Linktree() {
         </section> */}
 
         {/* Footer Note */}
-        <p className="text-center text-xs text-gray-500 mt-12 mb-8">
+        <p className="text-center text-xs text-gray-700 mt-12 mb-8">
           Follow me across all platforms to stay updated with the latest in tech, freelancing, and AI 🚀
         </p>
       </main>

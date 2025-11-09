@@ -115,7 +115,7 @@ export function Services() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-black to-gray-900">
+    <div className="min-h-screen bg-linear-to-b from-gray-100 to-gray-200">
       {/* Header */}
       {/* <header className="border-b border-gray-800 bg-gray-900/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -145,10 +145,10 @@ export function Services() {
       {/* Hero Section */}
       <section className="py-16 px-4 pt-44">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl text-white mb-4">
+          <h1 className="text-4xl md:text-5xl text-gray-800 mb-4 font-medium">
             Professional Services
           </h1>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-8">
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-8">
             From concept to deployment, I offer comprehensive digital solutions to help bring your ideas to life. Browse my services and find the perfect fit for your project.
           </p>
 
@@ -162,10 +162,10 @@ export function Services() {
                   placeholder="Search services..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-gray-800/50 border border-gray-700 rounded-lg pl-12 pr-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors"
+                  className="w-full bg-gray-300/50 border border-gray-700 rounded-lg pl-12 pr-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors"
                 />
               </div>
-              <button className="bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 text-white hover:bg-gray-800 transition-colors flex items-center gap-2">
+              <button className="bg-gray-300/50 border border-gray-700 rounded-lg px-4 py-3 text-gray-700 hover:text-gray-200 hover:bg-gray-800 transition-colors flex items-center gap-2">
                 <SlidersHorizontal className="w-5 h-5" />
                 <span className="hidden sm:inline">Filters</span>
               </button>
@@ -180,7 +180,7 @@ export function Services() {
                 onClick={() => setActiveCategory(category.name)}
                 className={`px-4 py-2 rounded-lg text-sm transition-all duration-300 flex items-center gap-2 ${activeCategory === category.name
                     ? `${getCategoryColor(category.name)} text-white shadow-lg`
-                    : "bg-gray-800/50 text-gray-400 border border-gray-700 hover:bg-gray-800 hover:text-white"
+                    : "bg-gray-300/50 text-gray-700 border border-gray-700 hover:bg-gray-800 hover:text-white"
                   }`}
               >
                 {category.icon}
@@ -203,7 +203,7 @@ export function Services() {
             {filteredServices.map((service) => (
               <div
                 key={service.id}
-                className="bg-gray-800/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700 hover:border-gray-600 transition-all duration-300 hover:shadow-xl hover:shadow-purple-900/20 group"
+                className="bg-gray-300/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700 hover:border-gray-600 transition-all duration-300 hover:shadow-xl hover:shadow-purple-900/20 group"
               >
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">
@@ -226,10 +226,10 @@ export function Services() {
 
                 {/* Content */}
                 <div className="p-5">
-                  <h3 className="text-white text-lg mb-2">
+                  <h3 className="text-gray-800 font-medium text-lg mb-2">
                     {service.title}
                   </h3>
-                  <p className="text-gray-400 text-sm mb-4 line-clamp-3">
+                  <p className="text-gray-700 text-sm mb-4 line-clamp-3">
                     {service.description}
                   </p>
 
@@ -238,7 +238,7 @@ export function Services() {
                     {service.tags.map((tag, index) => (
                       <span
                         key={index}
-                        className="bg-gray-700/50 text-gray-300 px-2 py-1 rounded text-xs border border-gray-600"
+                        className="bg-gray-300/50 text-gray-700 px-2 py-1 rounded text-xs border border-gray-600 hover:bg-gray-800 hover:text-white"
                       >
                         {tag}
                       </span>
@@ -249,11 +249,11 @@ export function Services() {
                   <div className="flex items-center justify-between pt-4 border-t border-gray-700">
                     <div>
                       <p className="text-xs text-gray-500 mb-1">Starting at</p>
-                      <p className="text-white text-xl">${service.price}</p>
+                      <p className="text-gray-800 text-xl">${service.price}</p>
                     </div>
                     <Link
                       href={`/services/${service.id}`} // use id or a slugified title
-                      className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 py-2 rounded-lg text-sm transition-all flex items-center gap-2"
+                      className="bg-linear-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 py-2 rounded-lg text-sm transition-all flex items-center gap-2"
                     >
                       View Details
                       <ExternalLink className="w-3 h-3" />

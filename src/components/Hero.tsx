@@ -2,14 +2,14 @@
 
 import { useState } from "react";
 import { Button } from "./ui/button";
-import {  Mail, Briefcase, ChevronLeft, ChevronRight } from "lucide-react";
+import { Mail, Briefcase, ChevronLeft, ChevronRight } from "lucide-react";
 import { SiGithub, SiLinkedin, } from "react-icons/si";
 import { ContactFormModal } from "./ContactFormModal";
 
 export function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
+
   const slides = [
     { title: "Web Development", color: "from-blue-600 to-cyan-600", icon: "🌐" },
     { title: "Mobile Apps", color: "from-purple-600 to-pink-600", icon: "📱" },
@@ -27,7 +27,7 @@ export function Hero() {
   };
 
   return (
-    <section className="min-h-screen pt-32 pb-20 bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 dark:from-gray-900 dark:via-purple-900 dark:to-gray-900 text-white flex items-center justify-center relative overflow-hidden">
+    <section className="min-h-screen pt-32 pb-20 bg-linear-to-br from-gray-200 to-gray-400 dark:from-gray-900 dark:to-gray-900 text-white flex items-center justify-center relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-20 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
@@ -42,47 +42,46 @@ export function Hero() {
               Welcome to my Portfolio
             </span>
           </div>
-
           {/* Available for Opportunities Badge */}
           <div className="flex justify-center mb-6">
-            <div className="inline-flex items-center gap-2 bg-green-500/20 border border-green-500 text-green-400 px-4 py-2 rounded-full animate-pulse">
-              <Briefcase className="w-4 h-4" />
-              <span>Available for New Opportunities</span>
+            <div className="inline-flex items-center gap-3 bg-gray-900/80 dark:bg-gray-950/80 backdrop-blur-sm border border-gray-700/50 dark:border-gray-800/50 text-gray-200 dark:text-gray-300 px-5 py-2 rounded-full hover:border-gray-600/50 transition-all">
+              <span className="text-xs">Available for New Opportunities</span>
+              <ChevronRight className="w-4 h-4" />
             </div>
           </div>
-          
+
           <h1 className="text-5xl md:text-7xl mb-6">
-            Web Designer & <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 font-bold">Developer</span>
+            Web Designer & <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-pink-400 font-bold">Developer</span>
             <br />
-            | <span className="text-transparent leading-relaxed font-medium bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400"> Content Creator</span>
+            | <span className="text-transparent leading-relaxed font-medium bg-clip-text bg-linear-to-r from-yellow-400 to-orange-400"> Content Creator</span>
           </h1>
-          
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+
+          <p className="text-gray-900 mb-8 max-w-2xl mx-auto">
             I transform ideas into exceptional digital experiences through creative development and engaging content
           </p>
-          
+
           <div className="flex gap-4 justify-center mb-8">
-            <Button 
-              className="bg-yellow-400 hover:bg-yellow-500 text-gray-900"
+            <Button
+              className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 hover:scale-110 transform duration-300"
               onClick={() => setIsModalOpen(true)}
             >
               Hire Me Now
             </Button>
-            <Button variant="outline" className="border-white text-white hover:bg-white/10">
+            <Button variant="outline" className="border-gray-700 text-gray-900 hover:bg-gray-900/10 hover:scale-110 transform duration-300">
               Portfolio
             </Button>
           </div>
-          
+
           <ContactFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
           <div className="flex gap-6 justify-center mb-12">
-            <a href="https://github.com/mirzaahtsham/" className="text-gray-400 hover:text-white transition-colors hover:scale-110 transform duration-300">
+            <a href="https://github.com/mirzaahtsham/" className="text-gray-600 hover:text-gray-900 transition-colors hover:scale-110 transform duration-300">
               <SiGithub className="w-6 h-6" />
             </a>
-            <a href="https://www.linkedin.com/in/mirzaahtsham/" className="text-gray-400 hover:text-white transition-colors hover:scale-110 transform duration-300">
+            <a href="https://www.linkedin.com/in/mirzaahtsham/" className="text-gray-600 hover:text-gray-900 transition-colors hover:scale-110 transform duration-300">
               <SiLinkedin className="w-6 h-6" />
             </a>
-            <a href="mailto:hello@ahtsham.me" className="text-gray-400 hover:text-white transition-colors hover:scale-110 transform duration-300">
+            <a href="mailto:hello@ahtsham.me" className="text-gray-600 hover:text-gray-900 transition-colors hover:scale-110 transform duration-300">
               <Mail className="w-6 h-6" />
             </a>
           </div>
@@ -91,12 +90,12 @@ export function Hero() {
           <div className="mb-12">
             <div className="relative max-w-md mx-auto">
               <div className="overflow-hidden rounded-xl">
-                <div className={`bg-gradient-to-r ${slides[currentSlide].color} p-8 transition-all duration-500 transform hover:scale-105`}>
+                <div className={`bg-linear-to-r ${slides[currentSlide].color} p-8 transition-all duration-500 transform hover:scale-105`}>
                   <div className="text-6xl mb-4">{slides[currentSlide].icon}</div>
                   <h3 className="text-2xl text-white">{slides[currentSlide].title}</h3>
                 </div>
               </div>
-              
+
               {/* Navigation Arrows */}
               <button
                 onClick={prevSlide}
@@ -119,9 +118,8 @@ export function Hero() {
                   <button
                     key={index}
                     onClick={() => setCurrentSlide(index)}
-                    className={`w-2 h-2 rounded-full transition-all ${
-                      currentSlide === index ? "bg-white w-8" : "bg-white/30"
-                    }`}
+                    className={`w-2 h-2 rounded-full transition-all ${currentSlide === index ? "bg-white w-8" : "bg-white/30"
+                      }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
                 ))}
@@ -140,7 +138,7 @@ export function Hero() {
               mirza-ahtsham.portfolio
             </div>
           </div>
-          <div className="bg-gradient-to-br from-purple-600 to-blue-600 h-64 rounded-b-lg flex items-center justify-center">
+          <div className="bg-linear-to-br from-purple-600 to-blue-600 h-64 rounded-b-lg flex items-center justify-center">
             <div className="text-center">
               <div className="text-6xl mb-4">💼</div>
               <p className="text-white">Crafting Digital Excellence</p>

@@ -11,42 +11,54 @@ import {
   Headphones,
   Wrench,
   Zap,
+  CheckCircle2,
+  XCircle,
   FileText
 } from "lucide-react";
 
 export function FAQUpdated() {
+  const [isAvailable, setIsAvailable] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [isSticky, setIsSticky] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // ✅ Check availability inside the component
+  useEffect(() => {
+    const checkAvailability = () => {
+      const now = new Date();
+      const day = now.getDay();
+      const hour = now.getHours();
+      const isWorkDay = day >= 1 && day <= 5;
+      const isWorkHours = hour >= 9 && hour < 17;
+      setIsAvailable(isWorkDay && isWorkHours);
+    };
+
+    checkAvailability();
+    const interval = setInterval(checkAvailability, 60000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // ✅ Rest of your scroll sticky effect
   useEffect(() => {
     const handleScroll = () => {
       const faqSection = document.getElementById("faq-section");
       const faqRight = document.getElementById("faq-right");
-
       if (faqSection && faqRight) {
         const sectionTop = faqSection.offsetTop;
         const sectionHeight = faqSection.offsetHeight;
-        const rightHeight = faqRight.offsetHeight;
         const scrollPosition = window.scrollY;
         const windowHeight = window.innerHeight;
-
-        // Check if we're in the FAQ section
         const inSection = scrollPosition + windowHeight > sectionTop &&
           scrollPosition < sectionTop + sectionHeight;
-
-        // Check if right content has finished scrolling
         const rightFinished = scrollPosition > sectionTop + sectionHeight - windowHeight;
-
         setIsSticky(inSection && !rightFinished);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
-
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
   const faqs = [
     {
       icon: Code,
@@ -94,7 +106,7 @@ export function FAQUpdated() {
       icon: Headphones,
       question: "How will we communicate and manage the project?",
       answer:
-        "I provide regular updates through Email, WhatsApp, or your preferred platform. You&#39;ll get progress reports, preview links, and timely feedback sessions throughout the development process."
+        "I provide regular updates through Email, WhatsApp, or your preferred platform. You'll get progress reports, preview links, and timely feedback sessions throughout the development process."
     }
   ];
 
@@ -110,11 +122,11 @@ export function FAQUpdated() {
                   Frequently Asked
                 </h2>
                 <h3 className="text-4xl md:text-5xl mb-6">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+                  <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-pink-400">
                     Questions
                   </span>
                 </h3>
-                <div className="w-20 h-1 bg-gradient-to-r from-yellow-500 to-pink-500"></div>
+                <div className="w-20 h-1 bg-linear-to-r from-yellow-500 to-pink-500"></div>
               </div>
 
               <p className="text-muted-foreground dark:text-gray-400 mb-8 text-lg">
@@ -122,9 +134,26 @@ export function FAQUpdated() {
                 If you don't find your answer here, feel free to reach out!
               </p>
 
-              <div className="p-6 bg-gradient-to-br from-purple-900/50 to-pink-900/50 rounded-lg border border-purple-500/30">
+              <div className="p-6 bg-white dark:bg-gray-950 rounded-lg border border-gray-200 dark:border-gray-800 shadow-lg">
+                {/* Availability Badge */}
+                <div className="mb-4 flex items-center gap-2">
+                  {isAvailable ? (
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-green-500/20 border border-green-500/50 rounded-full text-green-400 text-sm">
+                      <CheckCircle2 className="w-4 h-4" />
+                      <span>Available Now</span>
+                    </div>
+                  ) : (
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-red-500/20 border border-red-500/50 rounded-full text-red-400 text-sm">
+                      <XCircle className="w-4 h-4" />
+                      <span>Currently Offline</span>
+                    </div>
+                  )}
+                  <span className="text-gray-400 text-xs">
+                    (Mon-Fri, 9 AM - 5 PM)
+                  </span>
+                </div>
                 <h4 className="text-xl mb-2">Still have questions?</h4>
-                <p className="text-gray-300 mb-4">
+                <p className="text-gray-600 mb-4">
                   Can't find the answer you're looking for? Let's talk!
                 </p>
                 <button
@@ -150,13 +179,13 @@ export function FAQUpdated() {
                     className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-accent dark:hover:bg-gray-750 transition-colors"
                   >
                     <div className="flex items-center gap-4 pr-4">
-                      <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center border border-purple-500/30">
-                        <IconComponent className="w-5 h-5 text-purple-400" />
+                      <div className="`flex-shrink-0` w-10 h-10 rounded-lg bg-linear-to-br from-purple-500 to-pink-500 flex items-center justify-center border border-purple-500/30">
+                        <IconComponent className="w-5 h-5 text-white" />
                       </div>
-                      <span className="text-foreground dark:text-white">{faq.question}</span>
+                      <span className="text-gray-900 dark:text-white">{faq.question}</span>
                     </div>
                     <ChevronDown
-                      className={`w-5 h-5 text-purple-400 transition-transform flex-shrink-0 ${activeIndex === index ? "rotate-180" : ""
+                      className={`w-5 h-5 text-purple-400 transition-transform 'flex-shrink-0' ${activeIndex === index ? "rotate-180" : ""
                         }`}
                     />
                   </button>
@@ -165,7 +194,7 @@ export function FAQUpdated() {
                     className={`overflow-hidden transition-all duration-300 ${activeIndex === index ? "max-h-96" : "max-h-0"
                       }`}
                   >
-                    <div className="px-6 pb-4 text-muted-foreground dark:text-gray-400 border-t border-border dark:border-gray-700 pt-4 ml-14">
+                    <div className="px-6 pb-4 text-gray-600 dark:text-gray-400 border-t border-border dark:border-gray-700 pt-4 ml-14">
                       {faq.answer}
                     </div>
                   </div>

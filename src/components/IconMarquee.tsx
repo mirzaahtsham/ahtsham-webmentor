@@ -2,205 +2,216 @@
 
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
-import { 
-  Wrench, 
-  Database, 
-  Globe, 
-  Zap, 
-  Code2, 
-  Layers, 
-  Palette,
-  ShoppingCart,
-  MessageSquare,
-  BarChart3,
-  Search,
-  FileText,
-  Cloud,
-  Server,
-  Rocket,
-  Package,
-  Box,
-  Settings,
-  PenTool,
-  Monitor,
-  Smartphone,
-  Workflow,
-  GitBranch,
-  Layout,
-  Component,
-  Plug
-} from "lucide-react";
 
 interface IconItem {
-  icon: React.ReactNode;
-  name: string;
+  file: string;
 }
+
+// 🧩 Helper: format filename → readable name
+const formatName = (file: string) => {
+  return file
+    .replace(/\.(svg|png|jpg)$/i, "")
+    .replace(/^logos[-_]?/, "")
+    .replace(/[-_]/g, " ")
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+};
 
 export function IconMarquee() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setIsVisible(true);
-        });
-      },
-      { threshold: 0.1 }
-    );
+  const observer = new IntersectionObserver(
+    (entries) => entries.forEach((e) => e.isIntersecting && setIsVisible(true)),
+    { threshold: 0.1 }
+  );
 
-    const section = document.getElementById("icon-marquee-section");
-    if (section) observer.observe(section);
+  const el = document.getElementById("icon-marquee-section");
+  if (el) observer.observe(el);
 
-    return () => {
-      if (section) observer.unobserve(section);
-    };
-  }, []);
+  // ✅ Proper cleanup
+  return () => {
+    if (el) observer.unobserve(el);
+  };
+}, []);
 
-  // ===== ICON DATA =====
-  const row1Icons: IconItem[] = [
-    { icon: <Wrench className="w-8 h-8" />, name: "WordPress" },
-    { icon: <ShoppingCart className="w-8 h-8" />, name: "Shopify" },
-    { icon: <Layout className="w-8 h-8" />, name: "Wix" },
-    { icon: <FileText className="w-8 h-8" />, name: "Blogger" },
-    { icon: <Globe className="w-8 h-8" />, name: "Webflow" },
-    { icon: <Component className="w-8 h-8" />, name: "Elementor" },
-    { icon: <Box className="w-8 h-8" />, name: "WooCommerce" },
-    { icon: <Layers className="w-8 h-8" />, name: "Squarespace" },
-    { icon: <PenTool className="w-8 h-8" />, name: "Figma" },
-    { icon: <Monitor className="w-8 h-8" />, name: "Framer" },
-    { icon: <Smartphone className="w-8 h-8" />, name: "React Native" },
-    { icon: <Workflow className="w-8 h-8" />, name: "Zapier" },
-    { icon: <Database className="w-8 h-8" />, name: "Airtable" },
+
+  // ====== GROUPED ICONS (organized) ======
+  const aiAndAutomation: IconItem[] = [
+    { file: "OpenAI.svg" },
+    { file: "Claude.svg" },
+    { file: "Chatbots.svg" },
+    { file: "Docker.svg" },
+    { file: "Git.svg" },
+    { file: "Github.svg" },
+    { file: "Postman.svg" },
+    { file: "Postmark.svg" },
+    { file: "VSCode.svg" },
+    { file: "JavaScript.svg" },
+    { file: "TailwindCSS.svg" },
+    { file: "MongoDB.svg" },
+    { file: "Supabase.svg" },
+    // { file: "Dialogflow.svg" },
+    // { file: "make-com.svg" },
+    // { file: "Zapier.svg" },
+    // { file: "N8N.svg" },
+    // { file: "Vector-Database.svg" },
   ];
 
-  const row2Icons: IconItem[] = [
-    { icon: <Code2 className="w-8 h-8" />, name: "React" },
-    { icon: <Rocket className="w-8 h-8" />, name: "Next.js" },
-    { icon: <Palette className="w-8 h-8" />, name: "Tailwind" },
-    { icon: <Layers className="w-8 h-8" />, name: "Vue.js" },
-    { icon: <Database className="w-8 h-8" />, name: "MongoDB" },
-    { icon: <Server className="w-8 h-8" />, name: "Node.js" },
-    { icon: <GitBranch className="w-8 h-8" />, name: "GitHub" },
-    { icon: <Cloud className="w-8 h-8" />, name: "Vercel" },
-    { icon: <Zap className="w-8 h-8" />, name: "Netlify" },
-    { icon: <Settings className="w-8 h-8" />, name: "Postman" },
-    { icon: <Package className="w-8 h-8" />, name: "NPM" },
-    { icon: <Code2 className="w-8 h-8" />, name: "TypeScript" },
-    { icon: <Globe className="w-8 h-8" />, name: "Docker" },
+  const webDevTools: IconItem[] = [
+    { file: "React.svg" },
+    { file: "Next-js.svg" },
+    { file: "Node-js.svg" },
+    { file: "TypeScript.svg" },
+    { file: "logos-npm-icon.svg" },
+    { file: "FastAPI.svg" },
+    { file: "GraphQL.svg" },
+    { file: "PostgreSQL.svg" },
+    // { file: "Prisma.svg" },
   ];
 
-  const row3Icons: IconItem[] = [
-    { icon: <BarChart3 className="w-8 h-8" />, name: "Analytics" },
-    { icon: <Search className="w-8 h-8" />, name: "Google Search" },
-    { icon: <MessageSquare className="w-8 h-8" />, name: "Tawk.to" },
-    { icon: <FileText className="w-8 h-8" />, name: "Jotform" },
-    { icon: <Plug className="w-8 h-8" />, name: "Yoast SEO" },
-    { icon: <Zap className="w-8 h-8" />, name: "LiteSpeed" },
-    { icon: <Globe className="w-8 h-8" />, name: "Cloudflare" },
-    { icon: <Server className="w-8 h-8" />, name: "Hostinger" },
-    { icon: <Cloud className="w-8 h-8" />, name: "SiteGround" },
-    { icon: <Database className="w-8 h-8" />, name: "MySQL" },
-    { icon: <Settings className="w-8 h-8" />, name: "cPanel" },
-    { icon: <BarChart3 className="w-8 h-8" />, name: "GTM" },
-    { icon: <Search className="w-8 h-8" />, name: "GSC" },
+  const cmsAndDesign: IconItem[] = [
+    { file: "logos-wordpress-icon.svg" },
+    { file: "logos-shopify.svg" },
+    { file: "logos-wix.svg" },
+    { file: "logos-woocommerce-icon.svg" },
+    { file: "logos-paypal.svg" },
+    { file: "Stripe.svg" },
+    { file: "logos-adobe-illustrator.svg" },
+    { file: "logos-adobe-photoshop.svg" },
+    { file: "logos-figma.svg" },
+    // { file: "Wordpress.svg" },
   ];
+  
+  const infraAndPlatforms: IconItem[] = [
+    { file: "Vercel.svg" },
+    { file: "logos-netlify-icon.svg" },
+    { file: "logos-cloudflare-icon.svg" },
+    { file: "logos-cpanel.svg" },
+    { file: "logos-namecheap.svg" },
+    { file: "logos-neon-icon.svg" },
+    { file: "GCP.svg" },
+    { file: "logos-upwork.svg" },
+    { file: "fiverr-icon.svg" },
+    { file: "logos-meta-icon.svg" },
+    // { file: "AWS.svg" },
+    // { file: "logos-youtube.svg" },
+  ];
+  
+  const toolsAndSecurity: IconItem[] = [
+    { file: "logos-hcaptcha-icon.svg" },
+    { file: "logos-recaptcha.svg" },
+    { file: "logos-blogger.svg" },
+    { file: "logos-bing.svg" },
+    { file: "logos-google-analytics.svg" },
+    { file: "logos-google-tag-manager.svg" },
+    { file: "logos-google-search-console.svg" },
+    // { file: "logos-partytown-icon.svg" },
+    // { file: "logos-openai-icon.svg" },
+  ];
+
+  // Distribute into 3 marquee rows for visual balance
+  const row1 = [...aiAndAutomation, ...webDevTools.slice(0, 4)];
+  const row2 = [...cmsAndDesign, ...infraAndPlatforms.slice(0, 5)];
+  const row3 = [
+    ...webDevTools.slice(4),
+    ...infraAndPlatforms.slice(5),
+    ...toolsAndSecurity,
+  ];
+
+  const rows = [row1, row2, row3];
 
   return (
     <section
       id="icon-marquee-section"
-      className="py-20 bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 text-foreground dark:text-white overflow-hidden"
+      className="py-20 bg-linear-to-b from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 text-foreground dark:text-white overflow-hidden"
     >
+      {/* ======= Heading ======= */}
       <div className="container mx-auto px-4 text-center mb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-bold md:text-5xl mb-4">
-            Expertise Across
-          </h2>
+          <h2 className="text-4xl font-bold md:text-5xl mb-4">Expertise Across</h2>
           <h3 className="text-3xl md:text-4xl mb-4">
-            <span className="text-transparent font-medium bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400">
+            <span className="text-transparent font-medium bg-clip-text bg-linear-to-r from-purple-400 via-pink-400 to-yellow-400">
               Diverse Platforms
-            </span> <span className="text-3xl md:text-4xl mb-6">
-            &<span className="text-transparent font-medium bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400"> Development Tools</span>
-          </span>
+            </span>{" "}
+            <span className="text-3xl md:text-4xl mb-6">
+              &<span className="text-transparent font-medium bg-clip-text bg-linear-to-r from-cyan-400 to-blue-400">
+                {" "}
+                Development Tools
+              </span>
+            </span>
           </h3>
           <p className="text-muted-foreground dark:text-gray-400 max-w-2xl mx-auto">
-            Skilled in leading CMS platforms, frameworks, and modern web tools —
-            enabling end-to-end solutions from design to deployment.
+            Skilled in leading CMS platforms, frameworks, and modern web tools — enabling
+            end-to-end solutions from design to deployment.
           </p>
         </motion.div>
       </div>
 
-      {/* ICON MARQUEES */}
+      {/* ======= ICON MARQUEES ======= */}
       <div className="space-y-8">
-        {/* Row 1 - RTL */}
-        <div className="relative">
-          <div className="flex gap-8 animate-marquee-rtl">
-            {[...row1Icons, ...row1Icons].map((item, index) => (
-              <div
-                key={`row1-${index}`}
-                className="flex-shrink-0 w-20 h-20 flex items-center justify-center bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-gray-200 dark:border-gray-700"
-                title={item.name}
-              >
-                <div className="text-purple-600 dark:text-purple-400">{item.icon}</div>
-              </div>
-            ))}
+        {rows.map((row, rowIndex) => (
+          <div key={rowIndex} className="relative">
+            <div
+              className={`flex gap-8 ${rowIndex % 2 === 0 ? "animate-marquee-rtl" : "animate-marquee-ltr"
+                }`}
+            >
+              {[...row, ...row].map((item, index) => (
+                <div
+                  key={`${rowIndex}-${index}`}
+                  className="shrink-0 w-20 h-20 sm:w-16 sm:h-16 flex flex-col items-center justify-center bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 group relative"
+                >
+                  <img
+                    src={`/icons/${item.file}`}
+                    alt={formatName(item.file)}
+                    className="w-10 h-10 sm:w-8 sm:h-8 object-contain transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <span className="absolute top-full mt-2 text-xs text-gray-700 dark:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                    {formatName(item.file)}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-
-        {/* Row 2 - LTR */}
-        <div className="relative">
-          <div className="flex gap-8 animate-marquee-ltr">
-            {[...row2Icons, ...row2Icons].map((item, index) => (
-              <div
-                key={`row2-${index}`}
-                className="flex-shrink-0 w-20 h-20 flex items-center justify-center bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-gray-200 dark:border-gray-700"
-                title={item.name}
-              >
-                <div className="text-pink-600 dark:text-pink-400">{item.icon}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Row 3 - RTL */}
-        <div className="relative">
-          <div className="flex gap-8 animate-marquee-rtl">
-            {[...row3Icons, ...row3Icons].map((item, index) => (
-              <div
-                key={`row3-${index}`}
-                className="flex-shrink-0 w-20 h-20 flex items-center justify-center bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-gray-200 dark:border-gray-700"
-                title={item.name}
-              >
-                <div className="text-cyan-600 dark:text-cyan-400">{item.icon}</div>
-              </div>
-            ))}
-          </div>
-        </div>
+        ))}
       </div>
 
+      {/* ======= STYLES ======= */}
       <style jsx>{`
         @keyframes marquee-rtl {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
         }
-
         @keyframes marquee-ltr {
-          0% { transform: translateX(-50%); }
-          100% { transform: translateX(0); }
+          0% {
+            transform: translateX(-50%);
+          }
+          100% {
+            transform: translateX(0);
+          }
         }
-
         .animate-marquee-rtl {
           animation: marquee-rtl 30s linear infinite;
         }
-
         .animate-marquee-ltr {
           animation: marquee-ltr 30s linear infinite;
         }
-
+        /* Slightly faster animation on mobile */
+        @media (max-width: 768px) {
+          .animate-marquee-rtl {
+            animation-duration: 22s;
+          }
+          .animate-marquee-ltr {
+            animation-duration: 22s;
+          }
+        }
         .animate-marquee-rtl:hover,
         .animate-marquee-ltr:hover {
           animation-play-state: paused;
