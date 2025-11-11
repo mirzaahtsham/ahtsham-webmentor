@@ -50,15 +50,15 @@ export function HeaderWithMegaMenu() {
     <>
       <header
         className={`fixed z-50 transition-all duration-500 ${isScrolled
-          ? "top-4 left-4 right-4 md:left-8 md:right-8"
-          : "top-0 left-0 right-0"
+          ? "top-2 left-4 right-4 md:left-8 md:right-8"
+          : "top-0 left-0 right-0 "
           }`}
       >
         <div className={`transition-all duration-500 ${isScrolled
           ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-xl rounded-2xl border border-border dark:border-gray-800"
           : "bg-transparent backdrop-blur-none shadow-none border-b border-transparent"
           }`}>
-          <div className={`container mx-auto px-6 transition-all duration-500 ${isScrolled ? "py-4" : "py-3"}`}>
+          <div className={`container mx-auto px-6 transition-all duration-500 ${isScrolled ? "py-2" : "py-3"}`}>
             <div className="flex items-center justify-between">
               {/* Logo */}
               <div className="text-foreground dark:text-white">
@@ -71,7 +71,7 @@ export function HeaderWithMegaMenu() {
               </div>
 
               {/* Desktop Navigation */}
-              <nav className="hidden md:flex items-center gap-2 bg-gray-200/50 dark:bg-gray-800/50 rounded-full px-3 py-2 border border-border dark:border-gray-700">
+              <nav className="hidden md:flex items-center gap-2 bg-gray-200/50 dark:bg-gray-800/50 rounded-full px-3 py-1 border border-border dark:border-gray-700">
                 <Link
                   href="/#about"
                   className="text-gray-800 dark:text-gray-300 hover:text-pink-600 dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"

@@ -204,7 +204,7 @@ export default function ServiceDetail({
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white">
+    <div className="min-h-screen bg-linear-to-b from-gray-900 to-black text-white">
       <HeaderWithMegaMenu />
       <div className="max-w-7xl mx-auto px-4 py-8 pt-45">
         {/* Back Button */}
@@ -230,7 +230,7 @@ export default function ServiceDetail({
                   <span>({service.reviews} reviews)</span>
                 </div>
               </div>
-              <h1 className="text-3xl md:text-4xl mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <h1 className="text-3xl md:text-4xl mb-4 bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                 {service.title}
               </h1>
               <p className="text-gray-400 leading-relaxed">
@@ -421,7 +421,7 @@ export default function ServiceDetail({
                     className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-gray-700/50"
                   >
                     <div className="flex items-start gap-3 mb-3">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shrink-0">
+                      <div className="w-12 h-12 rounded-full bg-linear-to-br from-purple-500 to-pink-500 flex items-center justify-center shrink-0">
                         {testimonial.avatar}
                       </div>
                       <div>

@@ -33,7 +33,7 @@ export function Footer() {
           {/* Column 1 - Brand/Profile */}
           <div className="lg:col-span-2">
             <h3 className="text-xl mb-4">
-              <span className="text-transparent font-bold bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+              <span className="text-transparent font-bold bg-clip-text bg-linear-to-r from-purple-400 to-pink-400">
                 Mirza Ahtsham
               </span>
             </h3>

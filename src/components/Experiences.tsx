@@ -1,6 +1,6 @@
 "use client";
-
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { motion, useScroll, useInView } from "framer-motion";
 import {
   Briefcase,
   ExternalLink,
@@ -84,13 +84,13 @@ export function WorkExperience() {
     {
       id: "1",
       company: "Medmax Technologies LLC",
-      logo: "https://ahtshamportfolio.netlify.app/Medmax-Icon.webp",
+      logo: "http://localhost:3000/Company Icon/Medmax-Icon.webp",
       logoIcon: Rocket,
       startDate: "2023-01-01",
       duration: "Lahore Pakistan",
       position: "Sr. Web Developer & Web Designer",
       description:
-        "At Medmax Technologies LLC, I develop and revamp high-performing WordPress websites using Elementor Pro, ensuring responsive, fast, and SEO-optimized results. I manage backend tasks like VPS, SSL, domains, and hosting. My optimizations improved site speed to under 1s on desktop and 3.7s on mobile. One Shopify project generated $19K+ in sales with 381% growth, proving my focus on performance, design, and business success.",
+        "Developed from scratch a high-performance medical billing website focused on client acquisition and brand authority. Handled full web development, design, SEO, hosting migration to VPS, and performance tuning using WordPress and Elementor Pro. Achieved exceptional speed—1.0s on mobile and 1.2s on desktop—delivering a fast, optimized user experience.",
       skills: [
         "Wordpress",
         "elementor Pro",
@@ -104,38 +104,54 @@ export function WorkExperience() {
         "Contact Form 7",
         "All-in-One-SEO",
       ],
-      category: ["Wordpress", "Shopify", "ChatBots"],
+      category: ["Wordpress", "Elementor Pro", "ChatBots"],
       screenshots: [
         {
-          url: "https://ahtshamportfolio.netlify.app/../../public/Projects/Medmax-Technologies-llc.webp",
+          url: "/Projects/Medmax-Technologies-llc.webp",
           caption: "Medmax Technologies LLC - Medical Billing Company"
         },
         {
-          url: "https://ahtshamportfolio.netlify.app/../../public/Projects/Medmax-Technologies-llc.webp",
-          caption: "Medmax RCM - Medical Billing Revenue Company"
+          url: "/Projects/MedmaxTech/Services-Landing-Page.webp",
+          caption: "Services Landing Page - Medmax Technologies LLC"
         },
         {
-          url: "https://ahtshamportfolio.netlify.app/../../public/Projects/Medmax-Technologies-llc.webp",
-          caption: "SMAG Technologies - IT Solutions Provider"
+          url: "/Projects/MedmaxTech/Single-Service-Page.webp",
+          caption: "Single Service Page - Medmax Technologies LLC"
         },
         {
-          url: "https://ahtshamportfolio.netlify.app/../../public/Projects/Medmax-Technologies-llc.webp",
-          caption: "The Leather Jacket Company - E-commerce Store"
+          url: "/Projects/MedmaxTech/Specialities-Landing-Page.webp",
+          caption: "Specialities Landing Page - Medmax Technologies LLC"
         },
         {
-          url: "https://ahtshamportfolio.netlify.app/../../public/Projects/Medmax-Technologies-llc.webp",
-          caption: "The Leather Jacket Company - E-commerce Store"
-        }
+          url: "/Projects/MedmaxTech/Single-Specialities-Design-1.webp",
+          caption: "Single Speciality Design 1 - Medmax Technologies LLC"
+        },
+        {
+          url: "/Projects/MedmaxTech/Single-Specialities-Design-2.webp",
+          caption: "Single Speciality Design 2 - Medmax Technologies LLC"
+        },
+        {
+          url: "/Projects/MedmaxTech/Near-me-page.webp",
+          caption: "Near Me Page - Medmax Technologies LLC"
+        },
+        {
+          url: "/Projects/MedmaxTech/Single-Near-me-page.webp",
+          caption: "Single Near Me Page - Medmax Technologies LLC"
+        },
+        {
+          url: "/Projects/MedmaxTech/Contact-us-Page.webp",
+          caption: "Contact Us Page - Medmax Technologies LLC"
+        },
       ],
       website: "https://medmaxtechnologiesllc.com"
     },
     {
       id: "2",
       company: "Ahtsham.me",
-      logo: "https://ahtshamportfolio.netlify.app/ahtsham-logo.webp",
+      logo: "http://localhost:3000/Company Icon/ahtsham-logo.webp",
       logoIcon: GraduationCap,
-      startDate: "2028-01-01",
-      duration: "Remote",
+      startDate: "2018-01-01",
+      duration: "Full time Remote",
       position: "Founder & CEO",
       description:
         "As the founder of Ahtsham.me, my mission is to empower freelancers and aspiring developers to achieve financial freedom through skill-based learning. I teach high-demand skills like WordPress, Shopify, and custom web development, helping students start earning $1,000-$5,000/month from home. Through my content and mentorship, I focus on practical learning, client communication, and real-world project execution to help learners build successful online careers.",
@@ -146,7 +162,7 @@ export function WorkExperience() {
     {
       id: "3",
       company: "Learn With Ahtsham",
-      logo: "https://ahtshamportfolio.netlify.app/ahtsham-logo.webp",
+      logo: "http://localhost:3000/Company Icon/Learn-with-Ahtsham-Icon.webp",
       logoIcon: UserCircle,
       startDate: "2023-01-01",
       duration: "Pakistan",
@@ -155,6 +171,7 @@ export function WorkExperience() {
         "I create educational content focused on freelancing, web development, and digital growth. Through YouTube and social platforms, I simplify complex technical topics into step-by-step tutorials for freelancers and developers. My goal is to inspire, educate, and guide individuals to become self-reliant through practical digital skills and continuous learning.",
       skills: ["YouTube", "Video Production", "Technical Writing"],
       category: ["Trainings", "Consultations"],
+      website: "https://learnwith.ahtsham.me"
     },
     // {
     //   id: "4",
@@ -499,3 +516,5 @@ export function WorkExperience() {
     </section>
   );
 }
+
+
