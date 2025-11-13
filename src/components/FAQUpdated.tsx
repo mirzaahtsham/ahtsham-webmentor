@@ -165,7 +165,7 @@ export function FAQUpdated() {
                 {!isAvailable && (
                     <Link
                       href="/schedule" // 🔗 replace with your meeting link
-                      className="px-6 py-2 ml-2 bg-purple-500 hover:bg-purple-600 text-white rounded-lg transition-colors hover:shadow-lg hover:shadow-gray-400/30 hover:scale-125"
+                      className="px-6 py-2 mx-2 bg-purple-500 hover:bg-purple-600 text-white rounded-lg transition-colors hover:shadow-lg hover:shadow-gray-400/50 hover:scale-105"
                     >
                       Schedule Meeting
                     </Link>

@@ -125,17 +125,17 @@ export function Footer() {
             <h4 className="mb-4 text-white">Policies</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="#" className="text-gray-400 text-sm hover:text-white transition-colors">
+                <Link href="/policies/privacy-policy" className="text-gray-400 text-sm hover:text-white transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-400 text-sm hover:text-white transition-colors">
+                <Link href="/policies/terms-and-conditions" className="text-gray-400 text-sm hover:text-white transition-colors">
                   Terms and Conditions
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-400 text-sm hover:text-white transition-colors">
+                <Link href="/policies/disclaimer" className="text-gray-400 text-sm hover:text-white transition-colors">
                   Disclaimer
                 </Link>
               </li>

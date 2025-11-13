@@ -21,6 +21,7 @@ import {
   SiPinterest,
   SiCodechef,
   SiReddit,
+  SiCodepen
 
 
 } from "react-icons/si";
@@ -255,13 +256,6 @@ export function Linktree() {
       iconBg: "bg-purple-600"
     },
     {
-      icon: <SiCodechef className="w-5 h-5" />,
-      title: "CodeChef ",
-      description: "Practice Coding & Problem Solving",
-      url: "#",
-      iconBg: "bg-[#5B4638]"
-    },
-    {
       icon: <SiQuora className="w-4 h-4" />,
       title: "Quora",
       description: "Direct Message",
@@ -289,6 +283,37 @@ export function Linktree() {
     //   url: "#",
     //   iconBg: "bg-purple-600"
     // }
+  ];
+  const opensource: LinkItem[] = [
+    {
+      icon: <SiCodepen className="w-6 h-6" />,
+      title: "Discord",
+      description: "Join our Developer Community",
+      url: "https://codepen.io/Mirza-Muhammad-Ahtsham",
+      iconBg: "bg-gray-800"
+    },
+    {
+      icon: <SiCodechef className="w-5 h-5" />,
+      title: "CodeChef ",
+      description: "Practice Coding & Problem Solving",
+      url: "#",
+      iconBg: "bg-[#5B4638]"
+    },
+    // {
+    //   icon: <SiQuora className="w-4 h-4" />,
+    //   title: "Quora",
+    //   description: "Direct Message",
+    //   url: "#",
+    //   iconBg: "bg-red-600"
+    // },
+    // {
+    //   icon: <SiReddit className="w-4 h-4" />,
+    //   title: "Reddit",
+    //   description: "Join Discussions & AMA Sessions",
+    //   url: "https://www.reddit.com/user/mirzaahtsham/",
+    //   iconBg: "bg-orange-600"
+    // },
+    
   ];
 
   const contact: LinkItem[] = [
@@ -492,6 +517,18 @@ export function Linktree() {
           </h2>
           <div className="space-y-3">
             {community.map((item, index) => (
+              <LinkCard key={index} item={item} size="small" />
+            ))}
+          </div>
+        </section>
+        {/* OpenSource Code */}
+        <section className="mb-8">
+          <h2 className="text-gray-700 text-sm mb-4 flex items-center gap-2">
+            <Users className="w-4 h-4" />
+            Open Source Widget Get Free Code
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {opensource.map((item, index) => (
               <LinkCard key={index} item={item} size="small" />
             ))}
           </div>

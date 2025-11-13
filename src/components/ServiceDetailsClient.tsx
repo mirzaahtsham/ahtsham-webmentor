@@ -43,7 +43,7 @@ export function ServiceDetailClient({ service }: { service: Service }) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white">
+    <div className="min-h-screen bg-linear-to-b from-gray-900 to-black text-white">
       <div className="max-w-7xl mx-auto px-4 py-8 pt-45">
         <HeaderWithMegaMenu />
         {/* Back Button */}
