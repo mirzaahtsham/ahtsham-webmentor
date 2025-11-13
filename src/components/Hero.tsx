@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { Mail, Briefcase, ChevronLeft, ChevronRight } from "lucide-react";
 import { SiGithub, SiLinkedin, } from "react-icons/si";
@@ -25,6 +26,40 @@ export function Hero() {
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
+  const badgeVariants = {
+  initial: { x: 0 },
+  hover: { x: 5 },
+};
+
+ function AnimatedBadge() {
+  return (
+    <motion.a
+      href="#contact"
+      className="group inline-flex items-center gap-3 bg-gray-900/80 dark:bg-gray-950/80 backdrop-blur-sm border border-gray-700/50 dark:border-gray-800/50 text-gray-200 dark:text-gray-300 px-5 py-2 rounded-full overflow-hidden"
+      initial="initial"
+      whileHover="hover"
+    >
+      <motion.span
+        className="text-xs"
+        layout
+        transition={{ type: "spring", stiffness: 300 }}
+      >
+        Available for New Opportunities
+      </motion.span>
+
+      <motion.div
+        className="overflow-hidden w-4 h-4"
+        variants={{
+          initial: { x: 0 },
+          hover: { x: 4 },
+        }}
+        transition={{ type: "tween", duration: 0.3 }}
+      >
+        <ChevronRight className="w-4 h-4" />
+      </motion.div>
+    </motion.a>
+  );
+}
 
   return (
     <section className="min-h-screen pt-32 pb-20 bg-linear-to-br from-gray-200 to-gray-400 dark:from-gray-900 dark:to-gray-900 text-white flex items-center justify-center relative overflow-hidden">
@@ -44,11 +79,9 @@ export function Hero() {
           </div>
           {/* Available for Opportunities Badge */}
           <div className="flex justify-center mb-6">
-            <div className="inline-flex items-center gap-3 bg-gray-900/80 dark:bg-gray-950/80 backdrop-blur-sm border border-gray-700/50 dark:border-gray-800/50 text-gray-200 dark:text-gray-300 px-5 py-2 rounded-full hover:border-gray-600/50 transition-all">
-              <span className="text-xs">Available for New Opportunities</span>
-              <ChevronRight className="w-4 h-4" />
-            </div>
+            <AnimatedBadge />
           </div>
+          
 
           <h1 className="text-5xl md:text-7xl mb-6">
             Web Designer & <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-pink-400 font-bold">Developer</span>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { ContactFormModal } from "./ContactFormModal";
+import Link from "next/link";
 import {
   ChevronDown,
   Code,
@@ -158,9 +159,17 @@ export function FAQUpdated() {
                 </p>
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="px-6 py-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 rounded-lg transition-colors">
+                  className="px-6 py-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 rounded-lg transition-colors hover:shadow-lg hover:shadow-gray-400/50 hover:scale-105">
                   Contact Me
                 </button>
+                {!isAvailable && (
+                    <Link
+                      href="/schedule" // 🔗 replace with your meeting link
+                      className="px-6 py-2 ml-2 bg-purple-500 hover:bg-purple-600 text-white rounded-lg transition-colors hover:shadow-lg hover:shadow-gray-400/30 hover:scale-125"
+                    >
+                      Schedule Meeting
+                    </Link>
+                  )}
               </div>
             </div>
           </div>
@@ -179,7 +188,7 @@ export function FAQUpdated() {
                     className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-accent dark:hover:bg-gray-750 transition-colors"
                   >
                     <div className="flex items-center gap-4 pr-4">
-                      <div className="`flex-shrink-0` w-10 h-10 rounded-lg bg-linear-to-br from-purple-500 to-pink-500 flex items-center justify-center border border-purple-500/30">
+                      <div className="shrink-0 w-10 h-10 rounded-lg bg-linear-to-br from-purple-500 to-pink-500 flex items-center justify-center border border-purple-500/30">
                         <IconComponent className="w-5 h-5 text-white" />
                       </div>
                       <span className="text-gray-900 dark:text-white">{faq.question}</span>

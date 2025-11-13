@@ -2,6 +2,8 @@
 
 import { Star, Quote } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { useState } from "react";
+
 
 interface Testimonial {
   name: string;
@@ -166,9 +168,9 @@ export function TestimonialsMarquee() {
     {
       name: "Shahzaib aslam",
       role: "CEO of YA Techsol",
-      image: "https://media.licdn.com/dms/image/v2/D4D35AQFEhKcVPM11vQ/profile-framedphoto-shrink_100_100/profile-framedphoto-shrink_100_100/0/1729950316073?e=1763452800&v=beta&t=m9CKcMfSjHlGA15UMwsQ_8gKRbeiFTVZ7006qCsHHPw",
+      image: "/Reviews/linkedin-review-6.webp",
       rating: 5,
-      text: "Exceptional developer with great communication skills. Mirza made the entire development process smooth and enjoyable.",
+      text: "I had the pleasure of working with Ahtsham for multiple Shopify store developments. He is an extremely dedicated and professional web developer and designer. Ahtsham approaches every project with full commitment and demonstrates excellent professionalism in his work. His communication is clear, timely, and effective, making collaboration smooth and efficient. I highly recommend Ahtsham for anyone looking for top-notch web development services.",
       color: "from-yellow-600 to-orange-600",
       platform: "linkedin",
       country: "Pakistan"
@@ -222,9 +224,19 @@ export function TestimonialsMarquee() {
     }
   };
 
-  const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (
+  const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
+  const [expanded, setExpanded] = useState(false);
+  const maxLength = 120; // adjust preview length if needed
+  const isLong = testimonial.text.length > maxLength;
+  const displayText = expanded
+    ? testimonial.text
+    : testimonial.text.slice(0, maxLength) + (isLong ? "..." : "");
+
+  return (
     <div className="shrink-0 w-80 bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-gray-200 dark:border-gray-700 relative overflow-hidden">
-      <div className={`absolute top-0 left-0 w-full h-1.5 bg-linear-to-r ${testimonial.color}`}></div>
+      <div
+        className={`absolute top-0 left-0 w-full h-1.5 bg-linear-to-r ${testimonial.color}`}
+      ></div>
 
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-4">
@@ -233,40 +245,61 @@ export function TestimonialsMarquee() {
             alt={testimonial.name}
             className="w-14 h-14 rounded-full object-cover border-2 border-purple-200 dark:border-purple-800"
           />
-         <div className="flex-1">
-  <div className="flex items-center gap-2">
-    <h4 className="text-foreground dark:text-white">{testimonial.name}</h4>
-    {/* Flag first */}
-    {testimonial.country && (
-      <img
-        src={getFlagImage(testimonial.country)!}
-        alt={testimonial.country}
-        className="w-4 h-3 rounded-sm"
-      />
-    )}
-    {/* Name after flag */}
-  </div>
-  
-  <p className="text-sm text-muted-foreground dark:text-gray-400">{testimonial.role}</p>
-</div>
+          <div className="flex-1">
+            <div className="flex items-center gap-2">
+              <h4 className="text-foreground dark:text-white">
+                {testimonial.name}
+              </h4>
+              {testimonial.country && (
+                <img
+                  src={getFlagImage(testimonial.country)!}
+                  alt={testimonial.country}
+                  className="w-4 h-3 rounded-sm"
+                />
+              )}
+            </div>
+            <p className="text-sm text-muted-foreground dark:text-gray-400">
+              {testimonial.role}
+            </p>
+          </div>
         </div>
       </div>
 
       <div className="flex items-center justify-between mb-3">
         <div className="flex gap-1">
           {Array.from({ length: testimonial.rating }).map((_, i) => (
-            <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+            <Star
+              key={i}
+              className="w-4 h-4 fill-yellow-400 text-yellow-400"
+            />
           ))}
         </div>
         {getPlatformBadge(testimonial.platform)}
       </div>
 
       <Quote className="w-8 h-8 text-purple-400 mb-2 opacity-30" />
-      <p className="text-muted-foreground dark:text-gray-300 text-sm leading-relaxed">
-        {testimonial.text}
-      </p>
+
+      {/* Scrollable text area */}
+      <div
+        className={`text-muted-foreground dark:text-gray-300 text-sm leading-relaxed transition-all duration-300 ${
+          expanded ? "max-h-40 overflow-y-auto pr-1" : "max-h-24 overflow-hidden"
+        }`}
+      >
+        {displayText}
+      </div>
+
+      {/* See More / See Less button */}
+      {isLong && (
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="mt-2 text-xs text-purple-600 dark:text-purple-400 hover:underline"
+        >
+          {expanded ? "See Less" : "See More"}
+        </button>
+      )}
     </div>
   );
+};
 
   return (
     <section id="testimonials" className="py-20 bg-linear-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 overflow-hidden">

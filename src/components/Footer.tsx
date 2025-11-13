@@ -187,42 +187,42 @@ export function Footer() {
               <span className="text-gray-400 text-sm mr-2">Follow me:</span>
               <a 
                 href="https://www.youtube.com/channel/UCECmARzL9NsJiDpe01t6PWw??sub_confirmation=1" target="blank" 
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 hover:text-white transition-colors hover:scale-125"
                 aria-label="YouTube"
               >
                 <SiYoutube className="w-5 h-5" />
               </a>
               <a 
                 href="https://www.linkedin.com/in/mirzaahtsham/" target="blank" 
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 hover:text-white transition-colors hover:scale-125"
                 aria-label="LinkedIn"
               >
                 <SiLinkedin className="w-5 h-5" />
               </a>
               <a 
                 href="https://www.facebook.com/ahtshamwebdesigngenius/" target="blank" 
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 hover:text-white transition-colors hover:scale-125"
                 aria-label="Facebook"
               >
                 <SiFacebook className="w-5 h-5" />
               </a>
               <a 
                 href="https://www.instagram.com/WebsiteDesignGenius/" target="blank" 
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 hover:text-white transition-colors hover:scale-125"
                 aria-label="Instagram"
               >
                 <SiInstagram className="w-5 h-5" />
               </a>
               <a 
                 href="https://twitter.com/websdesignwala/" target="blank" 
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 hover:text-white transition-colors hover:scale-125"
                 aria-label="Twitter"
               >
                 <SiX className="w-5 h-5" />
               </a>
               <a 
                 href="https://www.tiktok.com/@webdesigngenius/" target="blank" 
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 hover:text-white transition-colors hover:scale-125"
                 aria-label="TikTok"
               >
                 <SiTiktok className="w-5 h-5" />

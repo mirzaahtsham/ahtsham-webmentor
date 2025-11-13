@@ -84,7 +84,7 @@ export function WorkExperience() {
     {
       id: "1",
       company: "Medmax Technologies LLC",
-      logo: "http://localhost:3000/Company Icon/Medmax-Icon.webp",
+      logo: "/Company Icon/Medmax-Icon.webp",
       logoIcon: Rocket,
       startDate: "2023-01-01",
       duration: "Lahore Pakistan",
@@ -148,7 +148,7 @@ export function WorkExperience() {
     {
       id: "2",
       company: "Ahtsham.me",
-      logo: "http://localhost:3000/Company Icon/ahtsham-logo.webp",
+      logo: "/Company Icon/ahtsham-logo.webp",
       logoIcon: GraduationCap,
       startDate: "2018-01-01",
       duration: "Full time Remote",
@@ -162,7 +162,7 @@ export function WorkExperience() {
     {
       id: "3",
       company: "Learn With Ahtsham",
-      logo: "http://localhost:3000/Company Icon/Learn-with-Ahtsham-Icon.webp",
+      logo: "/Company Icon/Learn-with-Ahtsham-Icon.webp",
       logoIcon: UserCircle,
       startDate: "2023-01-01",
       duration: "Pakistan",

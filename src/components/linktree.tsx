@@ -66,7 +66,7 @@ export function Linktree() {
       title: "Github Profile",
       description: "Git all resources, courses & more",
       url: "https://github.com/mirzaahtsham/",
-      iconBg: "bg-white/10"
+      iconBg: "bg-gray-500/50"
     },
     {
       icon: <Calendar className="w-5 h-5" />,
