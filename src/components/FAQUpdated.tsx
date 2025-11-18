@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { JsonLd } from "@/components/JsonLd";
+import { buildFaqSchema } from "@/lib/schema";
 import { ContactFormModal } from "./ContactFormModal";
 import Link from "next/link";
 import {
@@ -215,6 +217,21 @@ export function FAQUpdated() {
       </div>
       {/* Contact Form Modal */}
       <ContactFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+        {/* existing JSX */}
+     <JsonLd
+      data={{
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map((f) => ({
+          "@type": "Question",
+          name: f.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: f.answer,
+          },
+        })),
+      }}
+    />
     </section>
   );
 }

@@ -156,11 +156,29 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
     description: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   console.log("Form submitted:", formData);
+  //   onClose();
+  // };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  const res = await fetch("/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(formData),
+  });
+
+  if (res.ok) {
+    alert("Your message has been sent successfully!");
     onClose();
-  };
+  } else {
+    alert("Something went wrong. Please try again.");
+  }
+};
+
 
   const handleChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -168,18 +186,18 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
 
   // Review data for marquee with platform icons
   const reviews = [
-    { project: "E-Commerce Platform", rating: 5, client: "TechStore Inc", feedback: "Exceeded expectations! Revenue increased by 200%.", platform: "linkedin" },
-    { project: "Mobile Banking App", rating: 5, client: "FinanceHub", feedback: "Flawless execution. Users love the interface!", platform: "google" },
-    { project: "Real Estate Portal", rating: 5, client: "PropertyPro", feedback: "Best developer we've worked with. Highly recommended!", platform: "fiverr" },
-    { project: "SaaS Dashboard", rating: 5, client: "CloudTech", feedback: "Delivered on time with exceptional quality.", platform: "upwork" },
-    { project: "Healthcare System", rating: 5, client: "MediCare Plus", feedback: "Professional, efficient, and reliable developer.", platform: "linkedin" },
+    { project: "E-Commerce Platform", rating: 5, client: "Shahzaib Aslam", feedback: "I had the pleasure of working with Ahtsham for multiple Shopify store developments. He is an extremely dedicated and professional web developer and designer.", platform: "linkedin" },
+    { project: "Web Design & Development", rating: 5, client: "Rehman Haider", feedback: "Incredible developer! Mirza built our entire platform from scratch and delivered ahead of schedule with outstanding quality.", platform: "linkedin" },
+    { project: "Shopiy Store Deveopment", rating: 5, client: "Alex Johnson", feedback: "Very good experience and used him twice for my website never disappointed professional approach and quick response will recommend and will use him again Happy with final product Thanks", platform: "fiverr" },
+    { project: "Portfolio Website Design", rating: 5, client: "Karen Miller", feedback: "Seller went above and beyond to help me with my Wordpress website, including teaching me some basics. Thank you!", platform: "fiverr" },
+    { project: "Painting Art Store", rating: 5, client: "brucedelphineca", feedback: "Thx you for you working I am very happy ! I recommend Mirza he takes his time to understand and does a good job. Thx thx you", platform: "fiverr" },
   ];
 
   const reviews2 = [
-    { project: "Restaurant Website", rating: 5, client: "FoodieDelight", feedback: "Amazing work! Online orders tripled!", platform: "google" },
-    { project: "Fitness App", rating: 5, client: "FitLife", feedback: "User engagement increased by 300%. Perfect!", platform: "fiverr" },
+    { project: "Teaching", rating: 5, client: "Ali Header", feedback: "Outstanding full-stack developer. Mirza's code is clean, efficient, and scalable. Highly recommended for any project.Amazing work! Online orders tripled!", platform: "google" },
+    { project: "Fitness App", rating: 5, client: "robson110", feedback: "User engagement increased by 300%. Perfect!", platform: "linkedin" },
     { project: "Education Platform", rating: 5, client: "LearnHub", feedback: "Students and teachers absolutely love it!", platform: "upwork" },
-    { project: "Travel Booking Site", rating: 5, client: "WanderWays", feedback: "Stunning design and smooth functionality.", platform: "linkedin" },
+    { project: "Youtube Content Creator", rating: 5, client: "Sumaira Khan", feedback: "He provide best services I had good experience with him I will definitely contact with him again for digital services for my business", platform: "linkedin" },
     { project: "CRM System", rating: 5, client: "SalesPro", feedback: "Streamlined our entire workflow. Excellent!", platform: "google" },
   ];
 
@@ -211,7 +229,7 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
           <div className="inline-flex items-center gap-1 px-2 py-0.5 bg-green-100 dark:bg-green-900/30 rounded border border-green-200 dark:border-green-800">
             <svg className="w-3 h-3 fill-green-600 dark:fill-green-400" viewBox="0 0 24 24">
               <circle cx="4" cy="4" r="2" />
-              <path d="M8 1h2v8H8zm4 0h2v3h-2zm4 0h2v5h-2zM0 9h24v2H0zm8 3h2v11H8zm4 0h2v8h-2zm4 0h2v6h-2z" />
+              <path d='M16.25 16.25v-10h-10v-.625c0-1.034.841-1.875 1.875-1.875H10V0H8.125A5.632 5.632 0 0 0 2.5 5.625v.625H0V10h2.5v6.25H0V20h8.75v-3.75h-2.5V10h6.285v6.25H10V20h8.75v-3.75h-2.5z' />
             </svg>
             <span className="text-xs text-green-700 dark:text-green-300">Fiverr</span>
           </div>
@@ -234,7 +252,7 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto bg-white dark:bg-gray-900">
         <DialogHeader>
-          <DialogTitle className="text-3xl bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+          <DialogTitle className="text-3xl bg-linear-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
             Let's Start Your Project
           </DialogTitle>
           <DialogDescription className="text-muted-foreground dark:text-gray-400">
@@ -405,7 +423,7 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
           <div className="flex gap-3 pt-4">
             <Button
               type="submit"
-              className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
+              className="flex-1 bg-linear-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
             >
               Submit Project Request
             </Button>
@@ -428,7 +446,7 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
           <div className="relative">
             <div className="flex gap-4 animate-marquee-reviews-rtl">
               {[...reviews, ...reviews, ...reviews].map((review, index) => (
-                <div key={`review1-${index}`} className="flex-shrink-0 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-3 border border-purple-200 dark:border-purple-800 w-72">
+                <div key={`review1-${index}`} className="shrink-0 bg-linear-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-3 border border-purple-200 dark:border-purple-800 w-72">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-xs text-purple-700 dark:text-purple-300">{review.project}</span>
                     <div className="flex gap-0.5">
@@ -451,7 +469,7 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
           <div className="relative">
             <div className="flex gap-4 animate-marquee-reviews-ltr">
               {[...reviews2, ...reviews2, ...reviews2].map((review, index) => (
-                <div key={`review2-${index}`} className="flex-shrink-0 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-lg p-3 border border-blue-200 dark:border-blue-800 w-72">
+                <div key={`review2-${index}`} className="shrink-0 bg-linear-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-lg p-3 border border-blue-200 dark:border-blue-800 w-72">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-xs text-blue-700 dark:text-blue-300">{review.project}</span>
                     <div className="flex gap-0.5">

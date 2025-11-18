@@ -25,12 +25,124 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+        <meta name="robots" content="index,follow" />
+        <link rel="canonical" href="https://ahtsham.me/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Mirza Ahtsham - Web Desniger & Developer" />
+        <meta property="og:description" content="Professional Front-End Designer & Developer, Figma to Wordpress design, Shopify Store Creation, Wordpress Website Building, Custom Form Creating, Website Migration, Hosting Managment, Cloudflare Integration, Next.js, TailwindCSS, Live Chatbot Integration and branding services." />
+        <meta property="og:image" content="/og-image.webp" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "WebSite",
+                  "@id": "https://ahtsham.me/#website",
+                  "url": "https://ahtsham.me/",
+                  "name": "Ahtsham Web Mentor",
+                  "description":
+                    "Web Designer & Developer offering Next.js, UI/UX, SEO, Figma to Code, WordPress, Shopify, Cloudflare, Hosting Management, Website Migration and Branding services.",
+                  "publisher": {
+                    "@id": "https://ahtsham.me/#organization"
+                  },
+                  "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": "https://ahtsham.me/?search={query}",
+                    "query-input": "required name=query"
+                  }
+                },
+
+                {
+                  "@type": "Organization",
+                  "@id": "https://ahtsham.me/#organization",
+                  "name": "AWM - Ahtsham Web Mentor",
+                  "url": "https://ahtsham.me/",
+                  "logo": "https://ahtsham.me/CompanyImages/awm-logo.webp",
+                  "founder": { "@id": "https://ahtsham.me/#person" },
+                  "contactPoint": [
+                    {
+                      "@type": "ContactPoint",
+                      "contactType": "customer support",
+                      "email": "hello@ahtsham.me",
+                      "telephone": "+923464784039",
+                      "areaServed": "Worldwide",
+                      "availableLanguage": ["English", "Urdu"]
+                    }
+                  ],
+                  "sameAs": [
+                    "https://github.com/mirzaahtsham",
+                    "https://www.linkedin.com/in/mirzaahtsham",
+                    "https://www.instagram.com/WebsiteDesignGenius/",
+                    "https://www.tiktok.com/@webdesigngenius",
+                    "https://www.facebook.com/ahtshamwebdesigngenius/",
+                    "https://twitter.com/websdesignwala",
+                    "https://share.google/tACjBlqEXfTBgmVrb"
+                  ]
+                },
+
+                {
+                  "@type": "Person",
+                  "@id": "https://ahtsham.me/#person",
+                  "name": "Mirza Muhammad Ahtsham",
+                  "alternateName": ["Web Mentor", "Web Design Genius"],
+                  "url": "https://ahtsham.me/",
+                  "description":
+                    "Professional Web Designer & Developer specializing in Next.js, TailwindCSS, UI/UX, SEO, WordPress, Shopify, Cloudflare Integration, and high-performance website creation.",
+                  "email": "hello@ahtsham.me",
+                  "telephone": "+923464784039",
+                  "image": "https://ahtsham.me/og-image.webp",
+                  "jobTitle": "Web Designer & Developer",
+                  "worksFor": {
+                    "@id": "https://ahtsham.me/#organization"
+                  },
+                  "sameAs": [
+                    "https://github.com/mirzaahtsham",
+                    "https://www.linkedin.com/in/mirzaahtsham",
+                    "https://www.instagram.com/WebsiteDesignGenius/",
+                    "https://www.facebook.com/ahtshamwebdesigngenius/"
+                  ]
+                },
+
+                {
+                  "@type": "LocalBusiness",
+                  "@id": "https://ahtsham.me/#localbusiness",
+                  "name": "AWM - Ahtsham Web Mentor",
+                  "image": "https://ahtsham.me/CompanyImages/awm-logo.webp",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Gulberg II",
+                    "addressLocality": "Lahore",
+                    "addressRegion": "Punjab",
+                    "postalCode": "54660",
+                    "addressCountry": "PK"
+                  },
+                  "priceRange": "$$$$",
+                  "telephone": "+923464784039",
+                  "email": "hello@ahtsham.me",
+                  "url": "https://ahtsham.me/",
+                  "areaServed": "Worldwide",
+                  "sameAs": [
+                    "https://share.google/tACjBlqEXfTBgmVrb"
+                  ]
+                }
+              ]
+            })
+          }}
+        />
+
+
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground transition-colors duration-300`}
       >
         {/* ✅ only wrap children, no props needed */}
         {/* <ThemeProvider> */}
-          {children}
+        {children}
         {/* </ThemeProvider> */}
       </body>
     </html>

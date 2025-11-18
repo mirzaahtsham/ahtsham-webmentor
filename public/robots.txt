@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# SEO Files
+Sitemap: https://ahtsham.me/sitemap.xml

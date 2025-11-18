@@ -21,9 +21,30 @@ export default async function ServicePage(props: PageProps) {
   if (error || !service) {
     return <div>Service not found</div>;
   }
-
+  const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `https://ahtsham.me/services/${service.slug}#service`,
+  "name": service.title,
+  "description": service.description,
+  "provider": {
+    "@id": "https://ahtsham.me/#organization"
+  },
+  "serviceType": service.category || "Web Development Service",
+  "areaServed": "Worldwide",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "url": `https://ahtsham.me/services/${service.slug}`
+  }
+};
   return (
     <>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+    />
       <HeaderWithMegaMenu />
       <ServiceDetailClient service={service as Service} />
       <Footer />

@@ -1,6 +1,8 @@
 "use client";
 
 import { Star, Quote } from "lucide-react";
+import { JsonLd } from "@/components/JsonLd";
+import { buildAggregateReviewSchema } from "@/lib/schema";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useState } from "react";
 
@@ -82,16 +84,6 @@ export function TestimonialsMarquee() {
   // Row 2 testimonials
   const row2Testimonials: Testimonial[] = [
     {
-      name: "Alex Johnson",
-      role: "Founder, Iphone Repair Store",
-      image: "/Reviews/fiverr-review-3.webp",
-      rating: 5,
-      text: "Very good experience and used him twice for my website never disappointed professional approach and quick response will recommend and will use him again Happy with final product Thanks",
-      color: "from-red-600 to-pink-600",
-      platform: "fiverr",
-      country: "USA"
-    },
-    {
       name: "Ali Haider",
       role: "Student",
       image: "/Reviews/linkedin-review-2.webp",
@@ -156,15 +148,25 @@ export function TestimonialsMarquee() {
       country: "Pakistan"
     },
     {
-      name: "Nina Patel",
-      role: "CEO, DigitalWave",
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100",
+      name: "Alex Johnson",
+      role: "Founder, Iphone Repair Store",
+      image: "/Reviews/fiverr-review-3.webp",
       rating: 5,
-      text: "Professional, reliable, and talented. Mirza delivered our project on time and exceeded all our quality standards.",
-      color: "from-green-600 to-emerald-600",
-      platform: "google",
-      country: "Pakistan"
+      text: "Very good experience and used him twice for my website never disappointed professional approach and quick response will recommend and will use him again Happy with final product Thanks",
+      color: "from-red-600 to-pink-600",
+      platform: "fiverr",
+      country: "USA"
     },
+    // {
+    //   name: "Nina Patel",
+    //   role: "CEO, DigitalWave",
+    //   image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100",
+    //   rating: 5,
+    //   text: "Professional, reliable, and talented. Mirza delivered our project on time and exceeded all our quality standards.",
+    //   color: "from-green-600 to-emerald-600",
+    //   platform: "google",
+    //   country: "Pakistan"
+    // },
     {
       name: "Shahzaib aslam",
       role: "CEO of YA Techsol",
@@ -176,7 +178,12 @@ export function TestimonialsMarquee() {
       country: "Pakistan"
     },
   ];
-
+  // ✅ ADD THIS RIGHT HERE
+  const allTestimonials: Testimonial[] = [
+    ...row1Testimonials,
+    ...row2Testimonials,
+    ...row3Testimonials,
+  ];
   const getPlatformBadge = (platform: string) => {
     switch (platform) {
       case "linkedin":
@@ -225,81 +232,80 @@ export function TestimonialsMarquee() {
   };
 
   const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
-  const [expanded, setExpanded] = useState(false);
-  const maxLength = 120; // adjust preview length if needed
-  const isLong = testimonial.text.length > maxLength;
-  const displayText = expanded
-    ? testimonial.text
-    : testimonial.text.slice(0, maxLength) + (isLong ? "..." : "");
+    const [expanded, setExpanded] = useState(false);
+    const maxLength = 120; // adjust preview length if needed
+    const isLong = testimonial.text.length > maxLength;
+    const displayText = expanded
+      ? testimonial.text
+      : testimonial.text.slice(0, maxLength) + (isLong ? "..." : "");
 
-  return (
-    <div className="shrink-0 w-80 bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-gray-200 dark:border-gray-700 relative overflow-hidden">
-      <div
-        className={`absolute top-0 left-0 w-full h-1.5 bg-linear-to-r ${testimonial.color}`}
-      ></div>
+    return (
+      <div className="shrink-0 w-80 bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-gray-200 dark:border-gray-700 relative overflow-hidden">
+        <div
+          className={`absolute top-0 left-0 w-full h-1.5 bg-linear-to-r ${testimonial.color}`}
+        ></div>
 
-      <div className="flex items-center justify-between mb-4">
-        <div className="flex items-center gap-4">
-          <ImageWithFallback
-            src={testimonial.image}
-            alt={testimonial.name}
-            className="w-14 h-14 rounded-full object-cover border-2 border-purple-200 dark:border-purple-800"
-          />
-          <div className="flex-1">
-            <div className="flex items-center gap-2">
-              <h4 className="text-foreground dark:text-white">
-                {testimonial.name}
-              </h4>
-              {testimonial.country && (
-                <img
-                  src={getFlagImage(testimonial.country)!}
-                  alt={testimonial.country}
-                  className="w-4 h-3 rounded-sm"
-                />
-              )}
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-4">
+            <ImageWithFallback
+              src={testimonial.image}
+              alt={testimonial.name}
+              className="w-14 h-14 rounded-full object-cover border-2 border-purple-200 dark:border-purple-800"
+            />
+            <div className="flex-1">
+              <div className="flex items-center gap-2">
+                <h4 className="text-foreground dark:text-white">
+                  {testimonial.name}
+                </h4>
+                {testimonial.country && (
+                  <img
+                    src={getFlagImage(testimonial.country)!}
+                    alt={testimonial.country}
+                    className="w-4 h-3 rounded-sm"
+                  />
+                )}
+              </div>
+              <p className="text-sm text-muted-foreground dark:text-gray-400">
+                {testimonial.role}
+              </p>
             </div>
-            <p className="text-sm text-muted-foreground dark:text-gray-400">
-              {testimonial.role}
-            </p>
           </div>
         </div>
-      </div>
 
-      <div className="flex items-center justify-between mb-3">
-        <div className="flex gap-1">
-          {Array.from({ length: testimonial.rating }).map((_, i) => (
-            <Star
-              key={i}
-              className="w-4 h-4 fill-yellow-400 text-yellow-400"
-            />
-          ))}
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex gap-1">
+            {Array.from({ length: testimonial.rating }).map((_, i) => (
+              <Star
+                key={i}
+                className="w-4 h-4 fill-yellow-400 text-yellow-400"
+              />
+            ))}
+          </div>
+          {getPlatformBadge(testimonial.platform)}
         </div>
-        {getPlatformBadge(testimonial.platform)}
-      </div>
 
-      <Quote className="w-8 h-8 text-purple-400 mb-2 opacity-30" />
+        <Quote className="w-8 h-8 text-purple-400 mb-2 opacity-30" />
 
-      {/* Scrollable text area */}
-      <div
-        className={`text-muted-foreground dark:text-gray-300 text-sm leading-relaxed transition-all duration-300 ${
-          expanded ? "max-h-40 overflow-y-auto pr-1" : "max-h-24 overflow-hidden"
-        }`}
-      >
-        {displayText}
-      </div>
-
-      {/* See More / See Less button */}
-      {isLong && (
-        <button
-          onClick={() => setExpanded(!expanded)}
-          className="mt-2 text-xs text-purple-600 dark:text-purple-400 hover:underline"
+        {/* Scrollable text area */}
+        <div
+          className={`text-muted-foreground dark:text-gray-300 text-sm leading-relaxed transition-all duration-300 ${expanded ? "max-h-40 overflow-y-auto pr-1" : "max-h-24 overflow-hidden"
+            }`}
         >
-          {expanded ? "See Less" : "See More"}
-        </button>
-      )}
-    </div>
-  );
-};
+          {displayText}
+        </div>
+
+        {/* See More / See Less button */}
+        {isLong && (
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className="mt-2 text-xs text-purple-600 dark:text-purple-400 hover:underline"
+          >
+            {expanded ? "See Less" : "See More"}
+          </button>
+        )}
+      </div>
+    );
+  };
 
   return (
     <section id="testimonials" className="py-20 bg-linear-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 overflow-hidden">
@@ -383,6 +389,65 @@ export function TestimonialsMarquee() {
           animation-play-state: paused;
         }
       `}</style>
+      {/* ✅ ADD THIS JUST BEFORE THE CLOSING TAG */}
+      {/* <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: "Web Design & Development Services by Mirza Ahtsham",
+            description:
+              "Professional Front-End development, Figma to Wordpress design, Shopify Store Creation, Wordpress Website Building, Custom Form Creating, Website Migration, Hosting Managment, Next.js, TailwindCSS, Live Chatbot Integration and branding services.",
+            aggregateRating: {
+              "@type": "AggregateRating",
+              ratingValue: (
+                allTestimonials.reduce((sum, item) => sum + item.rating, 0) /
+                allTestimonials.length
+              ).toFixed(1),
+              reviewCount: allTestimonials.length,
+            },
+            review: allTestimonials.map((item) => ({
+              "@type": "Review",
+              reviewBody: item.text,
+              reviewRating: {
+                "@type": "Rating",
+                ratingValue: item.rating,
+                bestRating: "5",
+              },
+              author: {
+                "@type": "Person",
+                name: item.name,
+              },
+              publisher: {
+                "@type": "Organization",
+                name:
+                  item.platform.charAt(0).toUpperCase() +
+                  item.platform.slice(1),
+              },
+            })),
+          }),
+        }}
+      /> */}
+       {/* existing JSX */}
+    <JsonLd
+  data={{
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: allTestimonials.map((t: Testimonial, i: number) => ({
+      "@type": "Review",
+      position: i + 1,
+      author: t.name,
+      reviewBody: t.text, // ✅ FIXED
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: t.rating || 5,
+        bestRating: 5,
+      },
+    })),
+  }}
+/>
+
     </section>
   );
 }
