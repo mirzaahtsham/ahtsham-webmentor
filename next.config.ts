@@ -1,8 +1,10 @@
-import type { NextConfig } from "next";
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  experimental: {
+    optimizeCss: false, // 🚫 Disable LightningCSS to fix Netlify build error
+  },
 
-const nextConfig: NextConfig = {
-  /* config options here */
-images: {
+  images: {
     remotePatterns: [
       {
         protocol: "https",
