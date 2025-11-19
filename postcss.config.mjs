@@ -2,11 +2,7 @@
 
 const config = {
   plugins: {
-    tailwindcss: {
-      experimental: {
-        optimizeUniversalDefaults: false,
-      },
-    },
+    "@tailwindcss/postcss": {},
     autoprefixer: {},
   },
 };
