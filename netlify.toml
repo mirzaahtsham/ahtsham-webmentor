@@ -1,10 +1,11 @@
 [build]
   command = "npm ci && npm run build"
   publish = ".next"
-  
+
 [build.environment]
-  NODE_VERSION = "20"          # explicitly force Node 20
+  NODE_ENV = "production"
+  NODE_VERSION = "20"
   TAILWIND_DISABLE_OXIDE = "1"
 
 [[plugins]]
-package = "@netlify/plugin-nextjs"
+  package = "@netlify/plugin-nextjs"
