@@ -1,12 +1,18 @@
 /** @type {import('postcss-load-config').Config} */
+
 const config = {
   plugins: {
-    "@tailwindcss/postcss": {},
+    tailwindcss: {
+      experimental: {
+        optimizeUniversalDefaults: false,
+      },
+    },
     autoprefixer: {},
   },
 };
 
 export default config;
+
 
 
 
