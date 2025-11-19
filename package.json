@@ -46,7 +46,6 @@
     "@radix-ui/react-tooltip": "^1.2.8",
     "@supabase/auth-helpers-nextjs": "^0.10.0",
     "@supabase/supabase-js": "^2.79.0",
-    "@tailwindcss/node": "^4.1.17",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
@@ -76,6 +75,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@netlify/next": "^1.4.9",
+    "@tailwindcss/node": "^4.0.0",
     "@tailwindcss/postcss": "^4.1.17",
     "@types/estree": "^1.0.8",
     "@types/json-schema": "^7.0.15",
@@ -87,6 +87,7 @@
     "autoprefixer": "^10.4.22",
     "eslint": "^9",
     "eslint-config-next": "15.5.6",
+    "lightningcss": "^1.28.0",
     "postcss": "^8.5.6",
     "prisma": "^6.19.0",
     "tailwindcss": "^4.1.17",
