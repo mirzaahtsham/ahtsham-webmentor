@@ -125,11 +125,11 @@ export function FAQUpdated() {
                   Frequently Asked
                 </h2>
                 <h3 className="text-4xl md:text-5xl mb-6">
-                  <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-pink-400">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
                     Questions
                   </span>
                 </h3>
-                <div className="w-20 h-1 bg-linear-to-r from-yellow-500 to-pink-500"></div>
+                <div className="w-20 h-1 bg-gradient-to-r from-yellow-500 to-pink-500"></div>
               </div>
 
               <p className="text-muted-foreground dark:text-gray-400 mb-8 text-lg">
@@ -190,7 +190,7 @@ export function FAQUpdated() {
                     className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-accent dark:hover:bg-gray-750 transition-colors"
                   >
                     <div className="flex items-center gap-4 pr-4">
-                      <div className="shrink-0 w-10 h-10 rounded-lg bg-linear-to-br from-purple-500 to-pink-500 flex items-center justify-center border border-purple-500/30">
+                      <div className="shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center border border-purple-500/30">
                         <IconComponent className="w-5 h-5 text-white" />
                       </div>
                       <span className="text-gray-900 dark:text-white">{faq.question}</span>

@@ -266,11 +266,11 @@ export function WorkExperience() {
   };
 
   return (
-    <section id="experience" className="py-12 md:py-20 bg-linear-to-b from-gray-50 to-white text-black">
+    <section id="experience" className="py-12 md:py-20 bg-gradient-to-b from-gray-50 to-white text-black">
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl mb-3 md:mb-4 bg-linear-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl mb-3 md:mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">
             Work Experience
           </h2>
           <p className="text-gray-900 max-w-2xl mx-auto text-sm md:text-base px-2">
@@ -366,7 +366,7 @@ export function WorkExperience() {
                                     alt={`${exp.company} screenshot ${idx + 1}`}
                                     className="w-48 sm:w-60 md:w-80 h-32 sm:h-40 md:h-48 object-cover"
                                   />
-                                  <div className="absolute inset-0 bg-linear-to-t from-black via-black/70 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300">
+                                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300">
                                     <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3">
                                       <p className="text-white text-xs md:text-sm">{screenshot.caption}</p>
                                     </div>
@@ -388,7 +388,7 @@ export function WorkExperience() {
                                     alt={`${exp.company} screenshot ${idx + 1}`}
                                     className="w-48 sm:w-60 md:w-80 h-32 sm:h-40 md:h-48 object-cover"
                                   />
-                                  <div className="absolute inset-0 bg-linear-to-t from-black via-black/70 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300">
+                                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300">
                                     <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3">
                                       <p className="text-white text-xs md:text-sm">{screenshot.caption}</p>
                                     </div>
@@ -464,7 +464,7 @@ export function WorkExperience() {
                 </button>
 
                 {/* Caption */}
-                <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black via-black/80 to-transparent p-3 md:p-6">
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-3 md:p-6">
                   <p className="text-white text-sm md:text-lg text-center">{selectedImage.caption}</p>
                 </div>
               </div>
@@ -487,7 +487,7 @@ export function WorkExperience() {
         .marquee-content {
           display: flex;
           gap: 0.75rem;
-          animation: marquee 30s linear infinite;
+          animation: marquee 30s gradient infinite;
         }
 
         @media (min-width: 768px) {

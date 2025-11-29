@@ -83,7 +83,7 @@ export default function ScheduleMeeting() {
   ];
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-100 ">
       <HeaderWithMegaMenu />
       {/* Back Button */}
       <div className="container mx-auto px-4 pt-24">
@@ -103,7 +103,7 @@ export default function ScheduleMeeting() {
             {/* Left Content */}
             <div>
               <h1 className="text-5xl md:text-6xl mb-6">
-                Schedule a <span className="text-transparent bg-clip-text font-bold bg-linear-to-r from-purple-400 to-pink-400">Meeting</span>
+                Schedule a <span className="text-transparent bg-clip-text font-bold bg-gradient-to-r from-purple-400 to-pink-400">Meeting</span>
               </h1>
               <p className="text-gray-300 text-lg mb-8 max-w-lg">
                 Book a 1:1 session to discuss your project, get expert advice, or learn from my experience in web development, mobile apps, and freelancing.
@@ -137,8 +137,8 @@ export default function ScheduleMeeting() {
 
             {/* Right Image */}
             <div className="relative">
-              <div className="absolute inset-0 bg-linear-to-br from-purple-500/20 to-pink-500/20 rounded-3xl blur-3xl"></div>
-              <div className="relative bg-linear-to-br from-gray-800 to-gray-900 rounded-3xl p-4 border border-gray-700">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-3xl blur-3xl"></div>
+              <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl p-4 border border-gray-700">
                 <ImageWithFallback
                   src="/Schedule/Mirza-Ahtsham.webp"
                   alt="Mirza Ahtsham"
@@ -181,7 +181,7 @@ export default function ScheduleMeeting() {
 
                   {/* Icon */}
                   <div className="mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-linear-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
                       <Icon className="w-6 h-6 text-white" />
                     </div>
                   </div>
@@ -204,7 +204,7 @@ export default function ScheduleMeeting() {
                   <Button
                     className={`w-full ${
                       meeting.status === "available"
-                        ? "bg-linear-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
+                        ? "bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
                         : "bg-gray-700 text-gray-400 cursor-not-allowed"
                     }`}
                     disabled={meeting.status === "coming-soon"}

@@ -242,7 +242,7 @@ export function TestimonialsMarquee() {
     return (
       <div className="shrink-0 w-80 bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-gray-200 dark:border-gray-700 relative overflow-hidden">
         <div
-          className={`absolute top-0 left-0 w-full h-1.5 bg-linear-to-r ${testimonial.color}`}
+          className={`absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r ${testimonial.color}`}
         ></div>
 
         <div className="flex items-center justify-between mb-4">
@@ -308,7 +308,7 @@ export function TestimonialsMarquee() {
   };
 
   return (
-    <section id="testimonials" className="py-20 bg-linear-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 overflow-hidden">
+    <section id="testimonials" className="py-20 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 overflow-hidden">
       <div className="mb-12 text-center">
         <h2 className="text-3xl md:text-4xl mb-4 text-foreground dark:text-white">
           Client Testimonials
@@ -316,7 +316,7 @@ export function TestimonialsMarquee() {
         <p className="text-muted-foreground dark:text-gray-400 max-w-2xl mx-auto px-4">
           Trusted by companies worldwide - see what clients say about working with me
         </p>
-        <div className="w-20 h-1 bg-linear-to-r from-yellow-500 to-pink-500 mx-auto mt-4"></div>
+        <div className="w-20 h-1 bg-gradient-to-r from-yellow-500 to-pink-500 mx-auto mt-4"></div>
       </div>
 
       <div className="space-y-8">
@@ -352,7 +352,7 @@ export function TestimonialsMarquee() {
       </div>
 
       <div className="text-center mt-12">
-        <button className="px-8 py-3 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-full hover:shadow-lg hover:shadow-purple-500/50 transition-all hover:scale-105">
+        <button className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full hover:shadow-lg hover:shadow-purple-500/50 transition-all hover:scale-105">
           Read All Reviews
         </button>
       </div>
@@ -377,11 +377,11 @@ export function TestimonialsMarquee() {
         }
 
         .animate-marquee-rtl {
-          animation: marquee-rtl 40s linear infinite;
+          animation: marquee-rtl 40s gradient infinite;
         }
 
         .animate-marquee-ltr {
-          animation: marquee-ltr 40s linear infinite;
+          animation: marquee-ltr 40s gradient infinite;
         }
 
         .animate-marquee-rtl:hover,

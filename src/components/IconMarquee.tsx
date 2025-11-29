@@ -123,7 +123,7 @@ export function IconMarquee() {
   return (
     <section
       id="icon-marquee-section"
-      className="py-20 bg-linear-to-b from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 text-foreground dark:text-white overflow-hidden"
+      className="py-20 bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 text-foreground dark:text-white overflow-hidden"
     >
       {/* ======= Heading ======= */}
       <div className="container mx-auto px-4 text-center mb-12">
@@ -134,11 +134,11 @@ export function IconMarquee() {
         >
           <h2 className="text-4xl font-bold md:text-5xl mb-4">Expertise Across</h2>
           <h3 className="text-3xl md:text-4xl mb-4">
-            <span className="text-transparent font-medium bg-clip-text bg-linear-to-r from-purple-400 via-pink-400 to-yellow-400">
+            <span className="text-transparent font-medium bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400">
               Diverse Platforms
             </span>{" "}
             <span className="text-3xl md:text-4xl mb-6">
-              &<span className="text-transparent font-medium bg-clip-text bg-linear-to-r from-cyan-400 to-blue-400">
+              &<span className="text-transparent font-medium bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
                 {" "}
                 Development Tools
               </span>
@@ -198,10 +198,10 @@ export function IconMarquee() {
           }
         }
         .animate-marquee-rtl {
-          animation: marquee-rtl 30s linear infinite;
+          animation: marquee-rtl 30s gradient infinite;
         }
         .animate-marquee-ltr {
-          animation: marquee-ltr 30s linear infinite;
+          animation: marquee-ltr 30s gradient infinite;
         }
         /* Slightly faster animation on mobile */
         @media (max-width: 768px) {

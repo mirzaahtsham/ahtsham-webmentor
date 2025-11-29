@@ -55,15 +55,15 @@ export function HeaderWithMegaMenu() {
           }`}
       >
         <div className={`transition-all duration-300 ${isScrolled
-          ? "mx-auto max-w-4xl bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-xl rounded-2xl border border-gray-500 dark:border-gray-800"
+          ? "mx-auto max-w-4xl bg-gray-900/95 dark:bg-gray-100/95 backdrop-blur-lg shadow-xl rounded-2xl border border-gray-500 dark:border-gray-800"
           : "bg-transparent backdrop-blur-none shadow-none border-b border-transparent"
           }`}>
           <div className={`container mx-auto px-6 transition-all duration-500 ${isScrolled ? "py-4" : "py-3"}`}>
             <div className="flex items-center justify-between">
               {/* Logo */}
-              <div className="text-foreground dark:text-white">
+              <div className="text-gray-300 dark:text-white">
                 <span className={`transition-all duration-500 ${isScrolled ? "text-lg" : "text-xl"}`}>
-                  <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-pink-400">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 dark:from-purple-400 dark:to-pink-400 font-bold">
                     Mirza
                   </span>{" "}
                   Ahtsham
@@ -177,7 +177,7 @@ export function HeaderWithMegaMenu() {
                         </div> */}
 
                         {/* Featured Card */}
-                        {/* <div className="bg-linear-to-br from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 rounded-xl p-4 border border-purple-200 dark:border-purple-800">
+                        {/* <div className="bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 rounded-xl p-4 border border-purple-200 dark:border-purple-800">
                           <div className="mb-3">
                             <ImageWithFallback
                               src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400"
@@ -196,7 +196,7 @@ export function HeaderWithMegaMenu() {
                               setActiveMenu(null);
                               setIsModalOpen(true);
                             }}
-                            className="w-full px-3 py-2 bg-linear-to-r from-purple-600 to-pink-600 text-white text-xs rounded-lg hover:shadow-lg transition-all"
+                            className="w-full px-3 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs rounded-lg hover:shadow-lg transition-all"
                           >
                             Get Consultation
                           </button>
@@ -226,7 +226,7 @@ export function HeaderWithMegaMenu() {
 
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className={`bg-linear-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-lg transition-all duration-300 ${isScrolled ? "px-4 py-1.5 text-sm" : "px-6 py-2"
+                  className={`bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-lg transition-all duration-300 ${isScrolled ? "px-4 py-1.5 text-sm" : "px-6 py-2"
                     }`}
                 >
                   Hire Me
@@ -290,7 +290,7 @@ export function HeaderWithMegaMenu() {
                       setIsMobileMenuOpen(false);
                       setIsModalOpen(true);
                     }}
-                    className="px-6 py-2 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-lg transition-all mt-2"
+                    className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg transition-all mt-2"
                   >
                     Hire Me
                   </button>

@@ -62,7 +62,7 @@ export function Hero() {
 }
 
   return (
-    <section className="min-h-screen pt-32 pb-20 bg-linear-to-br from-gray-200 to-gray-400 dark:from-gray-900 dark:to-gray-900 text-white flex items-center justify-center relative overflow-hidden">
+    <section className="min-h-screen pt-32 pb-20 bg-gradient-to-br from-gray-200 to-gray-400 dark:from-gray-900 dark:to-gray-900 text-white flex items-center justify-center relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-20 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
@@ -83,10 +83,10 @@ export function Hero() {
           </div>
           
 
-          <h1 className="text-5xl md:text-7xl mb-6">
-            Web Designer & <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-pink-400 font-bold">Developer</span>
+          <h1 className="text-5xl md:text-7xl mb-6 text-gray-900 font-medium dark:text-gray-100">
+            Web Designer & <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">Developer</span>
             <br />
-            | <span className="text-transparent leading-relaxed font-medium bg-clip-text bg-linear-to-r from-yellow-400 to-orange-400"> Content Creator</span>
+            | <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-400 leading-tight"> Content Creator</span>
           </h1>
 
           <p className="text-gray-900 mb-8 max-w-2xl mx-auto">
@@ -123,7 +123,7 @@ export function Hero() {
           <div className="mb-12">
             <div className="relative max-w-md mx-auto">
               <div className="overflow-hidden rounded-xl">
-                <div className={`bg-linear-to-r ${slides[currentSlide].color} p-8 transition-all duration-500 transform hover:scale-105`}>
+                <div className={`bg-gradient-to-r ${slides[currentSlide].color} p-8 transition-all duration-500 transform hover:scale-105`}>
                   <div className="text-6xl mb-4">{slides[currentSlide].icon}</div>
                   <h3 className="text-2xl text-white">{slides[currentSlide].title}</h3>
                 </div>
@@ -171,7 +171,7 @@ export function Hero() {
               mirza-ahtsham.portfolio
             </div>
           </div>
-          <div className="bg-linear-to-br from-purple-600 to-blue-600 h-64 rounded-b-lg flex items-center justify-center">
+          <div className="bg-gradient-to-br from-purple-600 to-blue-600 h-64 rounded-b-lg flex items-center justify-center">
             <div className="text-center">
               <div className="text-6xl mb-4">💼</div>
               <p className="text-white">Crafting Digital Excellence</p>
