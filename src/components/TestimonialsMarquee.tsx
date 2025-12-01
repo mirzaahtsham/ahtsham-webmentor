@@ -429,24 +429,58 @@ export function TestimonialsMarquee() {
           }),
         }}
       /> */}
-       {/* existing JSX */}
-    <JsonLd
-  data={{
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    itemListElement: allTestimonials.map((t: Testimonial, i: number) => ({
-      "@type": "Review",
-      position: i + 1,
-      author: t.name,
-      reviewBody: t.text, // ✅ FIXED
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: t.rating || 5,
-        bestRating: 5,
-      },
-    })),
-  }}
-/>
+      {/* existing JSX */}
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "Web Design & Development Services",
+          "description": "Professional web design and development services including Next.js, WordPress, Shopify, UI/UX design, SEO optimization, and modern web solutions by Mirza Ahtsham.",
+          "brand": {
+            "@type": "Brand",
+            "name": "AWM - Ahtsham Web Mentor"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "USD",
+            "lowPrice": "500",
+            "highPrice": "5000"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": (
+              allTestimonials.reduce((sum, item) => sum + item.rating, 0) /
+              allTestimonials.length
+            ).toFixed(1),
+            "reviewCount": allTestimonials.length,
+            "bestRating": "5",
+            "worstRating": "1"
+          },
+          "review": allTestimonials.map((item) => ({
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": item.name
+            },
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": item.rating,
+              "bestRating": "5"
+            },
+            "reviewBody": item.text,
+            "datePublished": "2024-12-01",
+            "itemReviewed": {
+              "@type": "Service",
+              "name": "Web Design & Development Services",
+              "description": "Professional web design and development services",
+              "provider": {
+                "@type": "Person",
+                "name": "Mirza Muhammad Ahtsham"
+              }
+            }
+          }))
+        }}
+      />
 
     </section>
   );

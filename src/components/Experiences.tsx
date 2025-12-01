@@ -84,7 +84,7 @@ export function WorkExperience() {
     {
       id: "1",
       company: "Medmax Technologies LLC",
-      logo: "/Company Icon/Medmax-Icon.webp",
+      logo: "/company-icon/Medmax-Icon.webp",
       logoIcon: Rocket,
       startDate: "2023-01-01",
       duration: "Lahore Pakistan",
@@ -148,7 +148,7 @@ export function WorkExperience() {
     {
       id: "2",
       company: "Ahtsham.me",
-      logo: "/Company Icon/ahtsham-logo.webp",
+      logo: "/company-icon/ahtsham-logo.webp",
       logoIcon: GraduationCap,
       startDate: "2018-01-01",
       duration: "Full time Remote",
@@ -162,7 +162,7 @@ export function WorkExperience() {
     {
       id: "3",
       company: "Learn With Ahtsham",
-      logo: "/Company Icon/Learn-with-Ahtsham-Icon.webp",
+      logo: "/company-icon/Learn-with-Ahtsham-Icon.webp",
       logoIcon: UserCircle,
       startDate: "2023-01-01",
       duration: "Pakistan",
@@ -284,9 +284,8 @@ export function WorkExperience() {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-3 md:px-5 py-2 rounded-full text-xs md:text-sm transition-all duration-300 ${
-                activeTab === tab ? "bg-yellow-500 text-white" : "bg-gray-900/80 text-gray-200 hover:bg-gray-700/80"
-              }`}
+              className={`px-3 md:px-5 py-2 rounded-full text-xs md:text-sm transition-all duration-300 ${activeTab === tab ? "bg-yellow-500 text-white" : "bg-gray-900/80 text-gray-200 hover:bg-gray-700/80"
+                }`}
             >
               {tab}
             </button>
@@ -308,13 +307,17 @@ export function WorkExperience() {
                     <div className="flex flex-col sm:flex-row items-start justify-between mb-4 gap-3 md:gap-4">
                       <div className="flex items-start gap-2 md:gap-3 w-full sm:w-auto">
                         {/* Logo area: image URL -> show image, else icon or letter */}
-                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg overflow-hidden shrink-0 border border-gray-700/40 bg-gray-800/50">
-                          {exp.logo && exp.logo.startsWith("http") ? (
-                            <ImageWithFallback src={exp.logo} alt={exp.company} className="w-full h-full object-cover" />
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg overflow-hidden shrink-0 border border-gray-700/40 bg-gradient-to-r from-purple-400/50 to-pink-400/50 dark:from-purple-400/50 dark:to-pink-400/50">
+                          {exp.logo ? (
+                            <ImageWithFallback
+                              src={exp.logo}
+                              alt={exp.company}
+                              className="w-full h-full object-cover"
+                            />
                           ) : exp.logoIcon ? (
                             <exp.logoIcon className="w-5 h-5 md:w-6 md:h-6 text-white" />
                           ) : (
-                            <span className="text-white text-lg font-semibold">{exp.logo}</span>
+                            <span className="text-white text-lg font-semibold">{exp.company[0]}</span>
                           )}
                         </div>
 

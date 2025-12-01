@@ -55,19 +55,22 @@ export function HeaderWithMegaMenu() {
           }`}
       >
         <div className={`transition-all duration-300 ${isScrolled
-          ? "mx-auto max-w-4xl bg-gray-900/75 dark:bg-gray-100/85 backdrop-blur-lg shadow-xl rounded-2xl border border-gray-500 dark:border-gray-800"
+          ? "mx-auto max-w-4xl bg-gray-900/65 dark:bg-gray-100/65 backdrop-blur-lg shadow-xl rounded-2xl border border-gray-500 dark:border-gray-800"
           : "bg-transparent backdrop-blur-none shadow-none border-b border-transparent"
           }`}>
           <div className={`container mx-auto px-6 transition-all duration-500 ${isScrolled ? "py-4" : "py-3"}`}>
             <div className="flex items-center justify-between">
               {/* Logo */}
               <div className="text-gray-300 dark:text-white">
-                <span className={`transition-all duration-500 ${isScrolled ? "text-lg" : "text-xl"}`}>
+                <Link
+                href="/">
+                  <span className={`transition-all duration-500 ${isScrolled ? "text-lg" : "text-xl"}`}>
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 dark:from-purple-400 dark:to-pink-400 font-bold">
                     Mirza
                   </span>{" "}
                   Ahtsham
                 </span>
+                </Link>
               </div>
 
               {/* Desktop Navigation */}
