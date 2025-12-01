@@ -76,7 +76,7 @@ export function Linktree() {
       url: "#",
       iconBg: "bg-green-600"
     },
-    
+
   ];
 
   const socialMedia: LinkItem[] = [
@@ -178,21 +178,21 @@ export function Linktree() {
       iconBg: "bg-orange-600"
     },
     {
-    // ✅ Correct way to load external image
-    icon: (
-      <Image
-        src="https://www.tawk.to/wp-content/uploads/2020/04/tawk-sitelogo.png"
-        alt="Tawk.to"
-        width={20}
-        height={20}
-        className="rounded-sm"
-      />
-    ),
-    title: "Tawk.to",
-    description: "Free Live Chat for Your Website",
-    url: "https://www.tawk.to/?pid=x1fqs0v",
-    iconBg: "bg-white/5",
-  },
+      // ✅ Correct way to load external image
+      icon: (
+        <Image
+          src="https://www.tawk.to/wp-content/uploads/2020/04/tawk-sitelogo.png"
+          alt="Tawk.to"
+          width={20}
+          height={20}
+          className="rounded-sm"
+        />
+      ),
+      title: "Tawk.to",
+      description: "Free Live Chat for Your Website",
+      url: "https://www.tawk.to/?pid=x1fqs0v",
+      iconBg: "bg-white/5",
+    },
     {
       icon: <SiPayoneer className="w-4 h-4" />,
       title: "Payoneer",
@@ -287,8 +287,8 @@ export function Linktree() {
   const opensource: LinkItem[] = [
     {
       icon: <SiCodepen className="w-6 h-6" />,
-      title: "Discord",
-      description: "Join our Developer Community",
+      title: "Code Pen",
+      description: "Find my open-source projects & pens",
       url: "https://codepen.io/Mirza-Muhammad-Ahtsham",
       iconBg: "bg-gray-800"
     },
@@ -313,7 +313,7 @@ export function Linktree() {
     //   url: "https://www.reddit.com/user/mirzaahtsham/",
     //   iconBg: "bg-orange-600"
     // },
-    
+
   ];
 
   const contact: LinkItem[] = [
@@ -321,8 +321,9 @@ export function Linktree() {
       icon: <SiWhatsapp className="w-4 h-4" />,
       title: "WhatsApp",
       description: "Direct Message",
-      url: "#",
-      iconBg: "bg-green-600"
+      url: "https://wa.me/923464784039?text=Welcome%20to%20our%20store!%20If%20you%20have%20any%20questions%20or%20need%20assistance%20with%20buying%20a%20product,%20please%20let%20us%20know.",
+      iconBg: "bg-green-600",
+      // target="_blank"
     },
     {
       icon: <Mail className="w-4 h-4" />,
@@ -365,6 +366,8 @@ export function Linktree() {
   const LinkCard = ({ item, size = "large" }: { item: LinkItem; size?: "large" | "small" }) => (
     <a
       href={item.url}
+      target="_blank"
+      rel="noopener noreferrer"
       className={`flex items-center gap-4 bg-gray-300/50 backdrop-blur-sm rounded-xl p-4 border border-gray-700 hover:border-gray-800 hover:bg-gray-800 hover:text-gray-100 transition-all duration-300 group ${size === "small" ? 'min-h-[70px]' : 'min-h-20'
         }`}
     >
@@ -500,8 +503,8 @@ export function Linktree() {
             Ahtsham&#39;s Toolkit
           </h2>
           <p className="text-xs text-gray-500 mb-4">
-          Recommended tools and platforms I personally use and trust — affiliate links included.
-        </p>
+            Recommended tools and platforms I personally use and trust — affiliate links included.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {affiliate.map((item, index) => (
               <LinkCard key={index} item={item} size="small" />

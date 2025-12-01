@@ -444,7 +444,8 @@ export function TestimonialsMarquee() {
             "@type": "AggregateOffer",
             "priceCurrency": "USD",
             "lowPrice": "500",
-            "highPrice": "5000"
+            "highPrice": "5000",
+            "offerCount": allTestimonials.length
           },
           "aggregateRating": {
             "@type": "AggregateRating",
