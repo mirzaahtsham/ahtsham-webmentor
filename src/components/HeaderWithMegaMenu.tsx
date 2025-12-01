@@ -55,7 +55,7 @@ export function HeaderWithMegaMenu() {
           }`}
       >
         <div className={`transition-all duration-300 ${isScrolled
-          ? "mx-auto max-w-4xl bg-gray-900/95 dark:bg-gray-100/95 backdrop-blur-lg shadow-xl rounded-2xl border border-gray-500 dark:border-gray-800"
+          ? "mx-auto max-w-4xl bg-gray-900/75 dark:bg-gray-100/85 backdrop-blur-lg shadow-xl rounded-2xl border border-gray-500 dark:border-gray-800"
           : "bg-transparent backdrop-blur-none shadow-none border-b border-transparent"
           }`}>
           <div className={`container mx-auto px-6 transition-all duration-500 ${isScrolled ? "py-4" : "py-3"}`}>
