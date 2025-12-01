@@ -16,6 +16,7 @@ interface Testimonial {
   color: string;
   platform: "linkedin" | "google" | "fiverr" | "upwork";
   country?: string;
+  date: string;
 }
 const getFlagImage = (country: string | undefined) => {
   if (!country) return null;
@@ -47,7 +48,8 @@ export function TestimonialsMarquee() {
       text: "Mirza delivered exceptional work on our web platform. His attention to detail and technical expertise exceeded our expectations.",
       color: "from-purple-600 to-blue-600",
       platform: "linkedin",
-      country: "Pakistan"
+      country: "Pakistan",
+      date: "2023-08-15"
     },
     {
       name: "Reyan Iqbal",
@@ -57,7 +59,8 @@ export function TestimonialsMarquee() {
       text: "Working with Mirza was a game-changer for our project. His creative solutions and professional approach made all the difference.",
       color: "from-pink-600 to-purple-600",
       platform: "google",
-      country: "Pakistan"
+      country: "Pakistan",
+      date: "2023-08-15"
     },
     {
       name: "Rashida Ahtsham",
@@ -67,7 +70,8 @@ export function TestimonialsMarquee() {
       text: "Mirza's expertise in both development and content creation is unmatched. He transformed our vision into reality beautifully.",
       color: "from-yellow-600 to-orange-600",
       platform: "fiverr",
-      country: "Pakistan"
+      country: "Pakistan",
+      date: "2023-08-15"
     },
     {
       name: "robson110",
@@ -77,7 +81,8 @@ export function TestimonialsMarquee() {
       text: "he is doing everything very professional and cleanly. I highly recommend him to everyone who is looking for a web developer.",
       color: "from-green-600 to-teal-600",
       platform: "fiverr",
-      country: "Germany"
+      country: "Germany",
+      date: "2023-08-15"
     },
   ];
 
@@ -91,7 +96,8 @@ export function TestimonialsMarquee() {
       text: "Outstanding full-stack developer. Mirza's code is clean, efficient, and scalable. Highly recommended for any project.",
       color: "from-indigo-600 to-purple-600",
       platform: "linkedin",
-      country: "Pakistan"
+      country: "Pakistan",
+      date: "2023-08-15"
     },
     {
       name: "Karen Miller",
@@ -101,7 +107,8 @@ export function TestimonialsMarquee() {
       text: "Seller went above and beyond to help me with my Wordpress website, including teaching me some basics. Thank you!",
       color: "from-cyan-600 to-blue-600",
       platform: "fiverr",
-      country: "USA"
+      country: "USA",
+      date: "2023-08-15"
     },
     {
       name: "brucedelphineca",
@@ -111,7 +118,8 @@ export function TestimonialsMarquee() {
       text: "Thx you for you working I am very happy ! I recommend Mirza he takes his time to understand and does a good job. Thx thx you",
       color: "from-orange-600 to-red-600",
       platform: "fiverr",
-      country: "USA"
+      country: "USA",
+      date: "2023-08-15"
     },
     {
       name: "Sumaira Khan",
@@ -121,7 +129,8 @@ export function TestimonialsMarquee() {
       text: "He provide best services I had good experience with him I will definitely contact with him again for digital services for my business",
       color: "from-pink-600 to-purple-600",
       platform: "google",
-      country: "Pakistan"
+      country: "Pakistan",
+      date: "2023-08-15"
     },
   ];
 
@@ -135,7 +144,8 @@ export function TestimonialsMarquee() {
       text: "We love working with Ahtsham. We're repeat customers and we'll hire him again in a few weeks to make some updates to the website he built. I recommend Ahtsham without reservation.",
       color: "from-purple-600 to-pink-600",
       platform: "google",
-      country: "Pakistan"
+      country: "Pakistan",
+      date: "2023-08-15"
     },
     {
       name: "Rehman Haider",
@@ -145,7 +155,8 @@ export function TestimonialsMarquee() {
       text: "Incredible developer! Mirza built our entire platform from scratch and delivered ahead of schedule with outstanding quality.",
       color: "from-blue-600 to-cyan-600",
       platform: "linkedin",
-      country: "Pakistan"
+      country: "Pakistan",
+      date: "2023-08-15"
     },
     {
       name: "Alex Johnson",
@@ -155,7 +166,8 @@ export function TestimonialsMarquee() {
       text: "Very good experience and used him twice for my website never disappointed professional approach and quick response will recommend and will use him again Happy with final product Thanks",
       color: "from-red-600 to-pink-600",
       platform: "fiverr",
-      country: "USA"
+      country: "USA",
+      date: "2023-08-15"
     },
     // {
     //   name: "Nina Patel",
@@ -175,7 +187,8 @@ export function TestimonialsMarquee() {
       text: "I had the pleasure of working with Ahtsham for multiple Shopify store developments. He is an extremely dedicated and professional web developer and designer. Ahtsham approaches every project with full commitment and demonstrates excellent professionalism in his work. His communication is clear, timely, and effective, making collaboration smooth and efficient. I highly recommend Ahtsham for anyone looking for top-notch web development services.",
       color: "from-yellow-600 to-orange-600",
       platform: "linkedin",
-      country: "Pakistan"
+      country: "Pakistan",
+      date: "2023-08-15"
     },
   ];
   // ✅ ADD THIS RIGHT HERE
@@ -377,11 +390,11 @@ export function TestimonialsMarquee() {
         }
 
         .animate-marquee-rtl {
-          animation: marquee-rtl 40s gradient infinite;
+          animation: marquee-rtl 40s linear infinite;
         }
 
         .animate-marquee-ltr {
-          animation: marquee-ltr 40s gradient infinite;
+          animation: marquee-ltr 40s linear infinite;
         }
 
         .animate-marquee-rtl:hover,

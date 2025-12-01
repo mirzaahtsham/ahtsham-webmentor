@@ -20,19 +20,19 @@ export function IconMarquee() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-  const observer = new IntersectionObserver(
-    (entries) => entries.forEach((e) => e.isIntersecting && setIsVisible(true)),
-    { threshold: 0.1 }
-  );
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && setIsVisible(true)),
+      { threshold: 0.1 }
+    );
 
-  const el = document.getElementById("icon-marquee-section");
-  if (el) observer.observe(el);
+    const el = document.getElementById("icon-marquee-section");
+    if (el) observer.observe(el);
 
-  // ✅ Proper cleanup
-  return () => {
-    if (el) observer.unobserve(el);
-  };
-}, []);
+    // ✅ Proper cleanup
+    return () => {
+      if (el) observer.unobserve(el);
+    };
+  }, []);
 
 
   // ====== GROUPED ICONS (organized) ======
@@ -81,7 +81,7 @@ export function IconMarquee() {
     { file: "logos-figma.svg" },
     // { file: "Wordpress.svg" },
   ];
-  
+
   const infraAndPlatforms: IconItem[] = [
     { file: "Vercel.svg" },
     { file: "logos-netlify-icon.svg" },
@@ -96,7 +96,7 @@ export function IconMarquee() {
     // { file: "AWS.svg" },
     // { file: "logos-youtube.svg" },
   ];
-  
+
   const toolsAndSecurity: IconItem[] = [
     { file: "logos-hcaptcha-icon.svg" },
     { file: "logos-recaptcha.svg" },
@@ -198,10 +198,10 @@ export function IconMarquee() {
           }
         }
         .animate-marquee-rtl {
-          animation: marquee-rtl 30s gradient infinite;
+          animation: marquee-rtl 30s linear infinite;
         }
         .animate-marquee-ltr {
-          animation: marquee-ltr 30s gradient infinite;
+          animation: marquee-ltr 30s linear infinite;
         }
         /* Slightly faster animation on mobile */
         @media (max-width: 768px) {
@@ -216,6 +216,10 @@ export function IconMarquee() {
         .animate-marquee-ltr:hover {
           animation-play-state: paused;
         }
+          animate-marquee-rtl,
+          .animate-marquee-ltr {
+          will-change: transform;
+          }
       `}</style>
     </section>
   );
