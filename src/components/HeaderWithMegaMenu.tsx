@@ -213,7 +213,7 @@ export function HeaderWithMegaMenu() {
                   href="/ahtsham-connect"
                   className="text-gray-900 dark:text-gray-300 hover:text-gray-100 dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
                 >
-                  Ahtsham Connect
+                  Connect
                 </Link>
                 <Link
                   href="/schedule"

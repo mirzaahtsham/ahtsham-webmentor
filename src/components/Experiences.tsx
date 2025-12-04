@@ -490,7 +490,7 @@ export function WorkExperience() {
         .marquee-content {
           display: flex;
           gap: 0.75rem;
-          animation: marquee 30s gradient infinite;
+          animation: marquee 30s linear infinite;
         }
 
         @media (min-width: 768px) {

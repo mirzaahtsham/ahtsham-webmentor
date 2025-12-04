@@ -30,7 +30,7 @@ export function Footer() {
   return (
     <footer className="bg-gray-900 dark:bg-gray-950 text-white py-12 border-t border-gray-800">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-7 gap-8 mb-12">
+        <div className="mx-auto grid grid-cols-1 lg:grid-cols-7 md:grid-cols-3 sm:grid-cols-2 gap-8 mb-12">
           {/* Column 1 - Brand/Profile */}
           <div className="lg:col-span-2">
             <h3 className="text-xl mb-4">
