@@ -362,28 +362,28 @@ export function Linktree() {
     }
   ];
   const currentYear = new Date().getFullYear();
-  const professionalYears = currentYear - 2015;
+  const professionalYears = currentYear - 2017;
   const LinkCard = ({ item, size = "large" }: { item: LinkItem; size?: "large" | "small" }) => (
     <a
       href={item.url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`flex items-center gap-4 bg-gray-300/50 backdrop-blur-sm rounded-xl p-4 border border-gray-700 hover:border-gray-800 hover:bg-gray-800 hover:text-gray-100 transition-all duration-300 group ${size === "small" ? 'min-h-[70px]' : 'min-h-20'
+      className={`flex items-center gap-4 bg-zinc-800 backdrop-blur-sm rounded-xl p-4 border border-gray-700 hover:border-gray-800 hover:bg-gray-800 text-gray-100 transition-colors hover:scale-105 transform duration-300 group ${size === "small" ? 'min-h-[70px]' : 'min-h-20'
         }`}
     >
       <div className={`${item.iconBg} ${size === 'large' ? 'w-12 h-12' : 'w-10 h-10'} rounded-lg flex items-center justify-center text-white shrink-0`}>
         {item.icon}
       </div>
       <div className="flex-1 min-w-0">
-        <h3 className={`text-grey-700 ${size === 'large' ? 'text-base' : 'text-sm'} mb-0.5`}>{item.title}</h3>
-        <p className={`text-gray-600 ${size === 'large' ? 'text-sm' : 'text-xs'} truncate`}>{item.description}</p>
+        <h3 className={`text-grey-700 font-medium ${size === 'large' ? 'text-base' : 'text-sm'} mb-0.5`}>{item.title}</h3>
+        <p className={`text-gray-300 ${size === 'large' ? 'text-sm' : 'text-xs'} truncate`}>{item.description}</p>
       </div>
-      <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors shrink-0" />
+      <ExternalLink className="w-5 h-5 text-gray-200 transition-colors shrink-0" />
     </a>
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-200">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-950">
       {/* Header */}
       {/* <header className="border-b border-gray-800 bg-gray-900/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -422,12 +422,12 @@ export function Linktree() {
             />
           </div>
 
-          <h1 className="text-2xl text-gray-700 font-bold mb-2">Mirza Ahtsham</h1>
-          <p className="text-gray-400 text-sm mb-3">
+          <h1 className="text-2xl text-gray-100 font-bold mb-2">Mirza Ahtsham</h1>
+          <p className="text-gray-200 text-sm mb-3">
             Designer, Developer & Trainer - Ahtsham Web Mentor
           </p>
 
-          <div className="flex items-center justify-center gap-4 text-xs text-gray-500 mb-3">
+          <div className="flex items-center justify-center gap-4 text-xs text-gray-300 mb-3">
             <div className="flex items-center gap-1">
               <MapPin className="w-3 h-3" />
               <span>Lahore, Dubai & Toronto</span>
@@ -446,7 +446,7 @@ export function Linktree() {
 
         {/* Main Platforms */}
         <section className="mb-8">
-          <h2 className="text-gray-700 text-sm mb-4 flex items-center gap-2">
+          <h2 className="text-gray-100 text-sm mb-4 flex items-center gap-2">
             <Users className="w-4 h-4" />
             Main Platforms
           </h2>
@@ -459,7 +459,7 @@ export function Linktree() {
 
         {/* Social Media */}
         <section className="mb-8">
-          <h2 className="text-gray-700 text-sm mb-4 flex items-center gap-2">
+          <h2 className="text-gray-100 text-sm mb-4 flex items-center gap-2">
             <Send className="w-4 h-4" />
             Social Media
           </h2>
@@ -472,7 +472,7 @@ export function Linktree() {
 
         {/* My Writings & Tutorials */}
         <section className="mb-8">
-          <h2 className="text-gray-700 text-sm mb-4 flex items-center gap-2">
+          <h2 className="text-gray-100 text-sm mb-4 flex items-center gap-2">
             <Users className="w-4 h-4" />
             My Writings
           </h2>
@@ -485,7 +485,7 @@ export function Linktree() {
 
         {/* Video Tutorials */}
         <section className="mb-8">
-          <h2 className="text-gray-700 text-sm mb-4 flex items-center gap-2">
+          <h2 className="text-gray-100 text-sm mb-4 flex items-center gap-2">
             <Users className="w-4 h-4" />
             Video Tutorials
           </h2>
@@ -498,11 +498,11 @@ export function Linktree() {
 
         {/* Partner Platforms */}
         <section className="mb-8">
-          <h2 className="text-gray-700 text-sm mb-1 flex items-center gap-2">
+          <h2 className="text-gray-100 text-sm mb-1 flex items-center gap-2">
             <Users className="w-4 h-4" />
             Ahtsham&#39;s Toolkit
           </h2>
-          <p className="text-xs text-gray-500 mb-4">
+          <p className="text-xs text-gray-200 mb-4">
             Recommended tools and platforms I personally use and trust — affiliate links included.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -514,7 +514,7 @@ export function Linktree() {
 
         {/* Community */}
         <section className="mb-8">
-          <h2 className="text-gray-700 text-sm mb-4 flex items-center gap-2">
+          <h2 className="text-gray-100 text-sm mb-4 flex items-center gap-2">
             <Users className="w-4 h-4" />
             Community & Networking
           </h2>
@@ -526,7 +526,7 @@ export function Linktree() {
         </section>
         {/* OpenSource Code */}
         <section className="mb-8">
-          <h2 className="text-gray-700 text-sm mb-4 flex items-center gap-2">
+          <h2 className="text-gray-100 text-sm mb-4 flex items-center gap-2">
             <Users className="w-4 h-4" />
             Open Source Widget Get Free Code
           </h2>
@@ -539,7 +539,7 @@ export function Linktree() {
 
         {/* Contact */}
         <section className="mb-8">
-          <h2 className="text-gray-700 text-sm mb-4 flex items-center gap-2">
+          <h2 className="text-gray-100 text-sm mb-4 flex items-center gap-2">
             <MessageCircle className="w-4 h-4" />
             Contact
           </h2>
@@ -564,7 +564,7 @@ export function Linktree() {
         </section> */}
 
         {/* Footer Note */}
-        <p className="text-center text-xs text-gray-700 mt-12 mb-8">
+        <p className="text-center text-xs text-gray-300 mt-12 mb-8">
           Follow me across all platforms to stay updated with the latest in tech, freelancing, and AI 🚀
         </p>
       </main>

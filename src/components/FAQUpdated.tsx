@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { JsonLd } from "@/components/JsonLd";
-// import { buildFaqSchema } from "@/lib/schema";
+import { buildFaqSchema } from "@/lib/schema";
 import { ContactFormModal } from "./ContactFormModal";
 import Link from "next/link";
 import {

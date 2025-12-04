@@ -19,6 +19,7 @@ import {
   SiPayoneer,
   SiNamecheap,
   SiEnvato,
+  SiMinutemailer,
 
 
 } from "react-icons/si";
@@ -29,11 +30,11 @@ export function Footer() {
   return (
     <footer className="bg-gray-900 dark:bg-gray-950 text-white py-12 border-t border-gray-800">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-6 gap-8 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-7 gap-8 mb-12">
           {/* Column 1 - Brand/Profile */}
           <div className="lg:col-span-2">
             <h3 className="text-xl mb-4">
-              <span className="text-transparent font-bold bg-clip-text bg-linear-to-r from-purple-400 to-pink-400">
+              <span className="text-gray-100 font-bold bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
                 Mirza Ahtsham
               </span>
             </h3>
@@ -173,6 +174,25 @@ export function Footer() {
                 <a href="https://www.buymeacoffee.com/invite/mirzaahtsham" target="blank" className="text-gray-400 text-sm hover:text-white transition-colors flex items-center gap-2">
                   <SiBuymeacoffee className="w-4 h-4" />
                   BMCA Invite
+                </a>
+              </li>
+            </ul>
+          </div>
+        
+          {/* Column 5 - Contact */}
+          <div>
+            <h4 className="mb-4 text-white">Contact</h4>
+            <ul className="space-y-2">
+              <li>
+                <a href="" target="blank" className="text-gray-400 text-sm hover:text-white transition-colors flex items-center gap-2">
+                  <SiWhatsapp className="w-4 h-4" />
+                  Whatsaap
+                </a>
+              </li>
+              <li>
+                <a href="mailto:hello@ahtsham.me" target="blank" className="text-gray-400 text-sm hover:text-white transition-colors flex items-center gap-2">
+                  <SiMinutemailer  className="w-4 h-4" />
+                  Email
                 </a>
               </li>
             </ul>

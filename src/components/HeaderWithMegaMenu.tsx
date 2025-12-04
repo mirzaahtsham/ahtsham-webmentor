@@ -55,7 +55,7 @@ export function HeaderWithMegaMenu() {
           }`}
       >
         <div className={`transition-all duration-300 ${isScrolled
-          ? "mx-auto max-w-4xl bg-gray-900/65 dark:bg-gray-100/65 backdrop-blur-lg shadow-xl rounded-2xl border border-gray-500 dark:border-gray-800"
+          ? "mx-auto max-w-4xl bg-gray-900/60 dark:bg-gray-100/60 backdrop-blur-lg shadow-xl rounded-2xl border border-gray-500 dark:border-gray-800"
           : "bg-transparent backdrop-blur-none shadow-none border-b border-transparent"
           }`}>
           <div className={`container mx-auto px-6 transition-all duration-500 ${isScrolled ? "py-4" : "py-3"}`}>
@@ -74,28 +74,28 @@ export function HeaderWithMegaMenu() {
               </div>
 
               {/* Desktop Navigation */}
-              <nav className="hidden md:flex items-center gap-0.5 bg-gray-200/50 dark:bg-gray-800/50 rounded-full px-3 py-1 border border-gray-400 dark:border-gray-700">
+              <nav className="hidden md:flex items-center gap-0.5 bg-gray-100/50 dark:bg-gray-800/50 rounded-full px-3 py-1 border border-gray-400 dark:border-gray-700">
                 <Link
                   href="/#about"
-                  className="text-gray-800 dark:text-gray-300 hover:text-pink-600 dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
+                  className="text-gray-900 dark:text-gray-300 hover:text-gray-100 dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
                 >
                   About
                 </Link>
                 <Link
                   href="/#experience"
-                  className="text-gray-800 dark:text-gray-300 hover:text-pink-600 dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
+                  className="text-gray-900 dark:text-gray-300 hover:text-gray-100 dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
                 >
                   Experience
                 </Link>
                 <Link
                   href="/#faq-section"
-                  className="text-gray-800 dark:text-gray-300 hover:text-pink-600 dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
+                  className="text-gray-900 dark:text-gray-300 hover:text-gray-100 dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
                 >
                   FAQ
                 </Link>
                 <Link
                   href="/services"
-                  className="text-gray-800 dark:text-gray-300 hover:text-pink-600 dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
+                  className="text-gray-900 dark:text-gray-300 hover:text-gray-100 dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
                 >
                   Services
                 </Link>
@@ -211,13 +211,13 @@ export function HeaderWithMegaMenu() {
 
                 <Link
                   href="/ahtsham-connect"
-                  className="text-gray-800 dark:text-gray-300 hover:text-pink-600 dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
+                  className="text-gray-900 dark:text-gray-300 hover:text-gray-100 dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
                 >
                   Ahtsham Connect
                 </Link>
                 <Link
                   href="/schedule"
-                  className="text-gray-800 dark:text-gray-300 hover:text-pink-600 dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
+                  className="text-gray-900 dark:text-gray-300 hover:text-gray-100 dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-accent dark:hover:bg-gray-700 text-sm transition-all duration-300"
                 >
                   Schedule
                 </Link>
@@ -260,31 +260,31 @@ export function HeaderWithMegaMenu() {
                 <nav className="flex flex-col gap-4">
                   <Link
                     href="/#about"
-                    className="text-gray-800 hover:text-pink-600 transition-colors py-2"
+                    className="text-gray-900 hover:text-gray-100 transition-colors py-2"
                   >
                     About
                   </Link>
                   <Link
                     href="/services"
-                    className="text-gray-800 hover:text-pink-600 transition-colors py-2"
+                    className="text-gray-900 hover:text-gray-100 transition-colors py-2"
                   >
                     Services
                   </Link>
                   <Link
                     href="/ahtsham-connect"
-                    className="text-gray-800 hover:text-pink-600 transition-colors py-2"
+                    className="text-gray-900 hover:text-gray-100 transition-colors py-2"
                   >
                     Ahtsham Connect
                   </Link>
                   <Link
                     href="/#testimonials"
-                    className="text-gray-800 hover:text-pink-600 transition-colors py-2"
+                    className="text-gray-900 hover:text-gray-100 transition-colors py-2"
                   >
                     Testimonials
                   </Link>
                   <Link
                     href="#faq"
-                    className="text-gray-800 hover:text-pink-600 transition-colors py-2"
+                    className="text-gray-900 hover:text-gray-100 transition-colors py-2"
                   >
                     FAQ
                   </Link>

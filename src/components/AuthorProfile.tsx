@@ -11,11 +11,11 @@ export const AuthorProfile = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       viewport={{ once: true }}
-      className="mt-20 bg-linear-to-br from-purple-50 to-white dark:from-gray-900 dark:to-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row items-center sm:items-start gap-6"
+      className="mt-20 bg-gradient-to-br from-purple-50 to-white dark:from-gray-900 dark:to-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row items-center sm:items-start gap-6"
     >
       {/* Avatar */}
       <Image
-        src="/Company Icon/ahtsham-logo.webp" // 👉 Replace with your image
+        src="/company-icon/ahtsham-logo.webp" // 👉 Replace with your image
         alt="Ahtsham Web Mentor"
         width={100}
         height={100}

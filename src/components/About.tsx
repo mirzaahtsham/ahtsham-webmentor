@@ -2,6 +2,7 @@
 import { SkillItem } from "./SkillItem";
 import { useState } from "react";
 import { Button } from "./ui/button";
+import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import {
   Dialog,
@@ -19,20 +20,20 @@ export function About() {
   const shortSkills = [
     "Shopify Store Design & Customization",
     "Modern Web Apps (Next.js & React.js)",
-    "Cloudflare Setup & Website Optimization",
-    "Email Marketing Integrations (Mailchimp)",
-    "Website Speed Optimization (WP Rocket)",
     "SEO Setup with AIOSEO & Yoast SEO",
+    "Freelancing & Client Communication",
+    "Hosting Migration & Website Maintenance",
+    "Website Speed Optimization (WP Rocket)",
   ];
 
   const allSkills = [
     "WordPress Website Design & Development (Elementor Pro, WooCommerce)",
     "Frontend Development (HTML5, CSS3, JavaScript, Tailwind CSS)",
-    "Reviews.io, Meta Pixel, and GA4 Integration",
     "Contact Form 7 & Multi-Step Form Development",
-    "Hosting Migration & Website Maintenance",
-    "Freelancing & Client Communication",
+    "Reviews.io, Meta Pixel, and GA4 Integration",
+    "Email Marketing Integrations (Mailchimp)",
     "YouTube Content Creation & Web Training",
+    "Cloudflare Setup & Website Optimization",
   ];
 
   const experience = [
@@ -42,14 +43,14 @@ export function About() {
   ];
 
   const currentYear = new Date().getFullYear();
-  const professionalYears = currentYear - 2015;
+  const professionalYears = currentYear - 2017;
 
   return (
-    <section className="py-20 bg-white dark:bg-gray-800 rounded-lg px-6 ring shadow-xl ring-gray-900/5">
+    <section className="py-20 bg-gradient-to-br from-gray-800 to-gray-900 dark:bg-gray-800 rounded-lg px-6 ring shadow-xl ring-gray-900/5">
       <div className="container mx-auto px-4">
         {/* Section Title */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl mb-4">About Me</h2>
+          <h2 className="text-4xl md:text-5xl mb-4 text-gray-100 font-bold">About Me</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto"></div>
         </div>
 
@@ -70,33 +71,33 @@ export function About() {
           <div>
             {/* Intro */}
             <div className="mb-6">
-              <h2 className="text-3xl font-bold">
+              <h2 className="text-3xl text-gray-100 font-bold">
                 Hi, I&#39;m Ahtsham —{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
                   Web Designer & Developer
                 </span>
               </h2>
-              <p className="mb-4">
+              <p className="mb-4 text-gray-100">
                 Passionate about crafting
                 <span className="text-yellow-400"> high-performance digital experiences</span>.
               </p>
-              <p className="text-muted-foreground dark:text-gray-400">
-                I&#39;m a <span className="font-medium">Web Designer and Developer</span> with nearly{" "}
-                <span className="font-medium">{professionalYears} years of experience </span>
+              <p className="text-gray-100 dark:text-gray-400">
+                I&#39;m a <span className="text-yellow-400">Web Designer and Developer</span> with nearly{" "}
+                <span className="text-yellow-400">{professionalYears}+ years of experience </span>
                 in creating high-performance, visually stunning, and conversion-focused websites using{" "}
-                <span className="font-medium">WordPress, Shopify, and modern web technologies</span>.
+                <span className="text-yellow-400">WordPress, Shopify, and modern web technologies</span>.
               </p>
-              <p className="text-muted-foreground dark:text-gray-400 mt-2">
-                I also create <span className="font-medium">web design tutorials</span> on{" "}
-                <span className="font-medium">YouTube (@mirzaahtsham)</span>, empowering students to learn{" "}
-                <span className="font-medium">Elementor, WordPress, and Shopify development</span> in Urdu and English.
+              <p className="text-gray-100 dark:text-gray-400 mt-2">
+                I also create <span className="text-yellow-400">web design tutorials</span> on{" "}
+                <span className="text-yellow-400">YouTube (@mirzaahtsham)</span>, empowering students to learn{" "}
+                <span className="text-yellow-400">Elementor, WordPress, and Shopify development</span> in Urdu and English.
               </p>
             </div>
 
             {/* Skills Preview */}
             <div className="mb-8">
               <h4 className="text-xl font-bold mb-4 text-purple-400">I specialize in:</h4>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-100">
                 {shortSkills.map((skill, index) => (
                   <SkillItem key={index} text={skill} index={index} />
                 ))}
@@ -115,17 +116,17 @@ export function About() {
                     </Button>
                   </DialogTrigger>
 
-                  <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto bg-white dark:bg-gray-900 border border-purple-500/20 text-gray-900 dark:text-gray-100 rounded-xl shadow-lg transition-all duration-300">
+                  <DialogContent className="max-w-6xl max-h-[80vh] overflow-y-auto bg-gray-900 dark:bg-gray-900 border border-purple-500/20 text-gray-900 dark:text-gray-100 rounded-xl shadow-lg transition-all duration-300">
                     <DialogHeader>
                       <DialogTitle className="text-2xl font-semibold text-center text-purple-400">
                         Full Skill Set
                       </DialogTitle>
-                      <DialogDescription className="text-center text-sm text-gray-500 dark:text-gray-400">
+                      <DialogDescription className="text-center text-sm text-gray-300 dark:text-gray-400">
                         A complete list of tools, frameworks, and technologies I specialize in.
                       </DialogDescription>
                     </DialogHeader>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 py-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 py-4 text-gray-100">
                       {allSkills.map((skill, index) => (
                         <SkillItem key={index} text={skill} index={index} />
                       ))}
@@ -142,11 +143,11 @@ export function About() {
               </div>
             </div>
             <div className="mb-6">
-              <p className="text-muted-foreground dark:text-gray-400">
-                Based in <span className="font-medium">Lahore, Pakistan</span>, I work remotely with clients worldwide and am open to <span className="font-medium"></span>relocation opportunities in the <span className="font-medium">UAE, USA, or Canada</span> for full-time or long-term web development roles.
+              <p className="text-gray-100 dark:text-gray-400">
+                Based in <span className="text-yellow-400">Lahore, Pakistan</span>, I work remotely with clients worldwide and am open to relocation opportunities in the <span className="text-yellow-400">UAE, USA, or Canada</span> for full-time or long-term web development roles.
               </p>
-              <p className="text-muted-foreground dark:text-gray-400 mt-2">
-                I&#39;m passionate about <span className="font-medium">building elegant, user-friendly websites</span>, integrating the right tools for performance and marketing, and <span className="font-medium">sharing my knowledge</span> with the next generation of web developers.
+              <p className="text-gray-100 dark:text-gray-400 mt-2">
+                I&#39;m passionate about <span className="text-yellow-400">building elegant, user-friendly websites</span>, integrating the right tools for performance and marketing, and <span className="text-yellow-400">sharing my knowledge</span> with the next generation of web developers.
 
                 Let&#39;s build something amazing together!
               </p>
@@ -155,12 +156,12 @@ export function About() {
             {/* Experience */}
             {/* <div className="mb-8">
               <h4 className="text-xl mb-4 text-pink-400">Experience</h4>
-              <div className="space-y-3">
+              <div className="space-y-3 grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-100">
                 {experience.map((exp, index) => (
                   <div key={index} className="flex items-start gap-3">
                     <div className="w-2 h-2 rounded-full bg-yellow-400 mt-2 flex-shrink-0"></div>
                     <div>
-                      <div className="text-foreground dark:text-white">{exp.role}</div>
+                      <div className="text-gray-100 dark:text-white">{exp.role}</div>
                       <div className="text-muted-foreground dark:text-gray-400 text-sm">
                         {exp.company} • {exp.period}
                       </div>
@@ -172,12 +173,18 @@ export function About() {
 
             {/* Buttons */}
             <div className="flex flex-wrap gap-4">
-              <Button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900">
+              <Link
+              href="/Resume/mirza-ahtsham-resume.pdf"
+              target="_blank"
+              className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-2 py-1 rounded-md hover:scale-110 transform duration-300">
                 Download CV
-              </Button>
-              <Button variant="outline" className="border-purple-500 text-purple-400 hover:bg-purple-500/10">
-                Contact Me
-              </Button>
+              </Link>
+              <Link
+              href="/schedule"
+              // variant="outline"
+              className="px-2 py-1 rounded-md border border-purple-500 text-purple-400 hover:bg-purple-500/10 hover:scale-110 transform duration-300">
+                Schedule a Call
+              </Link>
             </div>
           </div>
         </div>

@@ -65,20 +65,20 @@ export default function ShareButtons({ url, title }: ShareButtonsProps) {
     },
     {
       name: "WhatsApp",
-      icon: <MessageCircle className="w-5 h-5" />,
+      icon: <SiWhatsapp className="w-5 h-5" />,
       href: `https://wa.me/?text=${encodedTitle}%20${encodedUrl}`,
       color: "hover:bg-green-500",
     },
-    {
-      name: "Instagram",
-      icon: <SiInstagram className="w-5 h-5" />,
-      href: "https://www.instagram.com/", // IG doesn’t support direct web sharing
-      color: "hover:bg-pink-600",
-    },
+    // {
+    //   name: "Instagram",
+    //   icon: <SiInstagram className="w-5 h-5" />,
+    //   href: "https://www.instagram.com/", // IG doesn’t support direct web sharing
+    //   color: "hover:bg-pink-600",
+    // },
   ];
 
   return (
-    <section className="w-full bg-linear-to-r from-gray-900 via-gray-800 to-gray-900 text-white py-10 px-4 mt-24">
+    <section className="w-full bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white py-10 px-4 mt-24">
       <div className="max-w-7xl mx-auto text-center space-y-6">
         <div className="flex justify-center items-center gap-2">
           <Share2 className="w-6 h-6 text-purple-400" />

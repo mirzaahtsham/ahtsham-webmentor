@@ -62,7 +62,7 @@ export default function PolicyClientPage({ params }: Props) {
   }, [policy.sections]);
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-gray-950 to-black text-gray-200">
+    <div className="min-h-screen bg-gradient-to-b from-gray-950 to-black text-gray-200">
       <HeaderWithMegaMenu />
       <main className="max-w-7xl mx-auto px-4 py-16 grid lg:grid-cols-3 gap-8">
         {/* LEFT COLUMN */}

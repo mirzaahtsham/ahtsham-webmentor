@@ -62,7 +62,7 @@ export function Hero() {
 }
 
   return (
-    <section className="min-h-screen pt-32 pb-20 bg-gradient-to-br from-gray-200 to-gray-400 dark:from-gray-900 dark:to-gray-900 text-white flex items-center justify-center relative overflow-hidden">
+    <section className="min-h-screen pt-32 pb-20 bg-gradient-to-br from-gray-800 to-gray-900 dark:from-gray-900 dark:to-gray-900 text-gray-200 flex items-center justify-center relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-20 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
@@ -83,13 +83,13 @@ export function Hero() {
           </div>
           
 
-          <h1 className="text-5xl md:text-7xl mb-6 text-gray-900 font-medium dark:text-gray-100">
+          <h1 className="text-5xl md:text-7xl mb-6 text-gray-200 font-medium dark:text-gray-100">
             Web Designer & <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">Developer</span>
             <br />
             | <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-400 leading-tight"> Content Creator</span>
           </h1>
 
-          <p className="text-gray-900 mb-8 max-w-2xl mx-auto">
+          <p className="text-gray-100 mb-8 max-w-2xl mx-auto">
             I transform ideas into exceptional digital experiences through creative development and engaging content
           </p>
 
@@ -100,7 +100,7 @@ export function Hero() {
             >
               Hire Me Now
             </Button>
-            <Button variant="outline" className="border-gray-700 text-gray-900 hover:bg-gray-900/10 hover:scale-110 transform duration-300">
+            <Button variant="outline" className="border-gray-200 bg-gray-100 text-gray-900 hover:bg-gradient-to-r from-purple-700 to-pink-700 hover:text-gray-100 hover:scale-110 transform duration-300">
               Portfolio
             </Button>
           </div>
@@ -108,13 +108,13 @@ export function Hero() {
           <ContactFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
           <div className="flex gap-6 justify-center mb-12">
-            <a href="https://github.com/mirzaahtsham/" className="text-gray-600 hover:text-gray-900 transition-colors hover:scale-110 transform duration-300">
+            <a href="https://github.com/mirzaahtsham/" className="text-gray-300 hover:text-gray-200 transition-colors hover:scale-110 transform duration-300">
               <SiGithub className="w-6 h-6" />
             </a>
-            <a href="https://www.linkedin.com/in/mirzaahtsham/" className="text-gray-600 hover:text-gray-900 transition-colors hover:scale-110 transform duration-300">
+            <a href="https://www.linkedin.com/in/mirzaahtsham/" className="text-gray-300 hover:text-gray-200 transition-colors hover:scale-110 transform duration-300">
               <SiLinkedin className="w-6 h-6" />
             </a>
-            <a href="mailto:hello@ahtsham.me" className="text-gray-600 hover:text-gray-900 transition-colors hover:scale-110 transform duration-300">
+            <a href="mailto:hello@ahtsham.me" className="text-gray-300 hover:text-gray-200 transition-colors hover:scale-110 transform duration-300">
               <Mail className="w-6 h-6" />
             </a>
           </div>
