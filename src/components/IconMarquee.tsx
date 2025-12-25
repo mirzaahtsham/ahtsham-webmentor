@@ -123,7 +123,7 @@ export function IconMarquee() {
   return (
     <section
       id="icon-marquee-section"
-      className="py-20 bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 text-foreground dark:text-white overflow-hidden"
+      className="py-20 bg-gradient-to-br from-gray-50 to-gray-100 dark:bg-gradient-to-br dark:from-gray-950 dark:to-gray-900 text-foreground dark:text-white overflow-hidden"
     >
       {/* ======= Heading ======= */}
       <div className="container mx-auto px-4 text-center mb-12">

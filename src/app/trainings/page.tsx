@@ -1,6 +1,9 @@
+"use client";
 import { Star } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { HeaderWithMegaMenu } from "@/components/HeaderWithMegaMenu";
+import { Footer } from "@/components/Footer";
 
 const trainings = [
   {
@@ -85,14 +88,15 @@ export default function TrainingsPage() {
   });
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-900 text-gray-900 dark:text-gray-100">
+        <HeaderWithMegaMenu />
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl lg:text-7xl mb-6">
-            Professional <span className="text-yellow-400">Trainings</span>
+            Professional <span className="text-yellow-400 font-bold">Trainings</span>
           </h1>
-          <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">
+          <p className="text-gray-700 dark:text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">
             Level up your skills with our expertly curated courses. From freelancing
             strategies to advanced coding techniques, we have something for everyone.
           </p>
@@ -112,7 +116,7 @@ export default function TrainingsPage() {
                   className={`px-4 py-2 rounded-lg transition-all ${
                     selectedCategory === category
                       ? "bg-yellow-400 text-black"
-                      : "bg-gray-900 text-gray-400 hover:bg-gray-800"
+                      : "bg-purple-600 dark:bg-yellow-400/30 text-gray-100 dark:text-yellow-400 hover:bg-gray-800 dark:hover:bg-yellow-400/50"
                   }`}
                 >
                   {category}
@@ -128,8 +132,8 @@ export default function TrainingsPage() {
                   onClick={() => setSelectedLevel(level)}
                   className={`px-4 py-2 rounded-lg transition-all text-sm ${
                     selectedLevel === level
-                      ? "bg-yellow-400 text-black"
-                      : "bg-gray-900 text-gray-400 hover:bg-gray-800"
+                      ? "bg-yellow-400 text-gray-950"
+                      : "bg-purple-600 dark:bg-yellow-400/30 text-gray-100 dark:text-yellow-400 hover:bg-gray-800 dark:hover:bg-yellow-400/50"
                   }`}
                 >
                   {level}
@@ -145,9 +149,10 @@ export default function TrainingsPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredTrainings.map((training) => (
-              <div
+              <Link
                 key={training.id}
-                className="bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 hover:border-yellow-400 transition-all duration-300 group"
+                href={`/trainings/${training.slug}`}
+                className="bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 hover:border-purple-600 dark:hover:border-yellow-400 transition-all duration-300 group block cursor-pointer"
               >
                 {/* Course Image */}
                 <div className="relative h-64 overflow-hidden">
@@ -158,7 +163,7 @@ export default function TrainingsPage() {
                   />
                   {/* Category Badge */}
                   <div className="absolute top-4 left-4">
-                    <span className="bg-black/80 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">
+                    <span className="bg-gray-600/50 text-gray-100 dark:text-gray-900 dark:bg-yellow-400 backdrop-blur-sm dark:text-gray px-3 py-1 rounded-full text-sm">
                       {training.category}
                     </span>
                   </div>
@@ -168,7 +173,7 @@ export default function TrainingsPage() {
                 <div className="p-6">
                   {/* Level and Rating */}
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-yellow-400 text-sm">● {training.level}</span>
+                    <span className="text-purple-600 dark:text-yellow-400 text-sm">● {training.level}</span>
                     <div className="flex items-center gap-1">
                       <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                       <span className="text-sm">{training.rating}</span>
@@ -176,30 +181,28 @@ export default function TrainingsPage() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl mb-3">{training.title}</h3>
+                  <h3 className="text-xl mb-3 group-hover:text-purple-600 dark:group-hover:text-yellow-400 transition-colors">{training.title}</h3>
 
                   {/* Description */}
-                  <p className="text-gray-400 text-sm mb-6 line-clamp-3">
+                  <p className="text-gray-700 dark:text-gray-400 text-sm mb-6 line-clamp-3">
                     {training.description}
                   </p>
 
                   {/* Price and CTA */}
                   <div className="flex items-center justify-between">
                     <span className="text-2xl">${training.price}</span>
-                    <Link
-                      href={`/training/${training.slug}`}
-                      className="text-yellow-400 hover:text-yellow-300 transition-colors flex items-center gap-2 group/link"
-                    >
+                    <span className="text-purple-500 group-hover:text-purple-600 dark:text-yellow-400 dark:group-hover:text-yellow-300 transition-colors flex items-center gap-2">
                       View Details
-                      <span className="group-hover/link:translate-x-1 transition-transform">→</span>
-                    </Link>
+                      <span className="group-hover:translate-x-1 transition-transform">→</span>
+                    </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

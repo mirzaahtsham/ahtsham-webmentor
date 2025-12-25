@@ -46,11 +46,11 @@ export function About() {
   const professionalYears = currentYear - 2017;
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-800 to-gray-900 dark:bg-gray-800 rounded-lg px-6 ring shadow-xl ring-gray-900/5">
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-950 px-6 shadow-xl">
       <div className="container mx-auto px-4">
         {/* Section Title */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl mb-4 text-gray-100 font-bold">About Me</h2>
+          <h2 className="text-4xl md:text-5xl mb-4 text-gray-900 dark:text-gray-100 font-bold">About Me</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto"></div>
         </div>
 
@@ -71,33 +71,33 @@ export function About() {
           <div>
             {/* Intro */}
             <div className="mb-6">
-              <h2 className="text-3xl text-gray-100 font-bold">
+              <h2 className="text-3xl text-gray-900 dark:text-gray-100 font-bold">
                 Hi, I&#39;m Ahtsham —{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
                   Web Designer & Developer
                 </span>
               </h2>
-              <p className="mb-4 text-gray-100">
+              <p className="mb-4 text-gray-900 dark:text-gray-100">
                 Passionate about crafting
-                <span className="text-yellow-400"> high-performance digital experiences</span>.
+                <span className="text-yellow-600 dark:text-yellow-400"> high-performance digital experiences</span>.
               </p>
-              <p className="text-gray-100 dark:text-gray-400">
-                I&#39;m a <span className="text-yellow-400">Web Designer and Developer</span> with nearly{" "}
-                <span className="text-yellow-400">{professionalYears}+ years of experience </span>
+              <p className="text-gray-900 dark:text-gray-100">
+                I&#39;m a <span className="text-yellow-600 dark:text-yellow-400">Web Designer and Developer</span> with nearly{" "}
+                <span className="text-yellow-600 dark:text-yellow-400">{professionalYears}+ years of experience </span>
                 in creating high-performance, visually stunning, and conversion-focused websites using{" "}
-                <span className="text-yellow-400">WordPress, Shopify, and modern web technologies</span>.
+                <span className="text-yellow-600 dark:text-yellow-400">WordPress, Shopify, and modern web technologies</span>.
               </p>
-              <p className="text-gray-100 dark:text-gray-400 mt-2">
-                I also create <span className="text-yellow-400">web design tutorials</span> on{" "}
-                <span className="text-yellow-400">YouTube (@mirzaahtsham)</span>, empowering students to learn{" "}
-                <span className="text-yellow-400">Elementor, WordPress, and Shopify development</span> in Urdu and English.
+              <p className="text-gray-900 dark:text-gray-100 mt-2">
+                I also create <span className="text-yellow-600 dark:text-yellow-400">web design tutorials</span> on{" "}
+                <span className="text-yellow-600 dark:text-yellow-400">YouTube (@mirzaahtsham)</span>, empowering students to learn{" "}
+                <span className="text-yellow-600 dark:text-yellow-400">Elementor, WordPress, and Shopify development</span> in Urdu and English.
               </p>
             </div>
 
             {/* Skills Preview */}
             <div className="mb-8">
               <h4 className="text-xl font-bold mb-4 text-purple-400">I specialize in:</h4>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-100">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-900 dark:text-gray-100">
                 {shortSkills.map((skill, index) => (
                   <SkillItem key={index} text={skill} index={index} />
                 ))}
@@ -116,17 +116,17 @@ export function About() {
                     </Button>
                   </DialogTrigger>
 
-                  <DialogContent className="max-w-6xl max-h-[80vh] overflow-y-auto bg-gray-900 dark:bg-gray-900 border border-purple-500/20 text-gray-900 dark:text-gray-100 rounded-xl shadow-lg transition-all duration-300">
+                  <DialogContent className="max-w-6xl max-h-[80vh] overflow-y-auto bg-gray-100 dark:bg-gray-900 border border-purple-500/20 text-gray-900 dark:text-gray-100 rounded-xl shadow-lg transition-all duration-300">
                     <DialogHeader>
-                      <DialogTitle className="text-2xl font-semibold text-center text-purple-400">
+                      <DialogTitle className="text-2xl font-semibold text-center text-purple-600">
                         Full Skill Set
                       </DialogTitle>
-                      <DialogDescription className="text-center text-sm text-gray-300 dark:text-gray-400">
+                      <DialogDescription className="text-center text-sm text-gray-900 dark:text-gray-200">
                         A complete list of tools, frameworks, and technologies I specialize in.
                       </DialogDescription>
                     </DialogHeader>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 py-4 text-gray-100">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 py-4 text-gray-900 dark:text-gray-100">
                       {allSkills.map((skill, index) => (
                         <SkillItem key={index} text={skill} index={index} />
                       ))}
@@ -134,7 +134,7 @@ export function About() {
 
                     <Button
                       onClick={() => setIsOpen(false)}
-                      className="mt-4 w-full bg-purple-600 hover:bg-purple-700 text-white"
+                      className="mt-4 w-full bg-purple-600 hover:bg-purple-700 text-gray-50 dark:text-gray-100"
                     >
                       Close
                     </Button>
@@ -143,11 +143,11 @@ export function About() {
               </div>
             </div>
             <div className="mb-6">
-              <p className="text-gray-100 dark:text-gray-400">
-                Based in <span className="text-yellow-400">Lahore, Pakistan</span>, I work remotely with clients worldwide and am open to relocation opportunities in the <span className="text-yellow-400">UAE, USA, or Canada</span> for full-time or long-term web development roles.
+              <p className="text-gray-900 dark:text-gray-100">
+                Based in <span className="text-yellow-600 dark:text-yellow-400">Lahore, Pakistan</span>, I work remotely with clients worldwide and am open to relocation opportunities in the <span className="text-yellow-600 dark:text-yellow-400">UAE, USA, or Canada</span> for full-time or long-term web development roles.
               </p>
-              <p className="text-gray-100 dark:text-gray-400 mt-2">
-                I&#39;m passionate about <span className="text-yellow-400">building elegant, user-friendly websites</span>, integrating the right tools for performance and marketing, and <span className="text-yellow-400">sharing my knowledge</span> with the next generation of web developers.
+              <p className="text-gray-900 dark:text-gray-100 mt-2">
+                I&#39;m passionate about <span className="text-yellow-600 dark:text-yellow-400">building elegant, user-friendly websites</span>, integrating the right tools for performance and marketing, and <span className="text-yellow-600 dark:text-yellow-400">sharing my knowledge</span> with the next generation of web developers.
 
                 Let&#39;s build something amazing together!
               </p>
@@ -182,7 +182,7 @@ export function About() {
               <Link
               href="/schedule"
               // variant="outline"
-              className="px-2 py-1 rounded-md border border-purple-500 text-purple-400 hover:bg-purple-500/10 hover:scale-110 transform duration-300">
+              className="px-2 py-1 rounded-md border border-purple-600 text-purple-600 hover:bg-purple-500/10 hover:scale-110 transform duration-300">
                 Schedule a Call
               </Link>
             </div>

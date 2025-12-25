@@ -114,7 +114,7 @@ export function FAQUpdated() {
   ];
 
   return (
-    <section id="faq-section" className="py-20 bg-background dark:bg-gray-900 text-foreground dark:text-white relative">
+    <section id="faq-section" className="py-20 bg-gradient-to-br from-gray-50 to-gray-100 dark:bg-gradient-to-br dark:from-gray-950 dark:to-gray-900 text-gray-900 dark:text-gray-100 relative">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
           {/* Left - Sticky Title */}
@@ -125,7 +125,7 @@ export function FAQUpdated() {
                   Frequently Asked
                 </h2>
                 <h3 className="text-4xl md:text-5xl mb-6">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 font-medium">
                     Questions
                   </span>
                 </h3>
@@ -137,7 +137,7 @@ export function FAQUpdated() {
                 If you don't find your answer here, feel free to reach out!
               </p>
 
-              <div className="p-6 bg-white dark:bg-gray-950 rounded-lg border border-gray-200 dark:border-gray-800 shadow-lg">
+              <div className="p-6 bg-gray-100 dark:bg-gray-950 rounded-lg border border-gray-200 dark:border-gray-800 shadow-lg">
                 {/* Availability Badge */}
                 <div className="mb-4 flex items-center gap-2">
                   {isAvailable ? (
@@ -151,12 +151,12 @@ export function FAQUpdated() {
                       <span>Currently Offline</span>
                     </div>
                   )}
-                  <span className="text-gray-400 text-xs">
+                  <span className="text-gray-500 dark:text-gray-400 text-xs">
                     (Mon-Fri, 9 AM - 5 PM)
                   </span>
                 </div>
                 <h4 className="text-xl mb-2">Still have questions?</h4>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
                   Can't find the answer you're looking for? Let's talk!
                 </p>
                 <button

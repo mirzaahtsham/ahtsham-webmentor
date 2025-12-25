@@ -62,18 +62,18 @@ export default function PolicyClientPage({ params }: Props) {
   }, [policy.sections]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-950 to-black text-gray-200">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:bg-gradient-to-b dark:from-gray-950 dark:to-gray-900 text-gray-200">
       <HeaderWithMegaMenu />
       <main className="max-w-7xl mx-auto px-4 py-16 grid lg:grid-cols-3 gap-8">
         {/* LEFT COLUMN */}
         <div className="lg:col-span-2 space-y-12 leading-relaxed pt-48">
           {policy.sections.map((section: PolicySection) => (
             <section id={section.id} key={section.id}>
-              <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">
+              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
                 {section.heading}
               </h2>
               <p
-                className="text-gray-400"
+                className="text-gray-800 dark:text-gray-400"
                 dangerouslySetInnerHTML={{
                   __html: String(section.content || ""),
                 }}
@@ -89,7 +89,7 @@ export default function PolicyClientPage({ params }: Props) {
         <aside className="lg:col-span-1">
           <div className="sticky top-32 space-y-6">
             <div className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-gray-800">
-              <h3 className="text-lg font-semibold mb-4 text-white">
+              <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">
                 Table of Contents
               </h3>
               <ul className="space-y-2 text-sm">
@@ -99,8 +99,8 @@ export default function PolicyClientPage({ params }: Props) {
                       href={`#${item.id}`}
                       className={`block px-3 py-1 rounded-lg transition-colors ${
                         activeSection === item.id
-                          ? "bg-purple-600/20 text-purple-400"
-                          : "text-gray-400 hover:text-white"
+                          ? "bg-gray-600/50 dark:bg-yellow-400/20 text-gray-800 dark:text-yellow-400"
+                          : "text-gray-700 dark:text-gray-400 hover:text-gray-800 hover:bg-gray-400/30 dark:hover:bg-yellow-400/10 dark:hover:text-yellow-400"
                       }`}
                     >
                       {item.heading}
@@ -111,27 +111,27 @@ export default function PolicyClientPage({ params }: Props) {
             </div>
 
             <div className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-gray-800">
-              <h3 className="text-lg font-semibold mb-3 text-white">
+              <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-gray-100">
                 Need Assistance?
               </h3>
-              <p className="text-sm text-gray-400 mb-4">
+              <p className="text-sm text-gray-700 dark:text-gray-400 mb-4">
                 Have questions about our {policy.title.toLowerCase()}?{" "}
                 <Link
                   href="/contact"
-                  className="text-purple-400 hover:text-purple-300 underline"
+                  className="text-purple-600 hover:text-purple-500 underline"
                 >
                   Contact us
                 </Link>{" "}
                 and our team will respond within 24 hours.
               </p>
               <ul className="space-y-2 text-sm">
-                <li className="flex items-center gap-2 text-gray-300">
+                <li className="flex items-center gap-2 text-gray-700 dark:text-gray-400">
                   <Check className="w-4 h-4 text-green-400" /> Transparent Policy
                 </li>
-                <li className="flex items-center gap-2 text-gray-300">
+                <li className="flex items-center gap-2 text-gray-700 dark:text-gray-400">
                   <Check className="w-4 h-4 text-green-400" /> Global Standards
                 </li>
-                <li className="flex items-center gap-2 text-gray-300">
+                <li className="flex items-center gap-2 text-gray-700 dark:text-gray-400">
                   <Check className="w-4 h-4 text-green-400" /> Updated Regularly
                 </li>
               </ul>

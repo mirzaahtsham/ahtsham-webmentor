@@ -28,28 +28,28 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 dark:bg-gray-950 text-white py-12 border-t border-gray-800">
+    <footer className="bg-gray-200 dark:bg-gray-950 py-12 border-t border-gray-800">
       <div className="container mx-auto px-4">
         <div className="mx-auto grid grid-cols-1 lg:grid-cols-7 md:grid-cols-3 sm:grid-cols-2 gap-8 mb-12">
           {/* Column 1 - Brand/Profile */}
           <div className="lg:col-span-2">
             <h3 className="text-xl mb-4">
-              <span className="text-gray-100 font-bold bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+              <span className=" font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">
                 Mirza Ahtsham
               </span>
             </h3>
-            <p className="text-gray-400 text-sm mb-4">
+            <p className="text-gray-800 dark:text-gray-300 text-sm mb-4">
               Web Designer, Developer & Trainer. With 10+ years of experience in freelancing, frontend development, and digital solutions, I craft modern, high-performing websites that empower businesses and creators worldwide.
             </p>
             
             <div className="space-y-2 mb-4">
-              <div className="flex items-center gap-2 text-gray-400 text-sm">
+              <div className="flex items-center gap-2 text-gray-800 dark:text-gray-300 text-sm">
                 <FaEnvelope className="w-4 h-4" />
-                <a href="mailto:hello@ahtsham.me" className="text-gray-400 text-sm hover:text-white transition-colors">
+                <a href="mailto:hello@ahtsham.me" className="text-gray-700 dark:text-gray-300 text-sm hover:text-gray-900 dark:hover:text-yellow-400 transition-colors">
                   hello@ahtsham.me
                 </a>
               </div>
-              <div className="flex items-center gap-2 text-gray-400 text-sm">
+              <div className="flex items-center gap-2 text-gray-800 dark:text-gray-300 text-sm">
                 <MapPin className="w-4 h-4" />
                 <span>Lahore, Dubai & Remote</span>
               </div>
@@ -58,16 +58,16 @@ export function Footer() {
 
           {/* Column 2 - Main Platforms */}
           <div>
-            <h4 className="mb-4 text-white">Main Platforms</h4>
+            <h4 className="mb-4 text-gray-900 dark:text-gray-100 sm:font-medium md:font-semibold ">Main Platforms</h4>
             <ul className="space-y-2">
               <li>
-                <a href="https://www.youtube.com/channel/UCECmARzL9NsJiDpe01t6PWw??sub_confirmation=1" className="text-gray-400 text-sm hover:text-white transition-colors flex items-center gap-2">
+                <a href="https://www.youtube.com/channel/UCECmARzL9NsJiDpe01t6PWw??sub_confirmation=1" target="_blank" className="text-gray-600 hover:text-gray-900 dark:text-gray-200 dark:hover:text-yellow-400 text-sm transition-colors hover:scale-105 flex items-center gap-2">
                   <SiYoutube className="w-4 h-4" />
                   YouTube Channel
                 </a>
               </li>
               <li>
-                <a href="https://learnwith.ahtsham.me" className="text-gray-400 text-sm hover:text-white transition-colors flex items-center gap-2">
+                <a href="https://learnwith.ahtsham.me" className="text-gray-600 hover:text-gray-900 dark:text-gray-200 dark:hover:text-yellow-400 text-sm transition-colors hover:scale-105 flex items-center gap-2">
                   <TrendingUp className="w-4 h-4" />
                   Learn With Ahtsham
                 </a>
@@ -92,28 +92,28 @@ export function Footer() {
 
           {/* Column 3 - Community */}
           <div>
-            <h4 className="mb-4 text-white">Community</h4>
+            <h4 className="mb-4 text-gray-900 dark:text-gray-100 sm:font-medium md:font-semibold">Community</h4>
             <ul className="space-y-2">
               <li>
-                <a href="https://github.com/mirzaahtsham" target="blank" className="text-gray-400 text-sm hover:text-white transition-colors flex items-center gap-2">
+                <a href="https://github.com/mirzaahtsham" target="blank" className="text-gray-600 hover:text-gray-900 dark:text-gray-200 dark:hover:text-yellow-400 text-sm transition-colors hover:scale-105 flex items-center gap-2">
                   <SiGithub className="w-4 h-4" />
                   Github
                 </a>
               </li>
               <li>
-                <a href="https://www.udemy.com/user/mirza-ahtsham/" target="blank" className="text-gray-400 text-sm hover:text-white transition-colors flex items-center gap-2">
+                <a href="https://www.udemy.com/user/mirza-ahtsham/" target="blank" className="text-gray-600 hover:text-gray-900 dark:text-gray-200 dark:hover:text-yellow-400 text-sm transition-colors hover:scale-105 flex items-center gap-2">
                   <SiUdemy className="w-4 h-4" />
                   Udemy
                 </a>
               </li>
               <li>
-                <a href="https://discord.gg/4RnpzDGv" target="blank" className="text-gray-400 text-sm hover:text-white transition-colors flex items-center gap-2">
+                <a href="https://discord.gg/4RnpzDGv" target="blank" className="text-gray-600 hover:text-gray-900 dark:text-gray-200 dark:hover:text-yellow-400 text-sm transition-colors hover:scale-105 flex items-center gap-2">
                   <SiDiscord className="w-4 h-4" />
                   Discord Server
                 </a>
               </li>
               <li>
-                <a href="https://buymeacoffee.com/mirzaahtsham/" target="blank" className="text-gray-400 text-sm hover:text-white transition-colors flex items-center gap-2">
+                <a href="https://buymeacoffee.com/mirzaahtsham/" target="blank" className="text-gray-600 hover:text-gray-900 dark:text-gray-200 dark:hover:text-yellow-400 text-sm transition-colors hover:scale-105 flex items-center gap-2">
                   <SiBuymeacoffee className="w-4 h-4" />
                   Buy Me a Coffee
                 </a>
@@ -123,25 +123,25 @@ export function Footer() {
 
           {/* Column 4 - Policies */}
           <div>
-            <h4 className="mb-4 text-white">Policies</h4>
+            <h4 className="mb-4 text-gray-900 dark:text-gray-100 sm:font-medium md:font-semibold">Policies</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/policies/privacy-policy" className="text-gray-400 text-sm hover:text-white transition-colors">
+                <Link href="/policies/privacy-policy" className="text-gray-600 hover:text-gray-900 dark:text-gray-200 dark:hover:text-yellow-400 text-sm transition-colors hover:scale-105 flex items-center gap-2">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/policies/terms-and-conditions" className="text-gray-400 text-sm hover:text-white transition-colors">
+                <Link href="/policies/terms-and-conditions" className="text-gray-600 hover:text-gray-900 dark:text-gray-200 dark:hover:text-yellow-400 text-sm transition-colors hover:scale-105 flex items-center gap-2">
                   Terms and Conditions
                 </Link>
               </li>
               <li>
-                <Link href="/policies/disclaimer" className="text-gray-400 text-sm hover:text-white transition-colors">
+                <Link href="/policies/disclaimer" className="text-gray-600 hover:text-gray-900 dark:text-gray-200 dark:hover:text-yellow-400 text-sm transition-colors hover:scale-105 flex items-center gap-2">
                   Disclaimer
                 </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 text-sm hover:text-white transition-colors">
+                <a href="#" className="text-gray-600 hover:text-gray-900 dark:text-gray-200 dark:hover:text-yellow-400 text-sm transition-colors hover:scale-105 flex items-center gap-2">
                   Help?
                 </a>
               </li>
@@ -150,28 +150,28 @@ export function Footer() {
 
           {/* Column 5 - Affiliated Links */}
           <div>
-            <h4 className="mb-4 text-white">Partner Platforms</h4>
+            <h4 className="mb-4 text-gray-900 dark:text-gray-100 sm:font-medium md:font-semibold">Partner Platforms</h4>
             <ul className="space-y-2">
               <li>
-                <a href="https://1.envato.market/R572r2" target="blank" className="text-gray-400 text-sm hover:text-white transition-colors flex items-center gap-2">
+                <a href="https://1.envato.market/R572r2" target="blank" className="text-gray-600 hover:text-gray-900 dark:text-gray-200 dark:hover:text-yellow-400 text-sm transition-colors hover:scale-105 flex items-center gap-2">
                   <SiEnvato className="w-4 h-4" />
                   Themeforest
                 </a>
               </li>
               <li>
-                <a href="https://namecheap.pxf.io/EaBbVP" target="blank" className="text-gray-400 text-sm hover:text-white transition-colors flex items-center gap-2">
+                <a href="https://namecheap.pxf.io/EaBbVP" target="blank" className="text-gray-600 hover:text-gray-900 dark:text-gray-200 dark:hover:text-yellow-400 text-sm transition-colors hover:scale-105 flex items-center gap-2">
                   <SiNamecheap className="w-4 h-4" />
                   Namecheap
                 </a>
               </li>
               <li>
-                <a href="http://share.payoneer.com/nav/pUOXZUF_URk3k2r_LSC6J4Ov-GZOhCFvmmn56njGAvzRbPVqHuEJtgmOzrcXwWxlRZOi1daUkfq-PgR20d5IyA2" target="blank" className="text-gray-400 text-sm hover:text-white transition-colors flex items-center gap-2">
+                <a href="http://share.payoneer.com/nav/pUOXZUF_URk3k2r_LSC6J4Ov-GZOhCFvmmn56njGAvzRbPVqHuEJtgmOzrcXwWxlRZOi1daUkfq-PgR20d5IyA2" target="blank" className="text-gray-600 hover:text-gray-900 dark:text-gray-200 dark:hover:text-yellow-400 text-sm transition-colors hover:scale-105 flex items-center gap-2">
                   <SiPayoneer className="w-4 h-4" />
                   Payoneer
                 </a>
               </li>
               <li>
-                <a href="https://www.buymeacoffee.com/invite/mirzaahtsham" target="blank" className="text-gray-400 text-sm hover:text-white transition-colors flex items-center gap-2">
+                <a href="https://www.buymeacoffee.com/invite/mirzaahtsham" target="blank" className="text-gray-600 hover:text-gray-900 dark:text-gray-200 dark:hover:text-yellow-400 text-sm transition-colors hover:scale-105 flex items-center gap-2">
                   <SiBuymeacoffee className="w-4 h-4" />
                   BMCA Invite
                 </a>
@@ -181,16 +181,16 @@ export function Footer() {
         
           {/* Column 5 - Contact */}
           <div>
-            <h4 className="mb-4 text-white">Contact</h4>
+            <h4 className="mb-4 text-gray-900 dark:text-gray-100 sm:font-medium md:font-semibold">Contact</h4>
             <ul className="space-y-2">
               <li>
-                <a href="" target="blank" className="text-gray-400 text-sm hover:text-white transition-colors flex items-center gap-2">
+                <a href="" target="blank" className="text-gray-600 hover:text-gray-900 dark:text-gray-200 dark:hover:text-yellow-400 text-sm transition-colors hover:scale-105 flex items-center gap-2">
                   <SiWhatsapp className="w-4 h-4" />
                   Whatsaap
                 </a>
               </li>
               <li>
-                <a href="mailto:hello@ahtsham.me" target="blank" className="text-gray-400 text-sm hover:text-white transition-colors flex items-center gap-2">
+                <a href="mailto:hello@ahtsham.me" target="blank" className="text-gray-600 hover:text-gray-900 dark:text-gray-200 dark:hover:text-yellow-400 text-sm transition-colors hover:scale-105 flex items-center gap-2">
                   <SiMinutemailer  className="w-4 h-4" />
                   Email
                 </a>
@@ -204,45 +204,45 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Social Icons */}
             <div className="flex items-center gap-3">
-              <span className="text-gray-400 text-sm mr-2">Follow me:</span>
+              <span className="text-gray-700 dark:text-gray-400 text-sm mr-2">Follow me:</span>
               <a 
                 href="https://www.youtube.com/channel/UCECmARzL9NsJiDpe01t6PWw??sub_confirmation=1" target="blank" 
-                className="text-gray-400 hover:text-white transition-colors hover:scale-125"
+                className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-yellow-400 transition-colors hover:scale-125"
                 aria-label="YouTube"
               >
                 <SiYoutube className="w-5 h-5" />
               </a>
               <a 
                 href="https://www.linkedin.com/in/mirzaahtsham/" target="blank" 
-                className="text-gray-400 hover:text-white transition-colors hover:scale-125"
+                className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-yellow-400 transition-colors hover:scale-125"
                 aria-label="LinkedIn"
               >
                 <SiLinkedin className="w-5 h-5" />
               </a>
               <a 
                 href="https://www.facebook.com/ahtshamwebdesigngenius/" target="blank" 
-                className="text-gray-400 hover:text-white transition-colors hover:scale-125"
+                className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-yellow-400 transition-colors hover:scale-125"
                 aria-label="Facebook"
               >
                 <SiFacebook className="w-5 h-5" />
               </a>
               <a 
                 href="https://www.instagram.com/WebsiteDesignGenius/" target="blank" 
-                className="text-gray-400 hover:text-white transition-colors hover:scale-125"
+                className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-yellow-400 transition-colors hover:scale-125"
                 aria-label="Instagram"
               >
                 <SiInstagram className="w-5 h-5" />
               </a>
               <a 
                 href="https://twitter.com/websdesignwala/" target="blank" 
-                className="text-gray-400 hover:text-white transition-colors hover:scale-125"
+                className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-yellow-400 transition-colors hover:scale-125"
                 aria-label="Twitter"
               >
                 <SiX className="w-5 h-5" />
               </a>
               <a 
                 href="https://www.tiktok.com/@webdesigngenius/" target="blank" 
-                className="text-gray-400 hover:text-white transition-colors hover:scale-125"
+                className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-yellow-400 transition-colors hover:scale-125"
                 aria-label="TikTok"
               >
                 <SiTiktok className="w-5 h-5" />
@@ -253,7 +253,7 @@ export function Footer() {
             </div>
 
             {/* Copyright */}
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-700 dark:text-gray-400 text-sm">
               © {currentYear} Mirza Ahtsham. All rights reserved.
             </p>
           </div>

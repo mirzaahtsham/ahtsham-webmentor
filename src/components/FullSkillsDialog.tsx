@@ -32,37 +32,52 @@ export function FullSkillsDialog() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" className="border-purple-500 text-purple-400 hover:bg-purple-500/10">
+        <Button
+          variant="outline"
+          className="border-purple-500 text-purple-400 hover:bg-purple-500/10"
+        >
           See My Full Specialization
         </Button>
       </DialogTrigger>
 
+      {/* ✅ Dialog container with controlled max height */}
       <DialogContent
-        className="max-w-3xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 
-        text-gray-900 dark:text-gray-100 rounded-xl shadow-lg transition-all duration-300"
+        className="
+          max-w-3xl
+          bg-white dark:bg-gray-900
+          border border-gray-200 dark:border-gray-700
+          text-gray-900 dark:text-gray-100
+          rounded-xl shadow-lg
+          max-h-[calc(100vh-8rem)]
+          overflow-hidden
+        "
       >
-        <DialogHeader>
-          <DialogTitle className="text-2xl font-semibold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-            Full Skill Set
-          </DialogTitle>
-          <DialogDescription className="text-sm text-gray-500 dark:text-gray-400">
-            A complete list of my technical and professional skills.
-          </DialogDescription>
-        </DialogHeader>
+        {/* ✅ Scrollable content area */}
+        <div className="flex flex-col overflow-y-auto pr-2 max-h-[calc(100vh-10rem)]">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Full Skill Set
+            </DialogTitle>
+            <DialogDescription className="text-sm text-gray-500 dark:text-gray-400">
+              A complete list of my technical and professional skills.
+            </DialogDescription>
+          </DialogHeader>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
-          {fullSkills.map((skill, index) => (
-            <div key={index} className="flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0" />
-              <span className="text-sm">{skill}</span>
-            </div>
-          ))}
-        </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
+            {fullSkills.map((skill, index) => (
+              <div key={index} className="flex items-start gap-2">
+                <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                <span className="text-sm leading-snug">{skill}</span>
+              </div>
+            ))}
+          </div>
 
-        <div className="pt-6 text-center">
-          <p className="text-xs text-gray-500 dark:text-gray-500">
-            *Some micro frameworks or small tools not listed
-          </p>
+          {/* ✅ Always visible last line */}
+          <div className="pt-6 text-center">
+            <p className="text-xs text-gray-500 dark:text-gray-500">
+              *Some micro frameworks or small tools not listed
+            </p>
+          </div>
         </div>
       </DialogContent>
     </Dialog>

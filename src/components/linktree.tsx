@@ -21,7 +21,8 @@ import {
   SiPinterest,
   SiCodechef,
   SiReddit,
-  SiCodepen
+  SiCodepen,
+  SiBluesky
 
 
 } from "react-icons/si";
@@ -102,11 +103,18 @@ export function Linktree() {
       iconBg: "bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500"
     },
     {
+      icon: <SiBluesky className="w-4 h-4" />,
+      title: "Blue Sky",
+      description: "0 Followers",
+      url: "https://bsky.app/profile/ahtshamwebmentor.bsky.social/",
+      iconBg: "bg-blue-600"
+    },
+    {
       icon: <SiTiktok className="w-4 h-4" />,
       title: "TikTok",
-      description: "1K+ Followers",
-      url: "#",
-      iconBg: "bg-black"
+      description: "Join for Learn Tips & Tricks",
+      url: "https://www.tiktok.com/@webdesigngenius",
+      iconBg: "bg-gray-950"
     },
     {
       icon: <SiX className="w-4 h-4" />,

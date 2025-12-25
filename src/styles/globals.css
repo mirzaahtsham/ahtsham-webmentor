@@ -1,5 +1,10 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Your custom styles below */
+/* Smooth theme transition for body and html */
+html, body {
+  @apply transition-colors duration-500 ease-in-out;
+}

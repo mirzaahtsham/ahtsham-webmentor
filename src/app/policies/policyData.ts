@@ -36,9 +36,9 @@ export const policyData: Record<
                 id: "information-we-collect",
                 heading: "2. Information We Collect",
                 content: `
-          <h4 class="text-lg font-semibold text-white mt-4">2.1 Personal Information</h4>
+          <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-300 mt-4">2.1 Personal Information</h4>
           <p>We may collect personal data that you voluntarily provide, including:</p>
-          <ul class="list-disc pl-6 text-gray-400">
+          <ul class="list-disc pl-6 text-gray-500 dark:text-gray-400">
             <li>Name</li>
             <li>Email address</li>
             <li>Phone number</li>
@@ -46,9 +46,9 @@ export const policyData: Record<
             <li>Any message or details you include in contact forms or email communications</li>
           </ul>
 
-          <h4 class="text-lg font-semibold text-white mt-6">2.2 Non-Personal Information</h4>
+          <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-300 mt-6">2.2 Non-Personal Information</h4>
           <p>When you use the Site, we automatically collect certain data such as:</p>
-          <ul class="list-disc pl-6 text-gray-400">
+          <ul class="list-disc pl-6 text-gray-500 dark:text-gray-400">
             <li>Browser type and version</li>
             <li>Operating system</li>
             <li>IP address</li>
@@ -63,7 +63,7 @@ export const policyData: Record<
                 heading: "3. How We Use Your Information",
                 content: `
           <p>We use collected information to:</p>
-          <ul class="list-disc pl-6 text-gray-400">
+          <ul class="list-disc pl-6 text-gray-500 dark:text-gray-400">
             <li>Communicate with you and respond to inquiries</li>
             <li>Provide services or resources you request</li>
             <li>Send newsletters or updates (only if you opt-in)</li>
@@ -77,7 +77,7 @@ export const policyData: Record<
                 heading: "4. Sharing of Information",
                 content: `
           <p>We do <strong>not</strong> sell or rent your personal information. We may share your data:</p>
-          <ul class="list-disc pl-6 text-gray-400">
+          <ul class="list-disc pl-6 text-gray-500 dark:text-gray-400">
             <li>With trusted service providers who assist in operating the Site (subject to confidentiality agreements)</li>
             <li>To comply with legal requirements, court orders, or governmental requests</li>
             <li>In the event of a business transfer such as a merger or sale</li>
@@ -106,14 +106,14 @@ export const policyData: Record<
                 heading: "7. Your Rights",
                 content: `
           <p>Depending on your jurisdiction, you may have the right to:</p>
-          <ul class="list-disc pl-6 text-gray-400">
+          <ul class="list-disc pl-6 text-gray-500 dark:text-gray-400">
             <li>Access or request a copy of your personal data</li>
             <li>Correct inaccurate information</li>
             <li>Request deletion (“right to be forgotten”)</li>
             <li>Withdraw consent for marketing communications</li>
             <li>Object to or restrict processing</li>
           </ul>
-          <p>To exercise these rights, contact <a href="mailto:info@ahtsham.me" class="text-purple-400 hover:text-purple-300 underline">info@ahtsham.me</a>.</p>
+          <p>To exercise these rights, contact <a href="mailto:info@ahtsham.me" class="text-purple-600 hover:text-purple-500 underline">info@ahtsham.me</a>.</p>
         `,
             },
             {
@@ -148,8 +148,8 @@ export const policyData: Record<
                 content: `
           <p><strong>Ahtsham Web Mentor (AWM)</strong><br/>
           📍 Gulberg II, Lahore, Pakistan<br/>
-          📧 <a href="mailto:info@ahtsham.me" class="text-purple-400 hover:text-purple-300 underline">info@ahtsham.me</a><br/>
-          🌐 <a href="https://ahtsham.me" target="_blank" class="text-purple-400 hover:text-purple-300 underline">https://ahtsham.me</a></p>
+          📧 <a href="mailto:info@ahtsham.me" class="text-purple-600 hover:text-purple-500 underline">info@ahtsham.me</a><br/>
+          🌐 <a href="https://ahtsham.me" target="_blank" class="text-purple-600 hover:text-purple-500 underline">https://ahtsham.me</a></p>
         `,
             },
         ],
@@ -180,7 +180,7 @@ export const policyData: Record<
                 heading: "2. Use of the Site",
                 content: `You agree to use the Site only for lawful purposes and in accordance with all applicable laws and regulations.
                 You must not:
-                <ul class="list-disc pl-6 text-gray-400">
+                <ul class="list-disc pl-6 text-gray-500 dark:text-gray-400">
             <li>Interfere with or disrupt the Site or its servers</li>
             <li>Upload malicious code or spam</li>
             <li>Copy or distribute materials from the Site without permission</li>
@@ -231,7 +231,7 @@ export const policyData: Record<
                 heading: "10. Contact Us",
                 content: `For questions about these Terms, contact:
                 📍 Gulberg II, Lahore, Pakistan<br/>
-          📧 <a href="mailto:info@ahtsham.me" class="text-purple-400 hover:text-purple-300 underline">info@ahtsham.me</a><br/>`,
+          📧 <a href="mailto:info@ahtsham.me" class="text-purple-600 hover:text-purple-500 underline">info@ahtsham.me</a><br/>`,
             },
         ],
     },
@@ -278,9 +278,9 @@ All content is provided in good faith; however, Ahtsham Web Mentor (AWM) makes n
                 id: "contact",
                 heading: "5. Contact",
                 content: `If you have questions about this Disclaimer, please contact us:<br/>
-                📧 <a href="mailto:info@ahtsham.me" class="text-purple-400 hover:text-purple-300 underline">info@ahtsham.me</a><br/>
+                📧 <a href="mailto:info@ahtsham.me" class="text-purple-600 hover:text-purple-500 underline">info@ahtsham.me</a><br/>
                 📍 Gulberg II, Lahore, Pakistan<br/>
-                🌐 <a href="https://ahtsham.me" target="_blank" class="text-purple-400 hover:text-purple-300 underline">https://ahtsham.me</a></p>`,
+                🌐 <a href="https://ahtsham.me" target="_blank" class="text-purple-600 hover:text-purple-500 underline">https://ahtsham.me</a></p>`,
             },
         ],
     },

@@ -253,7 +253,7 @@ export function TestimonialsMarquee() {
       : testimonial.text.slice(0, maxLength) + (isLong ? "..." : "");
 
     return (
-      <div className="shrink-0 w-80 bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-gray-200 dark:border-gray-700 relative overflow-hidden">
+      <div className="shrink-0 w-80 bg-gradient-to-br from-gray-50 to-gray-100 dark:bg-gradient-to-br dark:from-gray-950 dark:to-gray-900 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-gray-200 dark:border-gray-700 relative overflow-hidden">
         <div
           className={`absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r ${testimonial.color}`}
         ></div>
@@ -323,7 +323,7 @@ export function TestimonialsMarquee() {
   return (
     <section id="testimonials" className="py-20 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 overflow-hidden">
       <div className="mb-12 text-center">
-        <h2 className="text-3xl md:text-4xl mb-4 text-foreground dark:text-white">
+        <h2 className="text-3xl md:text-4xl mb-4 text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-purple-600 font-bold">
           Client Testimonials
         </h2>
         <p className="text-muted-foreground dark:text-gray-400 max-w-2xl mx-auto px-4">

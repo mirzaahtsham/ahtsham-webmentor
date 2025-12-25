@@ -6,7 +6,7 @@ const baseUrl = "https://ahtsham.me";
 const pages = [
   "/",
   "/ahtsham-connect",
-  "/tranings",
+  "/trainings",
   "/schedule",
   "/services",
   "/projects",

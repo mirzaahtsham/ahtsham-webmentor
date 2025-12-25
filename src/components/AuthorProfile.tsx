@@ -39,29 +39,29 @@ export const AuthorProfile = () => {
         {/* Social links */}
         <div className="flex items-center gap-4">
           <a
-            href="mailto:info@ahtsham.me"
-            className="text-purple-500 hover:text-purple-700 transition-colors hover:scale-110"
+            href="mailto:hello@ahtsham.me"
+            className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-yellow-400 transition-colors hover:scale-110"
           >
             <Mail size={22} />
           </a>
           <a
-            href="https://github.com/"
+            href="https://github.com/mirzaahtsham"
             target="_blank"
-            className="text-gray-600 dark:text-gray-300 hover:text-purple-600 transition-colors hover:scale-110"
+            className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-yellow-400 transition-colors hover:scale-110"
           >
             <Github size={22} />
           </a>
           <a
-            href="https://linkedin.com/"
+            href="https://www.linkedin.com/in/mirzaahtsham/"
             target="_blank"
-            className="text-gray-600 dark:text-gray-300 hover:text-purple-600 transition-colors hover:scale-110"
+            className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-yellow-400 transition-colors hover:scale-110"
           >
             <Linkedin size={22} />
           </a>
           <a
-            href="https://ahtsham.me"
+            href="https://ahtsham.me/"
             target="_blank"
-            className="text-gray-600 dark:text-gray-300 hover:text-purple-600 transition-colors hover:scale-110"
+            className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-yellow-400 transition-colors hover:scale-110"
           >
             <Globe size={22} />
           </a>

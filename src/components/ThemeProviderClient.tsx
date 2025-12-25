@@ -1,8 +1,20 @@
-"use client"; // MUST be client-side
+"use client";
 
-// import { ThemeProvider } from "ox-theme-switcher";
-import React from "react";
+import * as React from "react";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
 
-export function ThemeProviderClient({ children }: { children: React.ReactNode }) {
-  // return <ThemeProvider>{children}</ThemeProvider>;
+export function ThemeProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <NextThemesProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+    >
+      {children}
+    </NextThemesProvider>
+  );
 }

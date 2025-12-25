@@ -266,14 +266,14 @@ export function WorkExperience() {
   };
 
   return (
-    <section id="experience" className="py-12 md:py-20 bg-gradient-to-b from-gray-50 to-white text-black">
+    <section id="experience" className="py-12 md:py-20 bg-gradient-to-br from-gray-50 to-gray-100 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-950 text-gray-900 dark:text-gray-100">
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl mb-3 md:mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">
+          <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl mb-3 md:mb-4 text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-purple-600">
             Work Experience
           </h2>
-          <p className="text-gray-900 max-w-2xl mx-auto text-sm md:text-base px-2">
+          <p className="text-gray-900 dark:text-gray-400 max-w-2xl mx-auto text-sm md:text-base px-2">
             My professional journey and the roles I've held throughout my career
           </p>
         </div>
@@ -307,7 +307,7 @@ export function WorkExperience() {
                     <div className="flex flex-col sm:flex-row items-start justify-between mb-4 gap-3 md:gap-4">
                       <div className="flex items-start gap-2 md:gap-3 w-full sm:w-auto">
                         {/* Logo area: image URL -> show image, else icon or letter */}
-                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg overflow-hidden shrink-0 border border-gray-700/40 bg-gradient-to-r from-purple-400/50 to-pink-400/50 dark:from-purple-400/50 dark:to-pink-400/50">
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg overflow-hidden shrink-0 border border-gray-700/40 dark:border-yellow-400 bg-gradient-to-r from-purple-400/50 to-pink-400/50 dark:from-purple-600/30 dark:to-pink-600/30">
                           {exp.logo ? (
                             <ImageWithFallback
                               src={exp.logo}
@@ -315,21 +315,21 @@ export function WorkExperience() {
                               className="w-full h-full object-cover"
                             />
                           ) : exp.logoIcon ? (
-                            <exp.logoIcon className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                            <exp.logoIcon className="w-5 h-5 md:w-6 md:h-6 text-gray-900 dark:text-gray-100" />
                           ) : (
-                            <span className="text-white text-lg font-semibold">{exp.company[0]}</span>
+                            <span className="text-gray-900 dark:text-gray-100 text-lg font-semibold">{exp.company[0]}</span>
                           )}
                         </div>
 
                         <div className="flex-1 min-w-0">
                           <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 mb-1">
-                            <h3 className="text-lg md:text-xl text-gray-900 font-medium wrap-break-word">{exp.company}</h3>
-                            <span className="text-gray-700 text-xs md:text-sm">• {exp.duration}</span>
+                            <h3 className="text-lg md:text-xl text-gray-900 dark:text-gray-100 font-medium wrap-break-word">{exp.company}</h3>
+                            <span className="text-gray-700 dark:text-gray-300 text-xs md:text-sm">• {exp.duration}</span>
                           </div>
-                          <h4 className="text-gray-700 mb-1 text-sm md:text-base">{exp.position}</h4>
+                          <h4 className="text-gray-700 dark:text-gray-200 mb-1 text-sm md:text-base">{exp.position}</h4>
 
                           {/* Period: dynamic if startDate present */}
-                          <p className="text-xs md:text-sm text-gray-700">
+                          <p className="text-xs md:text-sm text-gray-700 dark:text-gray-300">
                             {exp.startDate
                               ? `${new Date(exp.startDate).toLocaleString("default", { month: "long", year: "numeric" })} - ${exp.endDate ? new Date(exp.endDate).toLocaleString("default", { month: "long", year: "numeric" }) : "Present"} (${calculateDuration(exp.startDate, exp.endDate)})`
                               : exp.period}
@@ -342,7 +342,7 @@ export function WorkExperience() {
                           href={exp.website}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center justify-center gap-1 px-3 md:px-4 py-2 bg-black/50 text-yellow-400 border border-yellow-500/30 rounded-lg hover:bg-black/80 transition-colors text-xs md:text-sm whitespace-nowrap shrink-0 w-full sm:w-auto"
+                          className="flex items-center justify-center gap-1 px-3 md:px-4 py-2 bg-gray-800 text-yellow-400 border border-yellow-500/30 rounded-lg hover:bg-gray-900 text-xs md:text-sm whitespace-nowrap shrink-0 w-full sm:w-auto transition-colors duration-300 hover:scale-110"
                         >
                           Visit Website
                           <ExternalLink className="w-3 h-3 md:w-4 md:h-4" />
@@ -350,7 +350,7 @@ export function WorkExperience() {
                       )}
                     </div>
 
-                    <p className="text-gray-600 mb-4 leading-relaxed text-xs md:text-sm">{exp.description}</p>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed text-xs md:text-sm">{exp.description}</p>
 
                     {/* Screenshots Marquee */}
                     {exp.screenshots && exp.screenshots.length > 0 && (
@@ -371,7 +371,7 @@ export function WorkExperience() {
                                   />
                                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300">
                                     <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3">
-                                      <p className="text-white text-xs md:text-sm">{screenshot.caption}</p>
+                                      <p className="text-gray-100 text-xs md:text-sm">{screenshot.caption}</p>
                                     </div>
                                   </div>
                                 </div>
@@ -393,7 +393,7 @@ export function WorkExperience() {
                                   />
                                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300">
                                     <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3">
-                                      <p className="text-white text-xs md:text-sm">{screenshot.caption}</p>
+                                      <p className="text-gray-50 text-xs md:text-sm">{screenshot.caption}</p>
                                     </div>
                                   </div>
                                 </div>
@@ -409,7 +409,7 @@ export function WorkExperience() {
                       {exp.skills.map((skill, idx) => (
                         <span
                           key={idx}
-                          className="px-2 md:px-3 py-1 bg-black/80 text-yellow-400 rounded-md text-[10px] md:text-xs border border-black/50"
+                          className="px-2 md:px-3 py-1 bg-gray-800 dark:bg-yellow-500 text-yellow-400 dark:text-gray-900 rounded-md text-[10px] md:text-xs border border-black/50 transition-colors hover:scale-105 transform duration-300 hover:bg-gray-900 dark:hover:bg-yellow-400 cursor-default"
                         >
                           {skill}
                         </span>

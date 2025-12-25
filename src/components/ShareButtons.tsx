@@ -78,14 +78,14 @@ export default function ShareButtons({ url, title }: ShareButtonsProps) {
   ];
 
   return (
-    <section className="w-full bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white py-10 px-4 mt-24">
+    <section className="w-full bg-gradient-to-r from-gray-300 via-gray-200 to-gray-100 dark:bg-gradient-to-r dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 dark:text-gray-100 py-10 px-4 mt-24">
       <div className="max-w-7xl mx-auto text-center space-y-6">
         <div className="flex justify-center items-center gap-2">
-          <Share2 className="w-6 h-6 text-purple-400" />
-          <h2 className="text-2xl font-semibold">Share This Policy</h2>
+          <Share2 className="w-6 h-6 text-purple-400 dark:text-yellow-400" />
+          <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">Share This Policy</h2>
         </div>
 
-        <p className="text-gray-400 text-sm">
+        <p className="text-gray-700 dark:text-gray-400 text-sm">
           Help others understand our {title} by sharing it across platforms
         </p>
 
@@ -96,7 +96,7 @@ export default function ShareButtons({ url, title }: ShareButtonsProps) {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center gap-2 px-5 py-3 bg-gray-700 rounded-full transition-all ${link.color} hover:scale-105`}
+              className={`flex items-center gap-2 px-5 py-3 bg-purple-600 dark:bg-gray-700 rounded-full transition-all ${link.color} hover:scale-105`}
             >
               {link.icon}
               <span className="text-sm font-medium">{link.name}</span>
