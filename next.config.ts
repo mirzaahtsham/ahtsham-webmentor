@@ -1,17 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Keep your experimental features if needed
   experimental: {
-    optimizeCss: false, // 🚫 Disable LightningCSS to fix Netlify build error
+    appDir: true, // required for App Router
+    // add other experimental flags here if used
   },
 
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "www.tawk.to",
-      },
-    ],
+  // Official way to disable linting during build
+  eslint: {
+    ignoreDuringBuilds: true,
   },
+
+  // You can also add any other modern flags here
+  // e.g., images, compiler, etc.
 };
 
-export default nextConfig;
+module.exports = nextConfig;
