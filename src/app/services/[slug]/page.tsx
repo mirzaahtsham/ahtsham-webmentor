@@ -1,4 +1,4 @@
-import { HeaderWithMegaMenu } from "@/components/HeaderWithMegaMenu";
+import { HeaderWithMegaMenu } from "@/components/Header/HeaderWithMegaMenu";
 import { Footer } from "@/components/Footer";
 import { supabase } from "@/lib/supabaseClient";
 import { ServiceDetailClient, Service } from "@/components/ServiceDetailsClient";

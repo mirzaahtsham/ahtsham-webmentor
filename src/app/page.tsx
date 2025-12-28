@@ -1,4 +1,4 @@
-import { HeaderWithMegaMenu } from "@/components/HeaderWithMegaMenu";
+import { HeaderWithMegaMenu } from "@/components/Header/HeaderWithMegaMenu";
 import { Hero } from "@/components/Hero";
 import { Stats } from "@/components/Stats";
 import { About } from "@/components/About";

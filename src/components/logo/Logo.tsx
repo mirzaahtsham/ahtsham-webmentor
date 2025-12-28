@@ -19,8 +19,8 @@ export function Logo({
     <div className={`flex items-center gap-2 ${className}`}>
       {showImage && (
         <Image
-          src="/Logos/Ahtsham-Web-Mentor-512-512.png"
-          alt="Ahtsham Web Mentor"
+          src="/Logos/Ahtsham-Developer-Advocate.webp"
+          alt="[Ahtsham Web Mentor, Developer Advocate Logo]"
           width={size}
           height={size}
           priority

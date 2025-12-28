@@ -73,7 +73,7 @@ export function Hero() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-block mb-6">
-            <span className="bg-yellow-400 text-gray-900 px-6 py-2 rounded-full">
+            <span className="bg-yellow-400 text-xs md:text-sm text-gray-900 px-6 py-2 rounded-full">
               Welcome to my Portfolio
             </span>
           </div>
@@ -83,10 +83,10 @@ export function Hero() {
           </div>
           
 
-          <h1 className="text-5xl md:text-7xl mb-6 text-gray-900 font-medium dark:text-gray-100">
+          <h1 className="text-xl md:text-7xl mb-6 text-gray-900 font-medium dark:text-gray-100">
             Web Designer & <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">Developer</span>
             <br />
-            | <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-400 leading-tight"> Content Creator</span>
+            | <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-600 to-yellow-600 dark:from-yellow-400 dark:to-orange-400 leading-tight"> Content Creator</span>
           </h1>
 
           <p className="text-gray-900 dark:text-gray-100 mb-8 max-w-2xl mx-auto">

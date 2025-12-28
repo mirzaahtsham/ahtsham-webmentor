@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Calendar, Users, Clock, Sparkles, Video, MessageSquare, Briefcase, Coffee, ArrowLeft } from "lucide-react";
 import { Button } from "../../components/ui/button";
 import { ImageWithFallback } from "../../components/figma/ImageWithFallback";
-import { HeaderWithMegaMenu } from "@/components/HeaderWithMegaMenu";
+import { HeaderWithMegaMenu } from "@/components/Header/HeaderWithMegaMenu";
 import { Footer } from "@/components/Footer";
 
 interface MeetingType {

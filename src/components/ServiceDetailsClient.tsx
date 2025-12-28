@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Check, Star, Clock, RotateCcw } from "lucide-react";
 import { ContactFormModal } from "./ContactFormModal";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { HeaderWithMegaMenu } from "./HeaderWithMegaMenu";
+import { HeaderWithMegaMenu } from "./Header/HeaderWithMegaMenu";
 import { Footer } from "./Footer";
 import Link from "next/link";
 

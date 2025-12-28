@@ -2,7 +2,7 @@
 import { Star } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
-import { HeaderWithMegaMenu } from "@/components/HeaderWithMegaMenu";
+import { HeaderWithMegaMenu } from "@/components/Header/HeaderWithMegaMenu";
 import { Footer } from "@/components/Footer";
 
 const trainings = [

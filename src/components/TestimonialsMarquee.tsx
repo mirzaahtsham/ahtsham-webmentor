@@ -326,7 +326,7 @@ export function TestimonialsMarquee() {
         <h2 className="text-3xl md:text-4xl mb-4 text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-purple-600 font-bold">
           Client Testimonials
         </h2>
-        <p className="text-muted-foreground dark:text-gray-400 max-w-2xl mx-auto px-4">
+        <p className="text-muted-foreground text-gray-800 dark:text-gray-400 max-w-2xl mx-auto px-4">
           Trusted by companies worldwide - see what clients say about working with me
         </p>
         <div className="w-20 h-1 bg-gradient-to-r from-yellow-500 to-pink-500 mx-auto mt-4"></div>
@@ -335,7 +335,7 @@ export function TestimonialsMarquee() {
       <div className="space-y-8">
         {/* Row 1 - RTL */}
         <div className="relative">
-          <div className="flex gap-6 animate-marquee-rtl">
+          <div className="flex gap-6 animate-marquee-rtl text-gray-800 dark:text-gray-400">
             {/* Duplicate for seamless loop */}
             {[...row1Testimonials, ...row1Testimonials, ...row1Testimonials].map((testimonial, index) => (
               <TestimonialCard key={`row1-${index}`} testimonial={testimonial} />
@@ -345,7 +345,7 @@ export function TestimonialsMarquee() {
 
         {/* Row 2 - LTR */}
         <div className="relative">
-          <div className="flex gap-6 animate-marquee-ltr">
+          <div className="flex gap-6 animate-marquee-ltr text-gray-800 dark:text-gray-400">
             {/* Duplicate for seamless loop */}
             {[...row2Testimonials, ...row2Testimonials, ...row2Testimonials].map((testimonial, index) => (
               <TestimonialCard key={`row2-${index}`} testimonial={testimonial} />
@@ -355,7 +355,7 @@ export function TestimonialsMarquee() {
 
         {/* Row 3 - RTL */}
         <div className="relative">
-          <div className="flex gap-6 animate-marquee-rtl">
+          <div className="flex gap-6 animate-marquee-rtl text-gray-800 dark:text-gray-400">
             {/* Duplicate for seamless loop */}
             {[...row3Testimonials, ...row3Testimonials, ...row3Testimonials].map((testimonial, index) => (
               <TestimonialCard key={`row3-${index}`} testimonial={testimonial} />

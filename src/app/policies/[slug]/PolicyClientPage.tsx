@@ -3,7 +3,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { HeaderWithMegaMenu } from "@/components/HeaderWithMegaMenu";
+import { HeaderWithMegaMenu } from "@/components/Header/HeaderWithMegaMenu";
 import { Footer } from "@/components/Footer";
 import { Check } from "lucide-react";
 import { AuthorProfile } from "@/components/AuthorProfile";

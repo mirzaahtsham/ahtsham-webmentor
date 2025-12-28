@@ -1,6 +1,6 @@
 "use client";
 
-import { HeaderWithMegaMenu } from "@/components/HeaderWithMegaMenu";
+import { HeaderWithMegaMenu } from "@/components/Header/HeaderWithMegaMenu";
 import { Footer } from "@/components/Footer";
 import { CheckCircle, Star, Clock, Users, Award, FileText, ChevronDown, ChevronUp, Play } from "lucide-react";
 import Link from "next/link";

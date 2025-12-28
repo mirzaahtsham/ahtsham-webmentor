@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { HeaderWithMegaMenu } from "@/components/HeaderWithMegaMenu";
+import { HeaderWithMegaMenu } from "@/components/Header/HeaderWithMegaMenu";
 import { Footer } from "@/components/Footer";
 import { Service } from "@/data/services"; // if you created that file earlier
 
