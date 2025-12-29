@@ -12,9 +12,10 @@ import type { MenuSection } from "./menuData";
 
 type Props = {
   onNavigate?: () => void;
+  isScrolled: boolean; // Add this prop
 };
 
-export function MobileMegaMenu({ onNavigate }: Props) {
+export function MobileMegaMenu({ onNavigate, isScrolled }: Props) {
   const mainLinks = [
     { label: "About", href: "/#about" },
     { label: "Experience", href: "/#experience" },
@@ -36,7 +37,7 @@ export function MobileMegaMenu({ onNavigate }: Props) {
                 <Link
                   href={item.href}
                   onClick={onNavigate}
-                  className="block text-sm text-muted-foreground hover:text-foreground"
+                  className="block text-sm text-gray-800 dark:text-gray-400 hover:text-purple-500 dark:hover:text-yellow-400"
                 >
                   {item.title}
                 </Link>
@@ -50,19 +51,20 @@ export function MobileMegaMenu({ onNavigate }: Props) {
 
   return (
     <div
-      className="
+      className={`
         w-full
         max-h-[calc(100vh-96px)]
         overflow-y-auto
-        rounded-2xl
-        bg-white dark:bg-black
-        border dark:border-white/10
-        shadow-xl
+        ${isScrolled 
+          ? 'rounded-b-2xl bg-gray-300/50 dark:bg-gray-800/50 backdrop-blur-xl border-t dark:border-gray-50/5' 
+          : 'rounded-2xl bg-gray-100 dark:bg-gray-950 border dark:border-white/10 shadow-xl'
+        }
+        text-gray-900 dark:text-gray-100
         p-5
-      "
+      `}
     >
       {/* Main Links */}
-      <ul className="space-y-3 mb-6">
+      <ul className="space-y-3">
         {mainLinks.map((link) => (
           <li key={link.label}>
             <Link

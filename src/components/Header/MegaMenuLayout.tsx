@@ -68,7 +68,7 @@ export function MegaMenuLayout({
                   {/* Category Heading */}
                   <h3
                     className={cn(
-                      "mb-6 text-sm font-semibold bg-gradient-to-r bg-clip-text text-transparent",
+                      "mb-6 text-4xl md:text-sm font-medium bg-gradient-to-r bg-clip-text text-transparent",
                       colors.gradient
                     )}
                   >
