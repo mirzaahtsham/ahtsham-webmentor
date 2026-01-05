@@ -189,10 +189,10 @@ export function Linktree() {
       // ✅ Correct way to load external image
       icon: (
         <Image
-          src="https://www.tawk.to/wp-content/uploads/2020/04/tawk-sitelogo.png"
+          src="/Icons/tawkto.svg"
           alt="Tawk.to"
-          width={20}
-          height={20}
+          width={30}
+          height={40}
           className="rounded-sm"
         />
       ),

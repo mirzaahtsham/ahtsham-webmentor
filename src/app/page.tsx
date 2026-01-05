@@ -1,9 +1,8 @@
 import { HeaderWithMegaMenu } from "@/components/Header/HeaderWithMegaMenu";
 import { Hero } from "@/components/Hero";
-import { Stats } from "@/components/Stats";
 import { About } from "@/components/About";
-import { WorkExperience } from "@/components/Experiences";
 import HomeClientSections from "@/components/HomeClientSections";
+import { getGeneralFaqs } from "@/lib/getGeneralFaqs";
 import { Footer } from "@/components/Footer";
 
 const homeSchema = {
@@ -17,8 +16,19 @@ const homeSchema = {
   isPartOf: { "@id": "https://ahtsham.me/#website" },
   mainEntity: { "@id": "https://ahtsham.me/#person" },
 };
+export const metadata = {
+  title: "FAQ - Web Design & Development Services",
+  description: "Find answers to frequently asked questions about web design, WordPress, Shopify, and custom development services.",
+};
 
-export default function Home() {
+export default async function Home() {
+  const faqs = await getGeneralFaqs();
+  
+  // 🔍 DEBUG: Check what we're getting
+  console.log('📊 FAQs fetched in page.tsx:', faqs);
+  console.log('📊 Number of FAQs:', faqs?.length);
+  console.log('📊 First FAQ:', faqs?.[0]);
+  
   return (
     <>
       {/* ✅ SEO schema (server-rendered, zero JS cost) */}
@@ -33,12 +43,10 @@ export default function Home() {
         <main>
           {/* ✅ Above-the-fold (FAST SSR, improves LCP) */}
           <Hero />
-          <Stats />
           <About />
-          <WorkExperience />
-
+        
           {/* ✅ Below-the-fold (lazy, client-only, optimized) */}
-          <HomeClientSections />
+          <HomeClientSections faqs={faqs} />
         </main>
 
         <Footer />

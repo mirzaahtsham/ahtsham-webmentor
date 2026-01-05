@@ -90,19 +90,17 @@ export function WorkExperience() {
       duration: "Lahore Pakistan",
       position: "Sr. Web Developer & Web Designer",
       description:
-        "Developed from scratch a high-performance medical billing website focused on client acquisition and brand authority. Handled full web development, design, SEO, hosting migration to VPS, and performance tuning using WordPress and Elementor Pro. Achieved exceptional speed—1.0s on mobile and 1.2s on desktop—delivering a fast, optimized user experience.",
+        "Led end-to-end website design, development, and optimization for a medical billing company, focused on lead generation, brand authority, and long-term scalability. Built the website from scratch using WordPress and Elementor Pro, implemented technical SEO, optimized Core Web Vitals, and migrated hosting to a VPS environment. Delivered a high-performance site achieving ~1.0s mobile and ~1.2s desktop load times, improving user experience, search visibility, and conversion potential.",
       skills: [
-        "Wordpress",
-        "elementor Pro",
-        "VPS Mnagement",
-        "Namecheap",
-        "Hostinger",
-        "SiteGround",
-        "Shipify",
-        "Payment Gateways",
-        "Tawkto",
+        "WordPress Development",
+        "Elementor Pro Customization",
+        "Website Performance Optimization",
+        "VPS Hosting Management",
+        "Technical SEO",
+        "Chatbot Integration",
         "Contact Form 7",
-        "All-in-One-SEO",
+        "All in One SEO",
+        "Website Maintenance & Scaling",
       ],
       category: ["Wordpress", "Elementor Pro", "ChatBots"],
       screenshots: [
@@ -154,8 +152,15 @@ export function WorkExperience() {
       duration: "Full time Remote",
       position: "Founder & CEO",
       description:
-        "As the founder of Ahtsham.me, my mission is to empower freelancers and aspiring developers to achieve financial freedom through skill-based learning. I teach high-demand skills like WordPress, Shopify, and custom web development, helping students start earning $1,000-$5,000/month from home. Through my content and mentorship, I focus on practical learning, client communication, and real-world project execution to help learners build successful online careers.",
-      skills: ["Online Education", "Course Development", "Freelancing Skills"],
+        "Founded and built Ahtsham.me as a platform to educate, mentor, and support freelancers, developers, and digital professionals. Designed and developed the platform with a focus on SEO, performance, and scalable architecture. Through hands-on training, real-world projects, and consulting, I help learners acquire high-income skills in WordPress, Shopify, and custom web development, enabling sustainable remote careers and client-based income streams.",
+      skills: [
+        "Web Platform Architecture",
+        "WordPress & Shopify Training",
+        "Technical SEO Strategy",
+        "Ecommerce Mentorship",
+        "Consultation & Coaching",
+        "Content Strategy",
+      ],
       category: ["Wordpress", "Shopify", "Custom Development", "Trainings", "Consultations"],
       website: "https://ahtsham.me"
     },
@@ -168,8 +173,14 @@ export function WorkExperience() {
       duration: "Pakistan",
       position: "Content Creator",
       description:
-        "I create educational content focused on freelancing, web development, and digital growth. Through YouTube and social platforms, I simplify complex technical topics into step-by-step tutorials for freelancers and developers. My goal is to inspire, educate, and guide individuals to become self-reliant through practical digital skills and continuous learning.",
-      skills: ["YouTube", "Video Production", "Technical Writing"],
+        "Create educational content focused on web development, freelancing, and digital growth through YouTube and social platforms. Produce step-by-step tutorials that simplify complex technical concepts, helping beginners and professionals apply practical skills to real client projects. The content emphasizes problem-solving, best practices, and continuous learning for sustainable digital careers.",
+      skills: [
+        "Technical Content Creation",
+        "Web Development Education",
+        "YouTube Growth Strategy",
+        "Developer Tutorials",
+        "Personal Branding",
+      ],
       category: ["Trainings", "Consultations"],
       website: "https://learnwith.ahtsham.me"
     },
@@ -278,18 +289,28 @@ export function WorkExperience() {
           </p>
         </div>
 
-        {/* Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mb-10 md:mb-16 px-2">
-          {tabs.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`px-3 md:px-5 py-2 rounded-full text-xs md:text-sm transition-all duration-300 ${activeTab === tab ? "bg-yellow-500 text-white" : "bg-gray-900/80 text-gray-200 hover:bg-gray-700/80"
+        {/* Tabs Slider */}
+        <div className="mb-10 md:mb-16 px-2">
+          <div 
+            className="tabs-slider flex gap-2 overflow-x-auto scrollbar-hide pb-2"
+            style={{
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+            }}
+          >
+            {tabs.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                aria-label={`Filter experiences by ${tab}`}
+                className={`px-3 md:px-5 py-2 rounded-full text-xs md:text-sm transition-all duration-300 whitespace-nowrap flex-shrink-0 ${
+                  activeTab === tab ? "bg-yellow-500 text-white" : "bg-gray-900/80 text-gray-200 hover:bg-gray-700/80"
                 }`}
-            >
-              {tab}
-            </button>
-          ))}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Timeline */}
@@ -311,7 +332,7 @@ export function WorkExperience() {
                           {exp.logo ? (
                             <ImageWithFallback
                               src={exp.logo}
-                              alt={exp.company}
+                              alt={`${exp.company} logo - ${exp.position}`}
                               className="w-full h-full object-cover"
                             />
                           ) : exp.logoIcon ? (
@@ -389,6 +410,7 @@ export function WorkExperience() {
                                   <ImageWithFallback
                                     src={screenshot.url}
                                     alt={`${exp.company} screenshot ${idx + 1}`}
+                                    aria-label={`${exp.company} screenshot: ${screenshot.caption}`}
                                     className="w-48 sm:w-60 md:w-80 h-32 sm:h-40 md:h-48 object-cover"
                                   />
                                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300">
@@ -404,16 +426,25 @@ export function WorkExperience() {
                       </div>
                     )}
 
-                    {/* Skills */}
-                    <div className="flex flex-wrap gap-1.5 md:gap-2">
-                      {exp.skills.map((skill, idx) => (
-                        <span
-                          key={idx}
-                          className="px-2 md:px-3 py-1 bg-gray-800 dark:bg-yellow-500 text-yellow-400 dark:text-gray-900 rounded-md text-[10px] md:text-xs border border-black/50 transition-colors hover:scale-105 transform duration-300 hover:bg-gray-900 dark:hover:bg-yellow-400 cursor-default"
-                        >
-                          {skill}
-                        </span>
-                      ))}
+                    {/* Skills Slider */}
+                    <div className="relative overflow-hidden -mx-1">
+                      <div 
+                        className="skills-slider flex gap-1.5 md:gap-2 overflow-x-auto scrollbar-hide pb-2"
+                        style={{
+                          scrollbarWidth: 'none',
+                          msOverflowStyle: 'none',
+                        }}
+                      >
+                        {exp.skills.map((skill, idx) => (
+                          <span
+                            key={idx}
+                            className="px-2 md:px-3 py-1 bg-gray-800 dark:bg-yellow-500 text-yellow-400 dark:text-gray-900 rounded-md text-[10px] md:text-xs border border-black/50 transition-colors hover:scale-105 transform duration-300 hover:bg-gray-900 dark:hover:bg-yellow-400 cursor-default whitespace-nowrap flex-shrink-0"
+                            aria-label={`Skill: ${skill}`}
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>

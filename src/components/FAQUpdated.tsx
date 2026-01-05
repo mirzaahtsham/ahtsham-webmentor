@@ -2,30 +2,60 @@
 
 import { useState, useEffect } from "react";
 import { JsonLd } from "@/components/JsonLd";
-import { buildFaqSchema } from "@/lib/schema";
 import { ContactFormModal } from "./ContactFormModal";
 import Link from "next/link";
 import {
   ChevronDown,
   Code,
-  ShoppingBag,
-  Layout,
-  Rocket,
-  Headphones,
-  Wrench,
-  Zap,
   CheckCircle2,
   XCircle,
-  FileText
+  Zap,
+  Globe,
+  Shield,
+  Rocket,
+  Users,
+  MessageSquare,
+  TrendingUp,
+  Award,
 } from "lucide-react";
 
-export function FAQUpdated() {
+/* ---------------- TYPES ---------------- */
+
+type FAQ = {
+  question: string;
+  answer: string;
+  icon?: string;
+};
+
+/* ---------------- ICON MAPPER ---------------- */
+
+const iconMap: Record<string, any> = {
+  Code,
+  Zap,
+  Globe,
+  Shield,
+  Rocket,
+  Users,
+  MessageSquare,
+  TrendingUp,
+  Award,
+  CheckCircle2,
+};
+
+const getIconComponent = (iconName?: string) => {
+  if (!iconName) return Code;
+  return iconMap[iconName] || Code;
+};
+
+/* ---------------- COMPONENT ---------------- */
+
+export function FAQUpdated({ faqs }: { faqs: FAQ[] }) {
   const [isAvailable, setIsAvailable] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [isSticky, setIsSticky] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // ✅ Check availability inside the component
+  /* Check Availability (Mon-Fri, 9AM-5PM) */
   useEffect(() => {
     const checkAvailability = () => {
       const now = new Date();
@@ -41,197 +71,227 @@ export function FAQUpdated() {
     return () => clearInterval(interval);
   }, []);
 
-  // ✅ Rest of your scroll sticky effect
+  /* Sticky Scroll Effect */
   useEffect(() => {
     const handleScroll = () => {
       const faqSection = document.getElementById("faq-section");
       const faqRight = document.getElementById("faq-right");
-      if (faqSection && faqRight) {
-        const sectionTop = faqSection.offsetTop;
-        const sectionHeight = faqSection.offsetHeight;
-        const scrollPosition = window.scrollY;
-        const windowHeight = window.innerHeight;
-        const inSection = scrollPosition + windowHeight > sectionTop &&
-          scrollPosition < sectionTop + sectionHeight;
-        const rightFinished = scrollPosition > sectionTop + sectionHeight - windowHeight;
-        setIsSticky(inSection && !rightFinished);
-      }
+      if (!faqSection || !faqRight) return;
+
+      const sectionTop = faqSection.offsetTop;
+      const sectionHeight = faqSection.offsetHeight;
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+
+      const inSection =
+        scrollPosition + windowHeight > sectionTop &&
+        scrollPosition < sectionTop + sectionHeight;
+
+      const rightFinished =
+        scrollPosition > sectionTop + sectionHeight - windowHeight;
+
+      setIsSticky(inSection && !rightFinished);
     };
 
     window.addEventListener("scroll", handleScroll);
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  const faqs = [
-    {
-      icon: Code,
-      question: "What services do you offer as a web designer & developer?",
-      answer:
-        "I provide complete website design and development services including WordPress, Shopify, and custom-coded websites using HTML, CSS, JavaScript, Tailwind CSS, and Next.js. I also offer speed optimization, SEO setup, payment gateway integration, and website maintenance."
-    },
-    {
-      icon: ShoppingBag,
-      question: "Do you build Shopify and WooCommerce stores?",
-      answer:
-        "Yes! I specialize in building fully functional eCommerce stores on Shopify and WooCommerce with modern, mobile-friendly layouts, optimized product pages, secure payment gateways, and marketing integrations like Meta Pixel, GA4, and WhatsApp Chat."
-    },
-    {
-      icon: Layout,
-      question: "Can you customize or redesign an existing website?",
-      answer:
-        "Absolutely! Whether you want a fresh design, improved performance, or a migration from one platform to another, I can redesign or rebuild your website without losing SEO value or functionality."
-    },
-    {
-      icon: Wrench,
-      question: "Do you offer website maintenance and support?",
-      answer:
-        "Yes, I offer ongoing support plans that include regular updates, bug fixes, security monitoring, content updates, and performance optimization to keep your site fast and reliable."
-    },
-    {
-      icon: Rocket,
-      question: "How long does it take to complete a project?",
-      answer:
-        "Timelines depend on project complexity. A basic business website typically takes 1-2 weeks, while an eCommerce or custom project may take 3-6 weeks. I always provide a detailed timeline after understanding your requirements."
-    },
-    {
-      icon: Zap,
-      question: "Do you offer website speed and SEO optimization?",
-      answer:
-        "Yes, I specialize in Wordpress speed optimization using tools like WP Rocket Plugin, Accelerator Plugin and best SEO practices. I ensure your website loads quickly, performs well on Google PageSpeed Insights, and follows on-page SEO standards for better rankings."
-    },
-    {
-      icon: FileText,
-      question: "Do you create landing pages or custom forms?",
-      answer:
-        "Yes, I design conversion-focused landing pages using Elementor or custom code, and I build multi-step or advanced forms using Contact Form 7, CF7 Pro, or custom JavaScript solutions."
-    },
-    {
-      icon: Headphones,
-      question: "How will we communicate and manage the project?",
-      answer:
-        "I provide regular updates through Email, WhatsApp, or your preferred platform. You'll get progress reports, preview links, and timely feedback sessions throughout the development process."
-    }
-  ];
 
   return (
-    <section id="faq-section" className="py-20 bg-gradient-to-br from-gray-50 to-gray-100 dark:bg-gradient-to-br dark:from-gray-950 dark:to-gray-900 text-gray-900 dark:text-gray-100 relative">
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
-          {/* Left - Sticky Title */}
+    <section
+      id="faq-section"
+      className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50 to-gray-100 dark:bg-gradient-to-br dark:from-gray-950 dark:to-gray-900 text-gray-900 dark:text-gray-100 relative"
+      itemScope
+      itemType="https://schema.org/FAQPage"
+      aria-labelledby="faq-heading"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-7xl mx-auto">
+          
+          {/* LEFT - Sticky Title & Contact Box */}
           <div className="lg:pr-12">
-            <div className={`${isSticky ? 'lg:sticky lg:top-24' : ''} transition-all duration-300`}>
-              <div className="mb-8">
-                <h2 className="text-4xl md:text-5xl mb-4">
+            <div
+              className={`${
+                isSticky ? "lg:sticky lg:top-24" : ""
+              } transition-all duration-300`}
+            >
+              {/* Title Section - SEO Optimized */}
+              <header className="mb-6 sm:mb-8">
+                <h2 
+                  id="faq-heading"
+                  className="text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4 font-bold"
+                >
                   Frequently Asked
                 </h2>
-                <h3 className="text-4xl md:text-5xl mb-6">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 font-medium">
+                <h3 className="text-3xl sm:text-4xl md:text-5xl mb-4 sm:mb-6">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 font-bold">
                     Questions
                   </span>
                 </h3>
-                <div className="w-20 h-1 bg-gradient-to-r from-yellow-500 to-pink-500"></div>
-              </div>
+                <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-yellow-500 to-pink-500" role="presentation"></div>
+              </header>
 
-              <p className="text-muted-foreground dark:text-gray-400 mb-8 text-lg">
-                Have questions? Here are the most common ones I receive.
-                If you don't find your answer here, feel free to reach out!
+              {/* Description - AEO Optimized */}
+              <p className="text-gray-600 dark:text-gray-400 mb-6 sm:mb-8 text-base sm:text-lg">
+                Have questions about my web design and development services? Here are the most common questions I receive. If you don't find your answer here, feel free to reach out!
               </p>
 
-              <div className="p-6 bg-gray-100 dark:bg-gray-950 rounded-lg border border-gray-200 dark:border-gray-800 shadow-lg">
+              {/* Contact Box */}
+              <aside className="p-4 sm:p-6 bg-white dark:bg-gray-900 rounded-lg border border-gray-300 dark:border-gray-700 shadow-lg">
                 {/* Availability Badge */}
-                <div className="mb-4 flex items-center gap-2">
+                <div className="mb-4 flex flex-col sm:flex-row sm:items-center gap-2">
                   {isAvailable ? (
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-green-500/20 border border-green-500/50 rounded-full text-green-400 text-sm">
-                      <CheckCircle2 className="w-4 h-4" />
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-green-500/20 border border-green-500/50 rounded-full text-green-600 dark:text-green-400 text-sm font-medium w-fit">
+                      <CheckCircle2 className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
                       <span>Available Now</span>
                     </div>
                   ) : (
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-red-500/20 border border-red-500/50 rounded-full text-red-400 text-sm">
-                      <XCircle className="w-4 h-4" />
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-red-500/20 border border-red-500/50 rounded-full text-red-600 dark:text-red-400 text-sm font-medium w-fit">
+                      <XCircle className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
                       <span>Currently Offline</span>
                     </div>
                   )}
-                  <span className="text-gray-500 dark:text-gray-400 text-xs">
+                  <time className="text-gray-500 dark:text-gray-400 text-xs">
                     (Mon-Fri, 9 AM - 5 PM)
-                  </span>
+                  </time>
                 </div>
-                <h4 className="text-xl mb-2">Still have questions?</h4>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
+
+                <h4 className="text-lg sm:text-xl mb-2 font-semibold text-gray-900 dark:text-white">
+                  Still have questions?
+                </h4>
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-4">
                   Can't find the answer you're looking for? Let's talk!
                 </p>
-                <button
-                  onClick={() => setIsModalOpen(true)}
-                  className="px-6 py-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 rounded-lg transition-colors hover:shadow-lg hover:shadow-gray-400/50 hover:scale-105">
-                  Contact Me
-                </button>
-                {!isAvailable && (
+
+                {/* Buttons */}
+                <div className="flex flex-col sm:flex-row flex-wrap gap-3">
+                  <button
+                    onClick={() => setIsModalOpen(true)}
+                    className="w-full sm:w-auto px-6 py-2.5 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-yellow-400/30 hover:scale-105 active:scale-95 text-center"
+                    aria-label="Open contact form"
+                  >
+                    Contact Me
+                  </button>
+
+                  {!isAvailable && (
                     <Link
-                      href="/schedule" // 🔗 replace with your meeting link
-                      className="px-6 py-2 mx-2 bg-purple-500 hover:bg-purple-600 text-white rounded-lg transition-colors hover:shadow-lg hover:shadow-gray-400/50 hover:scale-105"
+                      href="/schedule"
+                      className="w-full sm:w-auto px-6 py-2.5 bg-purple-500 hover:bg-purple-600 text-white font-semibold rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-purple-400/30 hover:scale-105 active:scale-95 inline-block text-center"
+                      aria-label="Schedule a meeting"
                     >
                       Schedule Meeting
                     </Link>
                   )}
-              </div>
+                </div>
+              </aside>
             </div>
           </div>
 
-          {/* Right - Scrollable FAQs */}
-          <div id="faq-right" className="space-y-4">
-            {faqs.map((faq, index) => {
-              const IconComponent = faq.icon;
-              return (
-                <div
-                  key={index}
-                  className="bg-card dark:bg-gray-800 rounded-lg border border-border dark:border-gray-700 overflow-hidden hover:border-purple-500/50 transition-colors"
-                >
-                  <button
-                    onClick={() => setActiveIndex(activeIndex === index ? null : index)}
-                    className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-accent dark:hover:bg-gray-750 transition-colors"
-                  >
-                    <div className="flex items-center gap-4 pr-4">
-                      <div className="shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center border border-purple-500/30">
-                        <IconComponent className="w-5 h-5 text-white" />
-                      </div>
-                      <span className="text-gray-900 dark:text-white">{faq.question}</span>
-                    </div>
-                    <ChevronDown
-                      className={`w-5 h-5 text-purple-400 transition-transform 'flex-shrink-0' ${activeIndex === index ? "rotate-180" : ""
-                        }`}
-                    />
-                  </button>
+          {/* RIGHT - Scrollable FAQs with Microdata */}
+          <div id="faq-right" className="space-y-3 sm:space-y-4" role="list">
+            {faqs && faqs.length > 0 ? (
+              faqs.map((faq, index) => {
+                const IconComponent = getIconComponent(faq.icon);
+                const isActive = activeIndex === index;
 
-                  <div
-                    className={`overflow-hidden transition-all duration-300 ${activeIndex === index ? "max-h-96" : "max-h-0"
-                      }`}
+                return (
+                  <article
+                    key={index}
+                    className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden hover:border-purple-400 dark:hover:border-purple-500 transition-all duration-200 hover:shadow-lg"
+                    itemScope
+                    itemProp="mainEntity"
+                    itemType="https://schema.org/Question"
+                    role="listitem"
                   >
-                    <div className="px-6 pb-4 text-gray-600 dark:text-gray-400 border-t border-border dark:border-gray-700 pt-4 ml-14">
-                      {faq.answer}
+                    {/* Question Button */}
+                    <h3 itemProp="name">
+                      <button
+                        onClick={() => setActiveIndex(isActive ? null : index)}
+                        className="w-full px-4 sm:px-6 py-3 sm:py-4 flex items-start sm:items-center justify-between text-left hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors duration-200 gap-3"
+                        aria-expanded={isActive}
+                        aria-controls={`faq-answer-${index}`}
+                        id={`faq-question-${index}`}
+                      >
+                        <span className="flex items-start sm:items-center gap-3 sm:gap-4 pr-2 flex-1 min-w-0">
+                          {/* Icon Box */}
+                          <span className="shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-md mt-0.5 sm:mt-0" aria-hidden="true">
+                            <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                          </span>
+                          {/* Question */}
+                          <span className="text-sm sm:text-base text-gray-900 dark:text-white font-medium leading-snug">
+                            {faq.question}
+                          </span>
+                        </span>
+                        {/* Chevron */}
+                        <ChevronDown
+                          className={`w-5 h-5 text-purple-500 dark:text-purple-400 transition-transform duration-200 flex-shrink-0 mt-0.5 sm:mt-0 ${
+                            isActive ? "rotate-180" : ""
+                          }`}
+                          aria-hidden="true"
+                        />
+                      </button>
+                    </h3>
+
+                    {/* Answer with Microdata */}
+                    <div
+                      id={`faq-answer-${index}`}
+                      className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                        isActive ? "max-h-[500px]" : "max-h-0"
+                      }`}
+                      role="region"
+                      aria-labelledby={`faq-question-${index}`}
+                      itemScope
+                      itemProp="acceptedAnswer"
+                      itemType="https://schema.org/Answer"
+                    >
+                      <div 
+                        className="px-4 sm:px-6 pb-3 sm:pb-4 text-sm sm:text-base text-gray-600 dark:text-gray-300 border-t border-gray-200 dark:border-gray-700 pt-3 sm:pt-4 ml-11 sm:ml-14"
+                        itemProp="text"
+                      >
+                        {faq.answer}
+                      </div>
                     </div>
-                  </div>
-                </div>
-              );
-            })}
+                  </article>
+                );
+              })
+            ) : (
+              // Empty State
+              <div className="text-center py-8 sm:py-12 text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+                <MessageSquare className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-3 sm:mb-4 opacity-50" aria-hidden="true" />
+                <p className="text-base sm:text-lg font-medium px-4">
+                  No FAQs available at the moment.
+                </p>
+                <p className="text-xs sm:text-sm mt-2 px-4">Check back soon!</p>
+              </div>
+            )}
           </div>
         </div>
       </div>
+
+      {/* Enhanced JSON-LD Schema for SEO */}
+      {faqs && faqs.length > 0 && (
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({
+              "@type": "Question",
+              name: f.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: f.answer,
+              },
+            })),
+          }}
+        />
+      )}
+
       {/* Contact Form Modal */}
-      <ContactFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-        {/* existing JSX */}
-     <JsonLd
-      data={{
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: faqs.map((f) => ({
-          "@type": "Question",
-          name: f.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: f.answer,
-          },
-        })),
-      }}
-    />
+      <ContactFormModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </section>
   );
 }

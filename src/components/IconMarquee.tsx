@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 interface IconItem {
   file: string;
+  label?: string;
 }
 
 // 🧩 Helper: format filename → readable name
@@ -37,19 +38,18 @@ export function IconMarquee() {
 
   // ====== GROUPED ICONS (organized) ======
   const aiAndAutomation: IconItem[] = [
-    { file: "OpenAI.svg" },
-    { file: "Claude.svg" },
-    { file: "Chatbots.svg" },
-    { file: "Docker.svg" },
-    { file: "Git.svg" },
-    { file: "Github.svg" },
-    { file: "Postman.svg" },
-    { file: "Postmark.svg" },
-    { file: "VSCode.svg" },
-    { file: "JavaScript.svg" },
-    { file: "TailwindCSS.svg" },
-    { file: "MongoDB.svg" },
-    { file: "Supabase.svg" },
+    { file: "OpenAI.svg", label: "OpenAI AI Tools for Web Automation" },
+    { file: "Claude.svg", label: "Claude AI for Content and Code" },
+    { file: "Chatbots.svg", label: "AI Chatbots Development" },
+    { file: "Docker.svg", label: "Docker Containers & DevOps" },
+    { file: "Git.svg", label: "Git Version Control" },
+    { file: "Github.svg", label: "GitHub Repository Management" },
+    { file: "Postman.svg", label: "API Testing with Postman" },
+    { file: "VSCode.svg", label: "VS Code for Development" },
+    { file: "JavaScript.svg", label: "JavaScript Frontend & Backend" },
+    { file: "TailwindCSS.svg", label: "Tailwind CSS for UI Design" },
+    { file: "MongoDB.svg", label: "MongoDB Database Management" },
+    { file: "Supabase.svg", label: "Supabase Backend Solutions" },
     // { file: "Dialogflow.svg" },
     // { file: "make-com.svg" },
     // { file: "Zapier.svg" },
@@ -58,55 +58,55 @@ export function IconMarquee() {
   ];
 
   const webDevTools: IconItem[] = [
-    { file: "React.svg" },
-    { file: "Next-js.svg" },
-    { file: "Node-js.svg" },
-    { file: "TypeScript.svg" },
-    { file: "logos-npm-icon.svg" },
-    { file: "FastAPI.svg" },
-    { file: "GraphQL.svg" },
-    { file: "PostgreSQL.svg" },
-    // { file: "Prisma.svg" },
+    { file: "React.svg", label: "React.js Frontend Development" },
+    { file: "Next-js.svg", label: "Next.js Modern Web Apps" },
+    { file: "Node-js.svg", label: "Node.js Backend Development" },
+    { file: "TypeScript.svg", label: "TypeScript for Scalable Web Apps" },
+    { file: "logos-npm-icon.svg", label: "NPM Package Management" },
+    { file: "FastAPI.svg", label: "FastAPI Python Backend Framework" },
+    { file: "GraphQL.svg", label: "GraphQL APIs and Query Language" },
+    { file: "PostgreSQL.svg", label: "PostgreSQL Database Management" },
+    // { file: "Prisma.svg", label: "Prisma ORM for Databases" },
   ];
 
   const cmsAndDesign: IconItem[] = [
-    { file: "logos-wordpress-icon.svg" },
-    { file: "logos-shopify.svg" },
-    { file: "logos-wix.svg" },
-    { file: "logos-woocommerce-icon.svg" },
-    { file: "logos-paypal.svg" },
-    { file: "Stripe.svg" },
-    { file: "logos-adobe-illustrator.svg" },
-    { file: "logos-adobe-photoshop.svg" },
-    { file: "logos-figma.svg" },
-    // { file: "Wordpress.svg" },
+    { file: "logos-wordpress-icon.svg", label: "WordPress Website Development" },
+    { file: "logos-shopify.svg", label: "Shopify Store Design & Customization" },
+    { file: "logos-wix.svg", label: "Wix Website Builder Expertise" },
+    { file: "logos-woocommerce-icon.svg", label: "WooCommerce Store Integration" },
+    { file: "logos-paypal.svg", label: "PayPal Payment Integration" },
+    { file: "Stripe.svg", label: "Stripe Payment Gateway Integration" },
+    { file: "logos-adobe-illustrator.svg", label: "Adobe Illustrator for UI Design" },
+    { file: "logos-adobe-photoshop.svg", label: "Adobe Photoshop for Web Design" },
+    { file: "logos-figma.svg", label: "Figma for Prototyping & UI/UX" },
+    { file: "Wordpress.svg", label: "WordPress Theme & Plugin Customization" },
   ];
 
   const infraAndPlatforms: IconItem[] = [
-    { file: "Vercel.svg" },
-    { file: "logos-netlify-icon.svg" },
-    { file: "logos-cloudflare-icon.svg" },
-    { file: "logos-cpanel.svg" },
-    { file: "logos-namecheap.svg" },
-    { file: "logos-neon-icon.svg" },
-    { file: "GCP.svg" },
-    { file: "logos-upwork.svg" },
-    { file: "fiverr-icon.svg" },
-    { file: "logos-meta-icon.svg" },
-    // { file: "AWS.svg" },
-    // { file: "logos-youtube.svg" },
+    { file: "Vercel.svg", label: "Vercel Deployment & Hosting" },
+    { file: "logos-netlify-icon.svg", label: "Netlify Hosting & Automation" },
+    { file: "logos-cloudflare-icon.svg", label: "Cloudflare CDN & Security" },
+    { file: "logos-cpanel.svg", label: "cPanel Hosting Management" },
+    { file: "logos-namecheap.svg", label: "Domain Management with Namecheap" },
+    { file: "logos-neon-icon.svg", label: "Neon Postgres & Cloud Database" },
+    { file: "GCP.svg", label: "Google Cloud Platform Services" },
+    { file: "logos-upwork.svg", label: "Freelancing & Client Platforms (Upwork)" },
+    { file: "fiverr-icon.svg", label: "Freelancing Marketplace (Fiverr)" },
+    { file: "logos-meta-icon.svg", label: "Meta (Facebook) Ads & Marketing Tools" },
+    // { file: "AWS.svg", label: "Amazon Web Services (AWS)" },
+    // { file: "logos-youtube.svg", label: "YouTube Video Content Creation" },
   ];
 
   const toolsAndSecurity: IconItem[] = [
-    { file: "logos-hcaptcha-icon.svg" },
-    { file: "logos-recaptcha.svg" },
-    { file: "logos-blogger.svg" },
-    { file: "logos-bing.svg" },
-    { file: "logos-google-analytics.svg" },
-    { file: "logos-google-tag-manager.svg" },
-    { file: "logos-google-search-console.svg" },
-    // { file: "logos-partytown-icon.svg" },
-    // { file: "logos-openai-icon.svg" },
+    { file: "logos-hcaptcha-icon.svg", label: "hCaptcha Security Integration" },
+    { file: "logos-recaptcha.svg", label: "Google reCAPTCHA Protection" },
+    { file: "logos-blogger.svg", label: "Blogger Platform Expertise" },
+    { file: "logos-bing.svg", label: "Bing Webmaster & SEO Tools" },
+    { file: "logos-google-analytics.svg", label: "Google Analytics Insights" },
+    { file: "logos-google-tag-manager.svg", label: "Google Tag Manager Setup" },
+    { file: "logos-google-search-console.svg", label: "Google Search Console SEO Management" },
+    // { file: "logos-partytown-icon.svg", label: "Partytown JS Optimization" },
+    // { file: "logos-openai-icon.svg", label: "OpenAI API for Web Automation" },
   ];
 
   // Distribute into 3 marquee rows for visual balance
@@ -132,21 +132,20 @@ export function IconMarquee() {
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-bold md:text-5xl mb-4">Expertise Across</h2>
-          <h3 className="text-3xl md:text-4xl mb-4">
+          <h2 className="text-4xl text-gray-900 dark:text-gray-100 font-bold md:text-5xl mb-4">Expertise Across</h2>
+          <h3 className="text-3xl md:text-4xl mb-4 text-center">
             <span className="text-transparent font-medium bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400">
-              Diverse Platforms
+              Platforms
             </span>{" "}
-            <span className="text-3xl md:text-4xl mb-6">
-              &<span className="text-transparent font-medium bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
-                {" "}
-                Development Tools
-              </span>
+            <span className="text-gray-900 dark:text-gray-100">
+              &{" "}
+            </span>
+            <span className="text-transparent font-medium bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
+              Development Tools
             </span>
           </h3>
-          <p className="text-muted-foreground dark:text-gray-400 max-w-2xl mx-auto">
-            Skilled in leading CMS platforms, frameworks, and modern web tools — enabling
-            end-to-end solutions from design to deployment.
+          <p className="text-gray-900 dark:text-gray-400 max-w-2xl mx-auto text-center">
+            Skilled in leading CMS platforms, frameworks, and modern web development tools delivering end-to-end solutions from website design, eCommerce setup, performance optimization, to full-stack web apps.
           </p>
         </motion.div>
       </div>
@@ -167,6 +166,7 @@ export function IconMarquee() {
                   <img
                     src={`/icons/${item.file}`}
                     alt={formatName(item.file)}
+                    aria-label={item.label || formatName(item.file)}
                     className="w-10 h-10 sm:w-8 sm:h-8 object-contain transition-transform duration-300 group-hover:scale-110"
                   />
                   <span className="absolute top-full mt-2 text-xs text-gray-700 dark:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
@@ -177,6 +177,12 @@ export function IconMarquee() {
             </div>
           </div>
         ))}
+        <p className="text-gray-900 dark:text-gray-400 max-w-6xl mx-auto text-center mb-12 pt-11">
+          I leverage <span className="font-medium">modern web technologies</span> and <span className="font-medium">popular CMS platforms</span> to build scalable websites, eCommerce stores, and web apps.
+          My toolkit includes <span className="font-medium">WordPress, Shopify, Wix, React, Next.js, Node.js, TypeScript, Tailwind CSS, and more</span>,
+          enabling <span className="font-medium">fast, responsive, and SEO-optimized digital experiences</span> for businesses, startups, and freelancers. Whether you're looking for <span className="font-medium">website development, Shopify customization, WordPress optimization, or full-stack consulting</span>, I bring the expertise, tools, and practical guidance to make your digital project a success.
+          Let's build fast, beautiful, and high-performing websites together.
+        </p>
       </div>
 
       {/* ======= STYLES ======= */}

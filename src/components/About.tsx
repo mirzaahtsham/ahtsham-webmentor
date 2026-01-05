@@ -74,29 +74,28 @@ export function About() {
               <h2 className="text-3xl text-gray-900 dark:text-gray-100 font-bold">
                 Hi, I&#39;m Ahtsham —{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
-                  Web Designer & Developer
+                  Developer Advocate & Web Developer
                 </span>
               </h2>
               <p className="mb-4 text-gray-900 dark:text-gray-100">
                 Passionate about crafting
-                <span className="text-yellow-600 dark:text-yellow-400"> high-performance digital experiences</span>.
+                <span className="text-yellow-600 dark:text-yellow-400"> high-performance, responsive websites</span> and building impactful <span className="text-yellow-600 dark:text-yellow-400">digital experiences</span> for businesses, freelancers, and learners.
               </p>
               <p className="text-gray-900 dark:text-gray-100">
-                I&#39;m a <span className="text-yellow-600 dark:text-yellow-400">Web Designer and Developer</span> with nearly{" "}
-                <span className="text-yellow-600 dark:text-yellow-400">{professionalYears}+ years of experience </span>
-                in creating high-performance, visually stunning, and conversion-focused websites using{" "}
-                <span className="text-yellow-600 dark:text-yellow-400">WordPress, Shopify, and modern web technologies</span>.
+                With <span className="text-yellow-600 dark:text-yellow-400">{professionalYears}+ years of experience</span> in <span className="text-yellow-600 dark:text-yellow-400">WordPress, Shopify, Wix, and modern web technologies</span>, I design and develop websites that are fast, SEO-optimized, and conversion-focused.
               </p>
               <p className="text-gray-900 dark:text-gray-100 mt-2">
-                I also create <span className="text-yellow-600 dark:text-yellow-400">web design tutorials</span> on{" "}
-                <span className="text-yellow-600 dark:text-yellow-400">YouTube (@mirzaahtsham)</span>, empowering students to learn{" "}
-                <span className="text-yellow-600 dark:text-yellow-400">Elementor, WordPress, and Shopify development</span> in Urdu and English.
+                As a Developer Educator, I create <span className="text-yellow-600 dark:text-yellow-400">tutorials and courses on YouTube (@mirzaahtsham)</span> to teach <span className="text-yellow-600 dark:text-yellow-400">Elementor, WordPress, and Shopify development</span> in Urdu and English, empowering students and freelancers to launch their own projects or freelance careers.
               </p>
             </div>
 
             {/* Skills Preview */}
             <div className="mb-8">
               <h4 className="text-xl font-bold mb-4 text-purple-400">I specialize in:</h4>
+              <p className="text-gray-900 dark:text-gray-100 pb-5">
+                My expertise spans <span className="text-yellow-600 dark:text-yellow-400">full-stack web development, Shopify store customization, WordPress design, UI/UX, website speed optimization, technical SEO, cloud solutions, and developer education</span>.
+                Explore my full specialization to see all tools, frameworks, and technologies I use to deliver high-quality digital products.
+              </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-900 dark:text-gray-100">
                 {shortSkills.map((skill, index) => (
                   <SkillItem key={index} text={skill} index={index} />
@@ -144,12 +143,11 @@ export function About() {
             </div>
             <div className="mb-6">
               <p className="text-gray-900 dark:text-gray-100">
-                Based in <span className="text-yellow-600 dark:text-yellow-400">Lahore, Pakistan</span>, I work remotely with clients worldwide and am open to relocation opportunities in the <span className="text-yellow-600 dark:text-yellow-400">UAE, USA, or Canada</span> for full-time or long-term web development roles.
+                Based in <span className="text-yellow-600 dark:text-yellow-400">Lahore, Pakistan</span>, I collaborate remotely with clients and teams worldwide. Open to relocation for full-time or long-term projects in the <span className="text-yellow-600 dark:text-yellow-400">UAE, USA, or Canada</span>.
               </p>
               <p className="text-gray-900 dark:text-gray-100 mt-2">
-                I&#39;m passionate about <span className="text-yellow-600 dark:text-yellow-400">building elegant, user-friendly websites</span>, integrating the right tools for performance and marketing, and <span className="text-yellow-600 dark:text-yellow-400">sharing my knowledge</span> with the next generation of web developers.
-
-                Let&#39;s build something amazing together!
+                I'm dedicated to <span className="text-yellow-600 dark:text-yellow-400">building user-friendly, high-performance websites</span>, integrating tools for marketing and analytics, and <span className="text-yellow-600 dark:text-yellow-400">mentoring the next generation of developers</span>.
+                Let's create something amazing together!
               </p>
             </div>
 
@@ -174,15 +172,15 @@ export function About() {
             {/* Buttons */}
             <div className="flex flex-wrap gap-4">
               <Link
-              href="/Resume/mirza-ahtsham-resume.pdf"
-              target="_blank"
-              className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-2 py-1 rounded-md hover:scale-110 transform duration-300">
+                href="/Resume/mirza-ahtsham-resume.pdf"
+                target="_blank"
+                className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-2 py-1 rounded-md hover:scale-110 transform duration-300">
                 Download CV
               </Link>
               <Link
-              href="/schedule"
-              // variant="outline"
-              className="px-2 py-1 rounded-md border border-purple-600 text-purple-600 hover:bg-purple-500/10 hover:scale-110 transform duration-300">
+                href="/schedule"
+                // variant="outline"
+                className="px-2 py-1 rounded-md border border-purple-600 text-purple-600 hover:bg-purple-500/10 hover:scale-110 transform duration-300">
                 Schedule a Call
               </Link>
             </div>

@@ -134,7 +134,7 @@ export function MegaMenuLayout({
             {cta?.enabled && (
               <div className="relative">
                 <div className="sticky top-6 space-y-4">
-                  <div className="rounded-xl bg-gradient-to-br from-purple-600 via-pink-600 to-blue-600 p-6 text-white shadow-lg">
+                  <div className="rounded-xl bg-gradient-to-br from-purple-600 via-pink-600 to-blue-600 p-6 text-gray-100 shadow-lg">
                     {cta.media && <div className="mb-4">{cta.media}</div>}
 
                     <h3 className="mb-2 text-sm font-semibold">{cta.title}</h3>
@@ -152,19 +152,19 @@ export function MegaMenuLayout({
 
                   {/* Quick Actions */}
                   <div className="rounded-xl border p-5">
-                    <h4 className="mb-3 flex items-center gap-2 text-sm font-medium">
+                    <h4 className="mb-3 text-gray-900 dark:text-gray-400 flex items-center gap-2 text-sm font-medium">
                       <Zap className="h-4 w-4 text-yellow-500" />
                       Quick Actions
                     </h4>
 
-                    <div className="space-y-2 text-sm text-muted-foreground">
-                      <Link href={href} className="block hover:text-foreground">
+                    <div className="space-y-2 text-sm text-gray-800 dark:text-gray-400">
+                      <Link href={href} className="block hover:text-purple-600 dark:hover:text-yellow-400">
                         View All {title}
                       </Link>
-                      <Link href="/portfolio" className="block hover:text-foreground">
+                      <Link href="/portfolio" className="block hover:text-purple-600 dark:hover:text-yellow-400">
                         Portfolio
                       </Link>
-                      <Link href="/contact" className="block hover:text-foreground">
+                      <Link href="/contact" className="block hover:text-purple-600 dark:hover:text-yellow-400">
                         Contact
                       </Link>
                     </div>

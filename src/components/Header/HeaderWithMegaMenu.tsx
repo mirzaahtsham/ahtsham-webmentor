@@ -42,7 +42,7 @@ export function HeaderWithMegaMenu() {
       >
         <div
           className={`mx-auto transition-all duration-500 ${isScrolled
-            ? "max-w-6xl bg-gray-300/50 dark:bg-gray-800/50 backdrop-blur-xl rounded-2xl border dark:border-gray-50/5"
+            ? "max-w-6xl bg-gray-300/50 dark:bg-gray-800/50 backdrop-blur-xl rounded-2xl"
             : "max-w-7xl bg-transparent"
             }`}
         >
@@ -84,7 +84,7 @@ export function HeaderWithMegaMenu() {
             </div>
 
             {/* DESKTOP NAV (≥1024px) */}
-            <nav className="hidden lg:flex items-center gap-8 px-2 text-gray-900 dark:text-gray-100">
+            <nav className="hidden lg:flex items-center gap-2 px-2 text-gray-900 dark:text-gray-100">
               <Link href="/#about" className="nav-link">About</Link>
               <Link href="/#experience" className="nav-link">Experience</Link>
               <Link href="/#faq-section" className="nav-link">FAQ</Link>
