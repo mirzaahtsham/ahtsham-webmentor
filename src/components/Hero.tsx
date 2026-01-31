@@ -3,29 +3,13 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
-import { Mail, Briefcase, ChevronLeft, ChevronRight } from "lucide-react";
+import { Mail, ChevronRight } from "lucide-react";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { ContactFormModal } from "./ContactFormModal";
+import PortfolioHeroSlider from "./Header/PortfolioHeroSlider";
 
 export function Hero() {
-  const [currentSlide, setCurrentSlide] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const slides = [
-    { title: "Web Development", color: "from-blue-600 to-cyan-600", icon: "🌐" },
-    { title: "Mobile Apps", color: "from-purple-600 to-pink-600", icon: "📱" },
-    { title: "UI/UX Design", color: "from-orange-600 to-yellow-600", icon: "🎨" },
-    { title: "Content Creation", color: "from-green-600 to-teal-600", icon: "✍️" },
-    { title: "Cloud Solutions", color: "from-indigo-600 to-purple-600", icon: "☁️" },
-  ];
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
 
   function AnimatedBadge() {
     return (
@@ -136,87 +120,10 @@ export function Hero() {
               <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
           </div>
-
-          {/* Services Slider - Responsive */}
-          <div className="mb-8 sm:mb-12 px-4">
-            <div className="relative max-w-xs sm:max-w-sm md:max-w-md mx-auto">
-              <div className="overflow-hidden rounded-xl">
-                <div className={`bg-gradient-to-r ${slides[currentSlide].color} p-6 sm:p-8 transition-all duration-500 transform hover:scale-105`}>
-                  <div className="text-4xl sm:text-5xl md:text-6xl mb-3 sm:mb-4">{slides[currentSlide].icon}</div>
-                  <h3 className="text-xl sm:text-2xl text-white font-semibold">{slides[currentSlide].title}</h3>
-                </div>
-              </div>
-
-              {/* Navigation Arrows - Hidden on mobile, visible on tablet+ */}
-              <button
-                onClick={prevSlide}
-                className="hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8 md:-translate-x-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-2 transition-all"
-                aria-label="Previous slide"
-              >
-                <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
-              </button>
-              <button
-                onClick={nextSlide}
-                className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-8 md:translate-x-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-2 transition-all"
-                aria-label="Next slide"
-              >
-                <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
-              </button>
-
-              {/* Mobile: Touch-friendly navigation buttons */}
-              <div className="flex sm:hidden gap-3 justify-center mt-4">
-                <button
-                  onClick={prevSlide}
-                  className="bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-2 transition-all"
-                  aria-label="Previous slide"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-                <button
-                  onClick={nextSlide}
-                  className="bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-2 transition-all"
-                  aria-label="Next slide"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-              </div>
-
-              {/* Dots Indicator */}
-              <div className="flex gap-2 justify-center mt-4 sm:mt-6">
-                {slides.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentSlide(index)}
-                    className={`h-2 rounded-full transition-all ${
-                      currentSlide === index 
-                        ? "bg-white w-6 sm:w-8" 
-                        : "bg-white/30 w-2"
-                    }`}
-                    aria-label={`Go to slide ${index + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
         </div>
 
-        {/* Browser mockup - Responsive */}
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="bg-gray-800 rounded-t-lg p-2 sm:p-3 flex items-center gap-1.5 sm:gap-2">
-            <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-red-500"></div>
-            <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-yellow-500"></div>
-            <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-green-500"></div>
-            <div className="flex-1 mx-2 sm:mx-4 bg-gray-700 rounded px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm text-gray-400 truncate">
-              mirza-ahtsham.portfolio
-            </div>
-          </div>
-          <div className="bg-gradient-to-br from-purple-600 to-blue-600 h-48 sm:h-56 md:h-64 rounded-b-lg flex items-center justify-center">
-            <div className="text-center px-4">
-              <div className="text-4xl sm:text-5xl md:text-6xl mb-3 sm:mb-4">💼</div>
-              <p className="text-white text-sm sm:text-base md:text-lg font-medium">Crafting Digital Excellence</p>
-            </div>
-          </div>
-        </div>
+        {/* Portfolio Slider - Replaces the old services slider */}
+        <PortfolioHeroSlider />
       </div>
 
       <style>{`

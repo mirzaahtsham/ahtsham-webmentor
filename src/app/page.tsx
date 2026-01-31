@@ -16,10 +16,6 @@ const homeSchema = {
   isPartOf: { "@id": "https://ahtsham.me/#website" },
   mainEntity: { "@id": "https://ahtsham.me/#person" },
 };
-export const metadata = {
-  title: "FAQ - Web Design & Development Services",
-  description: "Find answers to frequently asked questions about web design, WordPress, Shopify, and custom development services.",
-};
 
 export default async function Home() {
   const faqs = await getGeneralFaqs();

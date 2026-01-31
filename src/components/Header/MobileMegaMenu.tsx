@@ -21,7 +21,7 @@ export function MobileMegaMenu({ onNavigate, isScrolled }: Props) {
     { label: "Experience", href: "/#experience" },
     { label: "FAQ", href: "/#faq-section" },
     { label: "Testimonials", href: "/#testimonials" },
-    { label: "Connect", href: "/ahtsham-connect" },
+    { label: "Connect", href: "/connect" },
   ];
 
   const renderSections = (sections: MenuSection[]) => (

@@ -78,23 +78,21 @@ export function About() {
                 </span>
               </h2>
               <p className="mb-4 text-gray-900 dark:text-gray-100">
-                Passionate about crafting
-                <span className="text-yellow-600 dark:text-yellow-400"> high-performance, responsive websites</span> and building impactful <span className="text-yellow-600 dark:text-yellow-400">digital experiences</span> for businesses, freelancers, and learners.
+                I am a <span className="text-purple-800 hover:text-purple-600  dark:text-yellow-400 dark:hover:text-yellow-600 font-medium"><a href="https://github.com/mirzaahtsham/">full-stack web developer</a></span> passionate about building <span className="text-purple-800 dark:text-yellow-400">high-performance, responsive, and scalable websites</span> that deliver real business results. I create <span className="text-purple-800 dark:text-yellow-400">conversion-focused digital experiences</span> for businesses, freelancers, and learners using modern web technologies.
               </p>
               <p className="text-gray-900 dark:text-gray-100">
-                With <span className="text-yellow-600 dark:text-yellow-400">{professionalYears}+ years of experience</span> in <span className="text-yellow-600 dark:text-yellow-400">WordPress, Shopify, Wix, and modern web technologies</span>, I design and develop websites that are fast, SEO-optimized, and conversion-focused.
+                With <span className="text-purple-800 dark:text-yellow-400">{professionalYears}+ years of hands-on experience</span> in <span className="text-purple-800 dark:text-yellow-400">WordPress development, Shopify development, Wix, and Responsive Custom Web Apps</span>, I design and develop websites that are fast-loading, SEO-optimized, mobile-friendly, and performance-driven.
               </p>
               <p className="text-gray-900 dark:text-gray-100 mt-2">
-                As a Developer Educator, I create <span className="text-yellow-600 dark:text-yellow-400">tutorials and courses on YouTube (@mirzaahtsham)</span> to teach <span className="text-yellow-600 dark:text-yellow-400">Elementor, WordPress, and Shopify development</span> in Urdu and English, empowering students and freelancers to launch their own projects or freelance careers.
+                As a Developer Educator and Technical Trainer, I publish step-by-step tutorials and in-depth courses on YouTube <span className="text-purple-800 hover:text-purple-600  dark:text-yellow-400 dark:hover:text-yellow-600 font-medium">(<a href="https://www.youtube.com/channel/UCECmARzL9NsJiDpe01t6PWw??sub_confirmation=1">@mirzaahtsham</a>)</span> covering <span className="text-purple-800 dark:text-yellow-400">Elementor, WordPress, Shopify, and Custom web development</span> best practices in Urdu, Hindi and English. My goal is to help students and freelancers build real-world projects, improve their technical skills, and grow successful freelance or development careers.
               </p>
             </div>
 
             {/* Skills Preview */}
             <div className="mb-8">
-              <h4 className="text-xl font-bold mb-4 text-purple-400">I specialize in:</h4>
+              <h4 className="text-xl font-bold mb-4 text-purple-400">My Core Expertise</h4>
               <p className="text-gray-900 dark:text-gray-100 pb-5">
-                My expertise spans <span className="text-yellow-600 dark:text-yellow-400">full-stack web development, Shopify store customization, WordPress design, UI/UX, website speed optimization, technical SEO, cloud solutions, and developer education</span>.
-                Explore my full specialization to see all tools, frameworks, and technologies I use to deliver high-quality digital products.
+                My expertise spans <span className="text-yellow-600 dark:text-yellow-400">full-stack web development, Shopify store customization, WordPress design, UI/UX, Responsive Website , technical SEO, Cloud solutions, and developer education</span>. Explore my full specialization to see all tools, frameworks, and technologies I use to deliver high-quality digital products.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-900 dark:text-gray-100">
                 {shortSkills.map((skill, index) => (

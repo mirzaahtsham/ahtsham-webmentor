@@ -36,7 +36,7 @@ export function ServicesMenu({
         media: (
           <div className="relative">
             <SafeImage
-              src="/images/services-cta.jpg"
+              src="/cta/services-cta.png"
               alt="Start your project"
               width={400}
               height={250}

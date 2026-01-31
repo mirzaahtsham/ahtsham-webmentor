@@ -48,16 +48,19 @@ export function HeaderWithMegaMenu() {
         >
           <div className="px-6 py-4 flex items-center justify-between">
             {/* LOGO */}
-            <div
-              className="relative flex items-center gap-2"
-              onMouseEnter={() => setShowTooltip(true)}
-              onMouseLeave={() => setShowTooltip(false)}
-            >
-              <Logo size={40} />
-              <div className="flex gap-1">
-                <EyeFollow size={16} pupilSize={6} />
-                <EyeFollow size={16} pupilSize={6} />
-              </div>
+            <div className="relative">
+              <Link
+                href="/"
+                className="flex items-center gap-2 cursor-pointer"
+                onMouseEnter={() => setShowTooltip(true)}
+                onMouseLeave={() => setShowTooltip(false)}
+              >
+                <Logo size={40} />
+                <div className="flex gap-1">
+                  <EyeFollow size={16} pupilSize={6} />
+                  <EyeFollow size={16} pupilSize={6} />
+                </div>
+              </Link>
 
               <AnimatePresence>
                 {showTooltip && (
@@ -83,30 +86,34 @@ export function HeaderWithMegaMenu() {
               </AnimatePresence>
             </div>
 
-            {/* DESKTOP NAV (≥1024px) */}
+            {/* DESKTOP NAV (≥1024px) - FIXED: Clickable + Hover */}
             <nav className="hidden lg:flex items-center gap-2 px-2 text-gray-900 dark:text-gray-100">
               <Link href="/#about" className="nav-link">About</Link>
               <Link href="/#experience" className="nav-link">Experience</Link>
               <Link href="/#faq-section" className="nav-link">FAQ</Link>
               <Link href="/#testimonials" className="nav-link">Testimonials</Link>
 
-              <span
+              {/* SERVICES - Clickable + Hover Mega Menu */}
+              <Link
+                href="/services"
                 onMouseEnter={() => setActiveMega("services")}
                 onMouseLeave={() => setActiveMega(null)}
-                className="nav-link cursor-pointer"
+                className="nav-link"
               >
                 Services
-              </span>
+              </Link>
 
-              <span
+              {/* TRAINING - Clickable + Hover Mega Menu */}
+              <Link
+                href="/training"
                 onMouseEnter={() => setActiveMega("trainings")}
                 onMouseLeave={() => setActiveMega(null)}
-                className="nav-link cursor-pointer"
+                className="nav-link"
               >
                 Training
-              </span>
+              </Link>
 
-              <Link href="/ahtsham-connect" className="nav-link">
+              <Link href="/connect" className="nav-link">
                 Connect
               </Link>
             </nav>
@@ -134,7 +141,7 @@ export function HeaderWithMegaMenu() {
             </div>
           </div>
 
-         {/* DESKTOP MEGA MENUS (NO GAP / NO BLINK) */}
+          {/* DESKTOP MEGA MENUS */}
           <AnimatePresence>
             {activeMega === "services" && (
               <motion.div
@@ -205,11 +212,6 @@ export function HeaderWithMegaMenu() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      <ContactFormModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
 
       <ContactFormModal
         isOpen={isModalOpen}
