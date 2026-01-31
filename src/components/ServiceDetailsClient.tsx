@@ -35,11 +35,11 @@ import { SiWhatsapp, SiGoogle, SiFiverr, SiLinkedin, SiFacebook, SiUpwork } from
 
 interface ServiceDetailClientProps {
   service: Service;
-  services: Service[]; // ADD THIS - all services for related services section
+  services: Service[]; // All services for related services section
 }
 
 // Configuration
-const WHATSAPP_NUMBER = "923464784039";
+const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "923464784039";
 const PAYMENT_GATEWAY_ENABLED = false; // Set to true when payment gateway is integrated
 
 // Platform icon mapping
@@ -59,7 +59,7 @@ const platformColors = {
   upwork: "text-green-600",
 };
 
-// Country flag mapping - FIXED for proper display
+// Country flag mapping
 const countryFlags: Record<string, string> = {
   USA: "🇺🇸",
   Pakistan: "🇵🇰",
@@ -88,11 +88,55 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
   const [selectedPackage, setSelectedPackage] = useState<Package | null>(null);
   const [showReviewModal, setShowReviewModal] = useState(false);
   const [reviewRating, setReviewRating] = useState(5);
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+  const [toastType, setToastType] = useState<"success" | "error">("success");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const totalImages = service.images.length;
   const slideDuration = 5000;
   const progressIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Toast notification helper
+  const showToastNotification = (message: string, type: "success" | "error" = "success") => {
+    setToastMessage(message);
+    setToastType(type);
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 5000);
+  };
+
+  // IMPROVED: Better WhatsApp opening with popup blocker detection
+  const openWhatsAppLink = (url: string, successMessage: string) => {
+    const whatsappWindow = window.open(url, '_blank', 'noopener,noreferrer');
+    
+    if (!whatsappWindow || whatsappWindow.closed || typeof whatsappWindow.closed === 'undefined') {
+      // Popup was blocked
+      showToastNotification(
+        '⚠️ Popup blocked! Please allow popups and try again.',
+        'error'
+      );
+      
+      // Create fallback link button
+      const fallbackButton = document.createElement('a');
+      fallbackButton.href = url;
+      fallbackButton.target = '_blank';
+      fallbackButton.rel = 'noopener noreferrer';
+      fallbackButton.className = 'fixed bottom-4 right-4 z-[101] px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold shadow-2xl flex items-center gap-2 animate-bounce';
+      fallbackButton.innerHTML = `
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+        Open WhatsApp
+      `;
+      document.body.appendChild(fallbackButton);
+      
+      // Remove button after 10 seconds
+      setTimeout(() => fallbackButton.remove(), 10000);
+    } else {
+      showToastNotification(successMessage, 'success');
+    }
+  };
 
   // Image slider with proper cleanup
   useEffect(() => {
@@ -172,21 +216,30 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
     }
   };
 
+  // FIXED: Enhanced WhatsApp contact with proper message formatting
   const handleWhatsAppContact = (pkg: Package) => {
     const message = encodeURIComponent(
-      `Hi! I'm interested in the *${pkg.name}* package for *${service.title}*.\n\n` +
-      `Package: ${pkg.name}\n` +
-      `Price: ${pkg.price}\n` +
-      `Delivery: ${pkg.deliveryTime}\n\n` +
-      `Please provide more details.`
+      `👋 Hi! I'm interested in your services!\n\n` +
+      `📋 *Service:* ${service.title}\n` +
+      `📦 *Package:* ${pkg.name}\n` +
+      `💰 *Price:* $${pkg.price}\n` +
+      `⏱️ *Delivery Time:* ${pkg.deliveryTime}\n` +
+      `🔄 *Revisions:* ${pkg.revisions}\n\n` +
+      `✨ *Package Features:*\n${pkg.features.map((f, i) => `${i + 1}. ${f}`).join('\n')}\n\n` +
+      `I'd like to know more about:\n` +
+      `- Detailed process and timeline\n` +
+      `- Any additional costs\n` +
+      `- Portfolio/previous work examples\n` +
+      `- How we can get started\n\n` +
+      `Please provide more details. Thank you!`
     );
+    
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
-
-    // Force new window/tab
-    const newWindow = window.open(url, '_blank');
-    if (newWindow) {
-      newWindow.opener = null;
-    }
+    
+    openWhatsAppLink(
+      url,
+      '💬 WhatsApp opened! The message is pre-filled. Please click "Send" in WhatsApp.'
+    );
   };
 
   const handleOrderNow = (pkg: Package) => {
@@ -203,6 +256,8 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
     const formData = new FormData(e.currentTarget);
 
     try {
+      setIsSubmitting(true);
+      
       // Send to your API endpoint
       const response = await fetch('/api/reviews', {
         method: 'POST',
@@ -221,41 +276,130 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
       });
 
       if (response.ok) {
-        alert('Thank you for your review! It will appear after approval.');
+        showToastNotification('✅ Thank you for your review! It will appear after approval.', 'success');
         setShowReviewModal(false);
       } else {
-        alert('Something went wrong. Please try again.');
+        showToastNotification('❌ Something went wrong. Please try again.', 'error');
       }
     } catch (error) {
       console.error('Review submission error:', error);
-      alert('Failed to submit review. Please try again.');
+      showToastNotification('❌ Failed to submit review. Please try again.', 'error');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
-  const handleConsultationSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  // COMPLETE FIXED: Enhanced consultation submission with Google Calendar + WhatsApp
+  const handleConsultationSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    if (isSubmitting) return; // Prevent double submission
+    
     const formData = new FormData(e.currentTarget);
-    const message = encodeURIComponent(
-      `Hi! I'd like to schedule a consultation for *${service.title}*\n\n` +
-      `Name: ${formData.get('name')}\n` +
-      `Email: ${formData.get('email')}\n` +
-      `Phone: ${formData.get('phone') || 'Not provided'}\n` +
-      `Preferred Date: ${formData.get('date')}\n` +
-      `Time: ${formData.get('time')}\n` +
-      `Message: ${formData.get('message') || 'No additional message'}`
-    );
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+    
+    const consultationData = {
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      phone: (formData.get('phone') as string) || 'Not provided',
+      date: formData.get('date') as string,
+      time: formData.get('time') as string,
+      message: (formData.get('message') as string) || 'No additional message',
+    };
 
-    // Close modal first
-    setShowConsultationModal(false);
+    try {
+      setIsSubmitting(true);
+      
+      // Show loading state
+      showToastNotification('📅 Scheduling your consultation...', 'success');
 
-    // Then open WhatsApp
-    setTimeout(() => {
-      const newWindow = window.open(url, '_blank');
-      if (newWindow) {
-        newWindow.opener = null;
+      // Step 1: Send to your API to create Google Calendar event
+      const response = await fetch('/api/schedule-consultation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          serviceId: service.id,
+          serviceName: service.title,
+          ...consultationData,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Close modal first
+        setShowConsultationModal(false);
+        
+        // Show success notification
+        showToastNotification(
+          `✅ Consultation scheduled! Calendar invite sent to ${consultationData.email}`,
+          'success'
+        );
+
+        // Step 2: Prepare WhatsApp message with calendar details
+        const whatsappMessage = encodeURIComponent(
+          `🗓️ *CONSULTATION SCHEDULED*\n\n` +
+          `I've just scheduled a consultation and received the calendar invite!\n\n` +
+          `📋 *Service:* ${service.title}\n` +
+          `👤 *Name:* ${consultationData.name}\n` +
+          `📧 *Email:* ${consultationData.email}\n` +
+          `📱 *Phone:* ${consultationData.phone}\n` +
+          `📅 *Date:* ${consultationData.date}\n` +
+          `⏰ *Time:* ${consultationData.time}\n` +
+          `💬 *Message:* ${consultationData.message}\n\n` +
+          `${data.meetLink ? `🔗 *Google Meet Link:* ${data.meetLink}\n\n` : ''}` +
+          `The calendar invite has been sent to my email (${consultationData.email}).\n\n` +
+          `Looking forward to our consultation! Please confirm.`
+        );
+        
+        const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`;
+
+        // Open WhatsApp after a short delay
+        setTimeout(() => {
+          openWhatsAppLink(
+            whatsappUrl,
+            '💬 WhatsApp opened! Please send the pre-filled message to confirm your consultation.'
+          );
+        }, 1500);
+        
+      } else {
+        throw new Error(data.error || 'Failed to schedule consultation');
       }
-    }, 100);
+    } catch (error) {
+      console.error('Consultation scheduling error:', error);
+      
+      // Close modal
+      setShowConsultationModal(false);
+      
+      // Show error notification
+      showToastNotification(
+        '❌ Calendar booking failed. Opening WhatsApp for manual scheduling...',
+        'error'
+      );
+      
+      // Fallback to WhatsApp only (original behavior)
+      const fallbackMessage = encodeURIComponent(
+        `Hi! I'd like to schedule a consultation for *${service.title}*\n\n` +
+        `👤 *Name:* ${consultationData.name}\n` +
+        `📧 *Email:* ${consultationData.email}\n` +
+        `📱 *Phone:* ${consultationData.phone}\n` +
+        `📅 *Preferred Date:* ${consultationData.date}\n` +
+        `⏰ *Preferred Time:* ${consultationData.time}\n` +
+        `💬 *Message:* ${consultationData.message}\n\n` +
+        `Please help me schedule this consultation. Thank you!`
+      );
+      
+      const fallbackUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${fallbackMessage}`;
+      
+      setTimeout(() => {
+        openWhatsAppLink(
+          fallbackUrl,
+          '💬 WhatsApp opened! Please send the message to schedule your consultation.'
+        );
+      }, 1000);
+      
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const getFaqIcon = (question: string) => {
@@ -334,6 +478,32 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
 
   return (
     <div className="min-h-screen bg-white dark:bg-gradient-to-b dark:from-gray-900 dark:to-black text-gray-900 dark:text-white transition-colors duration-300">
+      {/* Toast Notification */}
+      {showToast && (
+        <div className="fixed top-24 right-4 z-[100] animate-slide-in-right">
+          <div className={`${
+            toastType === 'success' 
+              ? 'bg-green-500 border-green-600' 
+              : 'bg-red-500 border-red-600'
+          } border-2 text-white px-6 py-4 rounded-lg shadow-2xl max-w-md flex items-start gap-3`}>
+            {toastType === 'success' ? (
+              <Check className="w-6 h-6 shrink-0 mt-0.5" />
+            ) : (
+              <AlertCircle className="w-6 h-6 shrink-0 mt-0.5" />
+            )}
+            <div className="flex-1">
+              <p className="font-semibold text-sm leading-relaxed">{toastMessage}</p>
+            </div>
+            <button
+              onClick={() => setShowToast(false)}
+              className="text-white/80 hover:text-white transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Google Structured Data (Rich Snippets) */}
       <script
         type="application/ld+json"
@@ -395,7 +565,7 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Left Content */}
           <div className="lg:col-span-2 space-y-8">
-            {/* Header - FIXED LINE HEIGHT */}
+            {/* Header */}
             <div>
               <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-3">
                 <span>{service.category}</span>
@@ -685,7 +855,7 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
               </Accordion>
             </div>
 
-            {/* NEW Testimonials Section - Similar to ContactFormModal */}
+            {/* Testimonials Section */}
             {service.testimonials && service.testimonials.length > 0 && (
               <div className="space-y-3 pt-6 border-t border-gray-200 dark:border-gray-700 overflow-hidden">
                 <h2 className="text-2xl mb-6 font-bold text-center">What Clients Say</h2>
@@ -696,7 +866,6 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
                   <div className="flex gap-4 animate-marquee-reviews-rtl">
                     {[...service.testimonials, ...service.testimonials, ...service.testimonials].map((review, index) => {
                       const platform = (review as any).platform || 'google';
-                      const flag = countryFlags[review.country || 'USA'];
 
                       return (
                         <div key={`review1-${index}`} className="shrink-0 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-3 border border-purple-200 dark:border-purple-800 w-72">
@@ -734,7 +903,6 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
                   <div className="flex gap-4 animate-marquee-reviews-ltr">
                     {[...service.testimonials, ...service.testimonials, ...service.testimonials].map((review, index) => {
                       const platform = (review as any).platform || 'linkedin';
-                      const flag = countryFlags[review.country || 'USA'];
 
                       return (
                         <div key={`review2-${index}`} className="shrink-0 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-lg p-3 border border-blue-200 dark:border-blue-800 w-72">
@@ -784,7 +952,7 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
               </button>
             </div>
 
-            {/* Related Services Section - UPDATED */}
+            {/* Related Services Section */}
             <RelatedServices
               currentServiceId={service.id}
               services={services}
@@ -862,6 +1030,7 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
                   onClick={() => setShowConsultationModal(false)}
                   className="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"
                   type="button"
+                  disabled={isSubmitting}
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -874,7 +1043,8 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
                     type="text"
                     name="name"
                     required
-                    className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 disabled:opacity-50"
                     placeholder="John Doe"
                   />
                 </div>
@@ -885,7 +1055,8 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
                     type="email"
                     name="email"
                     required
-                    className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 disabled:opacity-50"
                     placeholder="john@example.com"
                   />
                 </div>
@@ -895,7 +1066,8 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
                   <input
                     type="tel"
                     name="phone"
-                    className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 disabled:opacity-50"
                     placeholder="+1 (555) 000-0000"
                   />
                 </div>
@@ -907,7 +1079,9 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
                       type="date"
                       name="date"
                       required
-                      className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                      disabled={isSubmitting}
+                      min={new Date().toISOString().split('T')[0]}
+                      className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 disabled:opacity-50"
                     />
                   </div>
                   <div>
@@ -916,7 +1090,8 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
                       type="time"
                       name="time"
                       required
-                      className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 disabled:opacity-50"
                     />
                   </div>
                 </div>
@@ -926,25 +1101,34 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
                   <textarea
                     name="message"
                     rows={3}
-                    className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none disabled:opacity-50"
                     placeholder="Tell us about your project..."
                   />
+                </div>
+
+                <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-3">
+                  <p className="text-xs text-blue-700 dark:text-blue-300">
+                    📅 You'll receive a Google Calendar invite with a Meet link at your email address
+                  </p>
                 </div>
 
                 <div className="flex gap-3">
                   <button
                     type="button"
                     onClick={() => setShowConsultationModal(false)}
-                    className="flex-1 py-3 rounded-lg border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-semibold"
+                    disabled={isSubmitting}
+                    className="flex-1 py-3 rounded-lg border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-semibold disabled:opacity-50"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="flex-1 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-colors font-semibold flex items-center justify-center gap-2"
+                    disabled={isSubmitting}
+                    className="flex-1 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-colors font-semibold flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <SiWhatsapp className="w-4 h-4" />
-                    Send Request
+                    <Calendar className="w-4 h-4" />
+                    {isSubmitting ? 'Scheduling...' : 'Schedule'}
                   </button>
                 </div>
               </form>
@@ -1004,6 +1188,7 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
                   onClick={() => setShowReviewModal(false)}
                   className="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"
                   type="button"
+                  disabled={isSubmitting}
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -1016,7 +1201,8 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
                     type="text"
                     name="reviewName"
                     required
-                    className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 disabled:opacity-50"
                     placeholder="John Doe"
                   />
                 </div>
@@ -1027,7 +1213,8 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
                     type="email"
                     name="reviewEmail"
                     required
-                    className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 disabled:opacity-50"
                     placeholder="john@example.com"
                   />
                 </div>
@@ -1037,7 +1224,8 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
                   <select
                     name="reviewCountry"
                     required
-                    className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 disabled:opacity-50"
                   >
                     <option value="">Select your country</option>
                     <option value="USA">🇺🇸 United States</option>
@@ -1061,7 +1249,8 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
                         key={rating}
                         type="button"
                         onClick={() => setReviewRating(rating)}
-                        className="transition-transform hover:scale-110"
+                        disabled={isSubmitting}
+                        className="transition-transform hover:scale-110 disabled:opacity-50"
                       >
                         <Star
                           className={`w-8 h-8 ${rating <= reviewRating
@@ -1083,14 +1272,15 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
                     name="reviewText"
                     required
                     rows={4}
-                    className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none disabled:opacity-50"
                     placeholder="Share your experience with this service..."
                   />
                 </div>
 
                 <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-3">
                   <p className="text-xs text-blue-700 dark:text-blue-300">
-                    ℹ️ Your review will be published on Google and displayed here after approval. This helps improve our search visibility and assists other customers.
+                    ℹ️ Your review will be published on Google and displayed here after approval.
                   </p>
                 </div>
 
@@ -1098,16 +1288,18 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
                   <button
                     type="button"
                     onClick={() => setShowReviewModal(false)}
-                    className="flex-1 py-3 rounded-lg border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-semibold"
+                    disabled={isSubmitting}
+                    className="flex-1 py-3 rounded-lg border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-semibold disabled:opacity-50"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="flex-1 py-3 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white transition-colors font-semibold flex items-center justify-center gap-2"
+                    disabled={isSubmitting}
+                    className="flex-1 py-3 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white transition-colors font-semibold flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <Star className="w-4 h-4" />
-                    Submit Review
+                    {isSubmitting ? 'Submitting...' : 'Submit Review'}
                   </button>
                 </div>
               </form>
@@ -1134,12 +1326,27 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
           }
         }
 
+        @keyframes slide-in-right {
+          from {
+            transform: translateX(100%);
+            opacity: 0;
+          }
+          to {
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+
         .animate-marquee-reviews-rtl {
           animation: marquee-reviews-rtl 30s linear infinite;
         }
 
         .animate-marquee-reviews-ltr {
           animation: marquee-reviews-ltr 30s linear infinite;
+        }
+
+        .animate-slide-in-right {
+          animation: slide-in-right 0.3s ease-out;
         }
       `}</style>
       </div>

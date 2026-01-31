@@ -424,9 +424,9 @@ export function Linktree() {
         <div className="text-center mb-8">
           <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-2 border-gray-800">
             <ImageWithFallback
-              src="https://webdesigngenius.netlify.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FMirza-Ahtsham-Profile-Image.e354692b.png&w=640&q=75"
+              src="/linktree/Web-Developer-ecommerce-consultant.png"
               alt="Mirza Ahtsham Profile Image"
-              className="w-full h-full object-fill"
+              className="w-full h-full object-center"
             />
           </div>
 
