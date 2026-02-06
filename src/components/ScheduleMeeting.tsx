@@ -16,9 +16,9 @@ interface MeetingType {
 export default function ScheduleMeeting() {
   const meetingTypes: MeetingType[] = [
     {
-      id: "dubai-visa",
-      title: "Dubai Digital Nomad VISA",
-      description: "Get guidance on Dubai Digital Nomad VISA application process, requirements, and my personal experience as a web developer.",
+      id: "Ecommerce Consultation",
+      title: "Ecommerce Consultation",
+      description: "Give you complete road map that where from you need to start and What is your current scenatrio and guide you next to where you stuck.",
       duration: "30 min",
       icon: Video,
       status: "available",
@@ -80,7 +80,7 @@ export default function ScheduleMeeting() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-900 dark:text-gray-100">
       {/* Back Button */}
       <div className="container mx-auto px-4 pt-24">
         <a
@@ -165,7 +165,7 @@ export default function ScheduleMeeting() {
               return (
                 <div
                   key={meeting.id}
-                  className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 relative group"
+                  className="bg-gradient-to-br from-gray-50 to-gray-100 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-950 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 relative group"
                 >
                   {/* Status Badge */}
                   {meeting.badge && (

@@ -83,13 +83,13 @@ export default function ScheduleMeeting() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-900 dark:text-gray-100">
       <HeaderWithMegaMenu />
       {/* Back Button */}
       <div className="container mx-auto px-4 pt-24">
         <a
           href="/"
-          className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+          className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Home</span>
@@ -103,9 +103,9 @@ export default function ScheduleMeeting() {
             {/* Left Content */}
             <div>
               <h1 className="text-5xl md:text-6xl mb-6">
-                Schedule a <span className="text-transparent bg-clip-text font-bold bg-gradient-to-r from-purple-400 to-pink-400">Meeting</span>
+                Schedule a <span className="text-transparent bg-clip-text font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400">Meeting</span>
               </h1>
-              <p className="text-gray-300 text-lg mb-8 max-w-lg">
+              <p className="text-gray-800 dark:text-gray-300 text-lg mb-8 max-w-lg">
                 Book a 1:1 session to discuss your project, get expert advice, or learn from my experience in web development, mobile apps, and freelancing.
               </p>
 
@@ -113,24 +113,24 @@ export default function ScheduleMeeting() {
               <div className="grid grid-cols-3 gap-6">
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <Calendar className="w-5 h-5 text-yellow-400" />
+                    <Calendar className="w-5 h-5 text-purple-600 dark:text-yellow-400" />
                     <span className="text-3xl font-bold">500+</span>
                   </div>
-                  <p className="text-gray-400 text-sm">1:1 Meetings</p>
+                  <p className="text-gray-800 dark:text-gray-400 text-sm">1:1 Meetings</p>
                 </div>
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <Users className="w-5 h-5 text-yellow-400" />
+                    <Users className="w-5 h-5 text-purple-600 dark:text-yellow-400" />
                     <span className="text-3xl font-bold">300+</span>
                   </div>
-                  <p className="text-gray-400 text-sm">Happy Clients</p>
+                  <p className="text-gray-800 dark:text-gray-400 text-sm">Happy Clients</p>
                 </div>
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <Clock className="w-5 h-5 text-yellow-400" />
+                    <Clock className="w-5 h-5 text-purple-600 dark:text-yellow-400" />
                     <span className="text-3xl font-bold">10+</span>
                   </div>
-                  <p className="text-gray-400 text-sm">Years Experience</p>
+                  <p className="text-gray-800 dark:text-gray-400 text-sm">Years Experience</p>
                 </div>
               </div>
             </div>
@@ -154,8 +154,8 @@ export default function ScheduleMeeting() {
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-12">
-            <h2 className="text-4xl mb-4">Choose Your Meeting Type</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <h2 className="text-4xl mb-4 font-medium">Choose Your Meeting Type</h2>
+            <p className="text-gray-700 dark:text-gray-400 max-w-2xl mx-auto">
               Select the meeting format that best fits your needs. All sessions are conducted via video call.
             </p>
           </div>
@@ -167,12 +167,12 @@ export default function ScheduleMeeting() {
               return (
                 <div
                   key={meeting.id}
-                  className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 relative group"
+                  className="bg-gray-50/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 relative group"
                 >
                   {/* Status Badge */}
                   {meeting.badge && (
                     <div className="absolute top-4 right-4">
-                      <span className="inline-flex items-center gap-1 bg-yellow-500/20 border border-yellow-500/50 text-yellow-400 px-3 py-1 rounded-full text-xs">
+                      <span className="inline-flex items-center gap-1 bg-purple-600/20 dark:bg-yellow-500/20 border border-purple-600/50 dark:border-yellow-500/50 text-purple-600 dark:text-yellow-400 px-3 py-1 rounded-full text-xs">
                         <Sparkles className="w-3 h-3" />
                         {meeting.badge}
                       </span>
@@ -181,22 +181,22 @@ export default function ScheduleMeeting() {
 
                   {/* Icon */}
                   <div className="mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
-                      <Icon className="w-6 h-6 text-white" />
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-gray-50/10 to-gray-50/10 dark:from-purple-500 dark:to-pink-500 flex items-center justify-center">
+                      <Icon className="w-6 h-6 text-gray-900 dark:text-gray-100" />
                     </div>
                   </div>
 
                   {/* Duration */}
                   <div className="flex items-center gap-2 mb-3">
-                    <Clock className="w-4 h-4 text-gray-400" />
-                    <span className="text-gray-400 text-sm">{meeting.duration}</span>
+                    <Clock className="w-4 h-4 text-gray-800 dark:text-gray-400" />
+                    <span className="text-gray-800 dark:text-gray-400 text-sm">{meeting.duration}</span>
                   </div>
 
                   {/* Title */}
                   <h3 className="text-xl mb-2">{meeting.title}</h3>
 
                   {/* Description */}
-                  <p className="text-gray-400 text-sm mb-6 leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-6 leading-relaxed">
                     {meeting.description}
                   </p>
 
@@ -204,7 +204,7 @@ export default function ScheduleMeeting() {
                   <Button
                     className={`w-full ${
                       meeting.status === "available"
-                        ? "bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
+                        ? "bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-gray-800 dark:text-gray-400"
                         : "bg-gray-700 text-gray-400 cursor-not-allowed"
                     }`}
                     disabled={meeting.status === "coming-soon"}
@@ -218,7 +218,7 @@ export default function ScheduleMeeting() {
 
           {/* Bottom Note */}
           <div className="mt-12 text-center">
-            <p className="text-gray-400 text-sm max-w-2xl mx-auto">
+            <p className="text-gray-600 dark:text-gray-400 text-sm max-w-2xl mx-auto">
               Choose a meeting type to view available time slots and book your session instantly.
             </p>
           </div>

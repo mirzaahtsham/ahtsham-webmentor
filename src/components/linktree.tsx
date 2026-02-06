@@ -22,27 +22,22 @@ import {
   SiCodechef,
   SiReddit,
   SiCodepen,
-  SiBluesky
-
-
-} from "react-icons/si";
-import {
+  SiBluesky,
+  SiWebflow,
   Globe,
   Calendar,
-  FileText,
-  Music2,
+  PiVideoFill,
+  MdOutlineConnectWithoutContact,
+  RiOpenSourceFill,
   Mail,
-  Users,
-  MessageCircle,
-  // GraduationCap,
+  FiShare2,
   ExternalLink,
   MapPin,
   Star,
-  Send,
-  // Github,
-  // Dribbble,
-  // Music
-} from "lucide-react";
+  GiNewspaper,
+  TbAffiliate,
+  RiUserCommunityLine,
+} from "@/components/icons";
 import Image from "next/image";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
@@ -376,22 +371,22 @@ export function Linktree() {
       href={item.url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`flex items-center gap-4 bg-zinc-800 backdrop-blur-sm rounded-xl p-4 border border-gray-700 hover:border-gray-800 hover:bg-gray-800 text-gray-100 transition-colors hover:scale-105 transform duration-300 group ${size === "small" ? 'min-h-[70px]' : 'min-h-20'
+      className={`flex items-center gap-4 text-gray-800 dark:text-gray-100 bg-gray-300/20 dark:bg-gray-800/50 backdrop-blur-xl dark:backdrop-blur-sm rounded-xl p-4 border border-gray-700 hover:border-gray-800 hover:bg-gray-300/80 dark:hover:bg-gray-700 transition-colors hover:scale-105 transform duration-300 group ${size === "small" ? 'min-h-[70px]' : 'min-h-20'
         }`}
     >
-      <div className={`${item.iconBg} ${size === 'large' ? 'w-12 h-12' : 'w-10 h-10'} rounded-lg flex items-center justify-center text-white shrink-0`}>
+      <div className={`${item.iconBg} ${size === 'large' ? 'w-12 h-12' : 'w-10 h-10'} rounded-lg flex items-center justify-center text-gray-100 shrink-0`}>
         {item.icon}
       </div>
       <div className="flex-1 min-w-0">
-        <h3 className={`text-grey-700 font-medium ${size === 'large' ? 'text-base' : 'text-sm'} mb-0.5`}>{item.title}</h3>
-        <p className={`text-gray-300 ${size === 'large' ? 'text-sm' : 'text-xs'} truncate`}>{item.description}</p>
+        <h3 className={`text-gray-900 dark:text-gray-300 font-medium ${size === 'large' ? 'text-base' : 'text-sm'} mb-0.5`}>{item.title}</h3>
+        <p className={`text-gray-900 dark:text-gray-300 ${size === 'large' ? 'text-sm' : 'text-xs'} truncate`}>{item.description}</p>
       </div>
-      <ExternalLink className="w-5 h-5 text-gray-200 transition-colors shrink-0" />
+      <ExternalLink className="w-5 h-5 text-gray-800 dark:text-gray-200  transition-colors shrink-0" />
     </a>
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-950">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-950">
       {/* Header */}
       {/* <header className="border-b border-gray-800 bg-gray-900/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -422,20 +417,22 @@ export function Linktree() {
       <main className="max-w-2xl mx-auto px-4 py-12 pt-44">
         {/* Profile Section */}
         <div className="text-center mb-8">
-          <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-2 border-gray-800">
-            <ImageWithFallback
-              src="/linktree/Web-Developer-ecommerce-consultant.png"
-              alt="Mirza Ahtsham Profile Image"
-              className="w-full h-full object-center"
-            />
+          <div className="w-24 h-24 mx-auto mb-4 rounded-full dark:bg-gradient-to-tr dark:from-purple-800 dark:to-pink-800 bg-gradient-to-tr from-purple-600 to-pink-600 p-[2px]">
+            <div className="w-full h-full rounded-full overflow-hidden bg-gray-100 dark:bg-gray-950">
+              <ImageWithFallback
+                src="/linktree/Web-Developer-ecommerce-consultant.png"
+                alt="Mirza Ahtsham Profile Image"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
 
-          <h1 className="text-2xl text-gray-100 font-bold mb-2">Mirza Ahtsham</h1>
-          <p className="text-gray-200 text-sm mb-3">
+          <h1 className="text-2xl text-gray-800 dark:text-gray-100 font-bold mb-2">Mirza Ahtsham</h1>
+          <p className="text-gray-700 dark:text-gray-200 text-sm mb-3">
             Designer, Developer & Trainer - Ahtsham Web Mentor
           </p>
 
-          <div className="flex items-center justify-center gap-4 text-xs text-gray-300 mb-3">
+          <div className="flex items-center justify-center gap-4 text-xs text-gray-500 dark:text-gray-300 mb-3">
             <div className="flex items-center gap-1">
               <MapPin className="w-3 h-3" />
               <span>Lahore, Dubai & Toronto</span>
@@ -446,16 +443,16 @@ export function Linktree() {
             </div>
           </div>
 
-          <div className="inline-flex items-center gap-2 bg-yellow-500/10 border border-yellow-500/30 rounded-full px-4 py-1.5 text-xs">
+          <div className="inline-flex items-center gap-2 bg-gray-800/80 dark:bg-yellow-500/10 border border-yellow-500/30 rounded-full px-4 py-1.5 text-xs">
             <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
-            <span className="text-yellow-500">Complete 1K+ projects - {professionalYears}+ years experience</span>
+            <span className="text-gray-100 dark:text-yellow-500">Complete 1K+ projects - {professionalYears}+ years experience</span>
           </div>
         </div>
 
         {/* Main Platforms */}
         <section className="mb-8">
-          <h2 className="text-gray-100 text-sm mb-4 flex items-center gap-2">
-            <Users className="w-4 h-4" />
+          <h2 className="text-gray-800 dark:text-gray-100 text-sm mb-4 flex items-center gap-2">
+            <SiWebflow className="w-4 h-4" />
             Main Platforms
           </h2>
           <div className="space-y-3">
@@ -467,8 +464,8 @@ export function Linktree() {
 
         {/* Social Media */}
         <section className="mb-8">
-          <h2 className="text-gray-100 text-sm mb-4 flex items-center gap-2">
-            <Send className="w-4 h-4" />
+          <h2 className="text-gray-800 dark:text-gray-100 text-sm mb-4 flex items-center gap-2">
+            <FiShare2 className="w-4 h-4" />
             Social Media
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -480,8 +477,8 @@ export function Linktree() {
 
         {/* My Writings & Tutorials */}
         <section className="mb-8">
-          <h2 className="text-gray-100 text-sm mb-4 flex items-center gap-2">
-            <Users className="w-4 h-4" />
+          <h2 className="text-gray-800 dark:text-gray-100 text-sm mb-4 flex items-center gap-2">
+            <GiNewspaper className="w-4 h-4" />
             My Writings
           </h2>
           <div className="space-y-3">
@@ -493,8 +490,8 @@ export function Linktree() {
 
         {/* Video Tutorials */}
         <section className="mb-8">
-          <h2 className="text-gray-100 text-sm mb-4 flex items-center gap-2">
-            <Users className="w-4 h-4" />
+          <h2 className="text-gray-800 dark:text-gray-100 text-sm mb-4 flex items-center gap-2">
+            <PiVideoFill className="w-4 h-4" />
             Video Tutorials
           </h2>
           <div className="space-y-3">
@@ -506,11 +503,11 @@ export function Linktree() {
 
         {/* Partner Platforms */}
         <section className="mb-8">
-          <h2 className="text-gray-100 text-sm mb-1 flex items-center gap-2">
-            <Users className="w-4 h-4" />
+          <h2 className="text-gray-800 dark:text-gray-100 text-sm mb-1 flex items-center gap-2">
+            <TbAffiliate className="w-4 h-4" />
             Ahtsham&#39;s Toolkit
           </h2>
-          <p className="text-xs text-gray-200 mb-4">
+          <p className="text-xs text-gray-600 dark:text-gray-200 mb-4">
             Recommended tools and platforms I personally use and trust — affiliate links included.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -522,8 +519,8 @@ export function Linktree() {
 
         {/* Community */}
         <section className="mb-8">
-          <h2 className="text-gray-100 text-sm mb-4 flex items-center gap-2">
-            <Users className="w-4 h-4" />
+          <h2 className="text-gray-800 dark:text-gray-100 text-sm mb-4 flex items-center gap-2">
+            <RiUserCommunityLine className="w-4 h-4" />
             Community & Networking
           </h2>
           <div className="space-y-3">
@@ -534,8 +531,8 @@ export function Linktree() {
         </section>
         {/* OpenSource Code */}
         <section className="mb-8">
-          <h2 className="text-gray-100 text-sm mb-4 flex items-center gap-2">
-            <Users className="w-4 h-4" />
+          <h2 className="text-gray-800 dark:text-gray-100 text-sm mb-4 flex items-center gap-2">
+            <RiOpenSourceFill className="w-4 h-4" />
             Open Source Widget Get Free Code
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -547,8 +544,8 @@ export function Linktree() {
 
         {/* Contact */}
         <section className="mb-8">
-          <h2 className="text-gray-100 text-sm mb-4 flex items-center gap-2">
-            <MessageCircle className="w-4 h-4" />
+          <h2 className="text-gray-800 dark:text-gray-100 text-sm mb-4 flex items-center gap-2">
+            <MdOutlineConnectWithoutContact className="w-4 h-4" />
             Contact
           </h2>
           <div className="space-y-3">
@@ -572,7 +569,7 @@ export function Linktree() {
         </section> */}
 
         {/* Footer Note */}
-        <p className="text-center text-xs text-gray-300 mt-12 mb-8">
+        <p className="text-center text-xs text-gray-700 dark:text-gray-300 mt-12 mb-8">
           Follow me across all platforms to stay updated with the latest in tech, freelancing, and AI 🚀
         </p>
       </main>

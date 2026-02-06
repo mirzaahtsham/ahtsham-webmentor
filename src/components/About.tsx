@@ -3,7 +3,6 @@ import { SkillItem } from "./SkillItem";
 import { useState } from "react";
 import { Button } from "./ui/button";
 import Link from "next/link";
-import { CheckCircle2 } from "lucide-react";
 import {
   Dialog,
   DialogContent,

@@ -54,7 +54,7 @@ export function Services() {
     <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-950">
       {/* Hero Section */}
       <section className="py-16 px-4 pt-44">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl text-gray-900 dark:text-gray-100 mb-4 font-medium">
             Professional Services
           </h1>
