@@ -82,8 +82,15 @@ export function Services() {
             </div>
           </div>
 
-          {/* Category Tabs */}
-          <div className="flex flex-wrap justify-center gap-2 mb-8">
+          {/* Category Tabs Slider */}
+        <div className="mb-10 md:mb-16 px-2">
+          <div 
+            className="tabs-slider flex gap-2 overflow-x-auto scrollbar-hide pb-2"
+            style={{
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+            }}
+          >
             {categories.map((category) => (
               <button
                 key={category.name}
@@ -98,6 +105,7 @@ export function Services() {
                 <span>{category.name}</span>
               </button>
             ))}
+          </div>
           </div>
 
           {/* Results Count */}
