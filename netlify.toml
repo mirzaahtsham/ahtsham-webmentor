@@ -1,9 +1,9 @@
 [build]
-  command = "NODE_OPTIONS='--max-old-space-size=4096' npm ci && npm run build"
+  command = "npm ci && npm run build"
+  publish = ".next"
 
 [build.environment]
   NODE_VERSION = "20"
-  NODE_ENV = "production"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
