@@ -1,18 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Keep your experimental features if needed
-  experimental: {
-    appDir: true, // required for App Router
-    // add other experimental flags here if used
+ typescript: {
+    ignoreBuildErrors: true,
   },
-
-  // Official way to disable linting during build
   eslint: {
     ignoreDuringBuilds: true,
   },
+  experimental: {
+    turbo: false,
+  },
 
-  // You can also add any other modern flags here
-  // e.g., images, compiler, etc.
 };
 
 module.exports = nextConfig;

@@ -1,6 +1,6 @@
 // lib/email.ts
 // Email utility using Nodemailer with Gmail SMTP
-
+import "server-only";
 import nodemailer from 'nodemailer';
 
 // Create transporter with your Gmail SMTP settings
