@@ -7,7 +7,7 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   experimental: {
-    turbo: false,
+    turbo: true,
   },
 
 };

@@ -21,7 +21,7 @@ const SMTP_CONFIG = {
   secure: false, // Use TLS
   auth: {
     user: process.env.SMTP_USER, // Your Gmail address
-    pass: process.env.SMTP_PASS, // Your App Password (NOT regular password!)
+    pass: process.env.SMTP_PASSWORD, // Your App Password (NOT regular password!)
   },
 };
 

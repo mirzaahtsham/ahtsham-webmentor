@@ -33,15 +33,15 @@ export async function POST(req: Request) {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.SMTP_EMAIL,
-        pass: process.env.SMTP_APP_PASS,
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASSWORD,
       },
     });
 
     // 3️⃣ Email → Admin notification
     await transporter.sendMail({
-      from: `"Ahtsham Contact Form" <${process.env.SMTP_EMAIL}>`,
-      to: "hello@ahtsham.me",
+      from: `"Ahtsham Contact Form" <${process.env.SMTP_USER}>`,
+      to: process.env.ADMIN_EMAIL,
       subject: "New Contact Form Submission",
       html: `
         <h2>New Contact Submission</h2>
@@ -60,7 +60,7 @@ export async function POST(req: Request) {
 
     // 4️⃣ Email → User auto-reply
     await transporter.sendMail({
-      from: `"Ahtsham" <${process.env.SMTP_EMAIL}>`,
+      from: `"Ahtsham" <${process.env.SMTP_USER}>`,
       to: body.email,
       subject: "We Received Your Message — Thank You!",
       html: `

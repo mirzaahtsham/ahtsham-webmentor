@@ -24,7 +24,7 @@ export async function getGeneralFaqs() {
         "slug": slug.current
       }
     `);
-    console.log('📁 Available categories:', categories);
+    // console.log('📁 Available categories:', categories);
 
     // Get FAQs with category info to debug
     const allFaqsWithCategory = await client.fetch(`
@@ -34,7 +34,7 @@ export async function getGeneralFaqs() {
         "categoryTitle": category->title
       }
     `);
-    console.log('📋 All FAQs with their categories:', allFaqsWithCategory);
+    // console.log('📋 All FAQs with their categories:', allFaqsWithCategory);
 
     // Now fetch only General category FAQs
     // Try lowercase "general" first
@@ -49,7 +49,7 @@ export async function getGeneralFaqs() {
 
     // If no results, try with different case variations
     if (data.length === 0) {
-      console.log('⚠️ No FAQs found with slug "general", trying alternatives...');
+      // console.log('⚠️ No FAQs found with slug "general", trying alternatives...');
       
       // Try "General" (capitalized)
       data = await client.fetch(`
@@ -62,7 +62,7 @@ export async function getGeneralFaqs() {
       `);
     }
 
-    console.log(`✅ Found ${data.length} General FAQs`);
+    // console.log(`✅ Found ${data.length} General FAQs`);
 
     if (data.length === 0) {
       console.error('❌ No General category FAQs found!');

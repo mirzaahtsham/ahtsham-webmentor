@@ -69,24 +69,5 @@ export async function sendBatchEmails(emails: SendEmailParams[]) {
   return results;
 }
 
-// Test email function
-export async function sendTestEmail(toEmail: string) {
-  return sendEmail({
-    to: toEmail,
-    subject: '✅ Test Email from Your Review System',
-    html: `
-      <h2>Email System Working!</h2>
-      <p>This is a test email from your review system.</p>
-      <p><strong>Configuration:</strong></p>
-      <ul>
-        <li>SMTP Host: ${process.env.SMTP_HOST}</li>
-        <li>SMTP Port: ${process.env.SMTP_PORT}</li>
-        <li>From: ${process.env.EMAIL_FROM}</li>
-      </ul>
-      <p>If you received this, your email system is working correctly! 🎉</p>
-    `,
-  });
-}
-
 // Export for testing
 export { transporter };
