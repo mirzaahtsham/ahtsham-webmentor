@@ -5,27 +5,22 @@ import { useEffect } from "react";
 // Lazy-loaded components for better performance
 const IconMarquee = dynamic(
   () => import("./IconMarquee").then((mod) => mod.IconMarquee),
-  { ssr: false }
 );
 
 const WorkExperience = dynamic(
   () => import("./Experiences").then((mod) => mod.WorkExperience),
-  { ssr: false }
 );
 
 const Stats = dynamic(
   () => import("./Stats").then((mod) => mod.Stats),
-  { ssr: false }
 );
 
 const TestimonialsMarquee = dynamic(
   () => import("./TestimonialsMarquee").then((mod) => mod.TestimonialsMarquee),
-  { ssr: false }
 );
 
 const FAQUpdated = dynamic(
   () => import("./FAQUpdated").then((mod) => mod.FAQUpdated),
-  { ssr: false }
 );
 
 /* ---------------- TYPES ---------------- */
@@ -44,17 +39,29 @@ type HomeClientSectionsProps = {
 
 export default function HomeClientSections({ faqs }: HomeClientSectionsProps) {
   // 🔍 DEBUG: Check if FAQs are received
-  useEffect(() => {
-    console.log('📦 FAQs received in HomeClientSections:', faqs);
-    console.log('📦 Number of FAQs:', faqs?.length);
-  }, [faqs]);
+  // useEffect(() => {
+  //   console.log('📦 FAQs received in HomeClientSections:', faqs);
+  //   console.log('📦 Number of FAQs:', faqs?.length);
+  // }, [faqs]);
   return (
     <>
-      <WorkExperience />
-      <IconMarquee />
-      <FAQUpdated faqs={faqs} />
-      <Stats />
-      <TestimonialsMarquee />
-    </>
+    <Stats />
+
+    {/* NEW */}
+    {/* <ServicesPreview />
+    <FeaturedProjects /> */}
+
+    <TestimonialsMarquee />
+
+    {/* NEW */}
+    <IconMarquee />
+
+    <WorkExperience />
+
+    <FAQUpdated faqs={faqs} />
+
+    {/* NEW */}
+    {/* <CTASection /> */}
+  </>
   );
 }

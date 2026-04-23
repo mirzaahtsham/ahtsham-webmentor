@@ -21,9 +21,9 @@ export default async function Home() {
   const faqs = await getGeneralFaqs();
   
   // 🔍 DEBUG: Check what we're getting
-  console.log('📊 FAQs fetched in page.tsx:', faqs);
-  console.log('📊 Number of FAQs:', faqs?.length);
-  console.log('📊 First FAQ:', faqs?.[0]);
+  // console.log('📊 FAQs fetched in page.tsx:', faqs);
+  // console.log('📊 Number of FAQs:', faqs?.length);
+  // console.log('📊 First FAQ:', faqs?.[0]);
   
   return (
     <>

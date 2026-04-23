@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && next build",
+    "type-check": "tsc --noEmit",
+    "build": "cross-env NODE_OPTIONS=--max-old-space-size=6144 prisma generate && next build",
     "start": "next start",
     "lint": "eslint"
   },
@@ -95,6 +96,7 @@
     "@types/estree": "^1.0.8",
     "@types/json-schema": "^7.0.15",
     "@types/recharts": "^1.8.29",
+    "cross-env": "^10.1.0",
     "eslint": "^9",
     "eslint-config-next": "15.5.6"
   },
