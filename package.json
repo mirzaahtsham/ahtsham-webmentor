@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "type-check": "tsc --noEmit",
-    "build": "cross-env NODE_OPTIONS=--max-old-space-size=6144 prisma generate && next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "eslint"
   },
