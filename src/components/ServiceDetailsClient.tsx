@@ -31,7 +31,32 @@ import {
 } from "./ui/accordion";
 import { RelatedServices } from './RelatedServices';
 import type { Service, Package } from "@/data/services";
-import { SiWhatsapp, SiGoogle, SiFiverr, SiLinkedin, SiFacebook, SiUpwork } from "react-icons/si";
+import {
+  GithubIcon,
+  LinkedinIcon,
+  XIcon,
+  FacebookIcon,
+  InstagramIcon,
+  WhatsappIcon,
+  YoutubeIcon,
+  TiktokIcon,
+  PinterestIcon,
+  BlueskyIcon,
+  MediumIcon,
+  QuoraIcon,
+  UdemyIcon,
+  EnvatoIcon,
+  NamecheapIcon,
+  PayoneerIcon,
+  BuyMeACoffeeIcon,
+  DiscordIcon,
+  RedditIcon,
+  UpworkIcon,
+  FiverrIcon,
+  CodepenIcon,
+  CodechefIcon,
+
+} from "@/components/icons";
 
 interface ServiceDetailClientProps {
   service: Service;
@@ -44,11 +69,11 @@ const PAYMENT_GATEWAY_ENABLED = false; // Set to true when payment gateway is in
 
 // Platform icon mapping
 const platformIcons = {
-  google: SiGoogle,
-  fiverr: SiFiverr,
-  linkedin: SiLinkedin,
-  facebook: SiFacebook,
-  upwork: SiUpwork,
+  // google: GoogleIcon,
+  fiverr: FiverrIcon,
+  linkedin: LinkedinIcon,
+  facebook: FacebookIcon,
+  upwork: UpworkIcon,
 };
 
 const platformColors = {
@@ -618,7 +643,7 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
                 onClick={() => handleWhatsAppContact(service.packages[0])}
                 className="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
               >
-                <SiWhatsapp className="w-5 h-5" />
+                <WhatsappIcon className="w-5 h-5" />
                 WhatsApp
               </button>
             </div>
@@ -822,7 +847,7 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
                         onClick={() => handleWhatsAppContact(pkg)}
                         className="w-full py-3 rounded-lg bg-green-600 hover:bg-green-700 text-white transition-colors flex items-center justify-center gap-2 font-semibold"
                       >
-                        <SiWhatsapp className="w-4 h-4" />
+                        <WhatsappIcon className="w-4 h-4" />
                         WhatsApp
                       </button>
                     </div>
@@ -995,7 +1020,7 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
                     onClick={() => handleWhatsAppContact(service.packages[0])}
                     className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg transition-colors font-semibold flex items-center justify-center gap-2 shadow-lg"
                   >
-                    <SiWhatsapp className="w-5 h-5" />
+                    <WhatsappIcon className="w-5 h-5" />
                     WhatsApp
                   </button>
                 </div>
@@ -1170,7 +1195,7 @@ export function ServiceDetailClient({ service, services }: ServiceDetailClientPr
                   }}
                   className="w-full py-3 rounded-lg bg-green-600 hover:bg-green-700 text-white transition-colors font-semibold flex items-center justify-center gap-2"
                 >
-                  <SiWhatsapp className="w-5 h-5" />
+                  <WhatsappIcon className="w-5 h-5" />
                   Continue with WhatsApp
                 </button>
               </div>

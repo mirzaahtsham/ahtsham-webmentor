@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Github, Linkedin, Mail, Globe } from "lucide-react";
+import { Mail, Globe } from "lucide-react";
+import { LinkedinIcon, GithubIcon} from "@/components/icons";
 
 export const AuthorProfile = () => {
   return (
@@ -49,14 +50,14 @@ export const AuthorProfile = () => {
             target="_blank"
             className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-yellow-400 transition-colors hover:scale-110"
           >
-            <Github size={22} />
+            <GithubIcon size={22} />
           </a>
           <a
             href="https://www.linkedin.com/in/mirzaahtsham/"
             target="_blank"
             className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-yellow-400 transition-colors hover:scale-110"
           >
-            <Linkedin size={22} />
+            <LinkedinIcon size={22} />
           </a>
           <a
             href="https://ahtsham.me/"

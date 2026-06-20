@@ -1,9 +1,9 @@
-import { HeaderWithMegaMenu } from "@/components/Header/HeaderWithMegaMenu";
-import { Hero } from "@/components/Hero";
-import { About } from "@/components/About";
+import { HeaderWithMegaMenu } from "@/components/shared/header/HeaderWithMegaMenu";
+import { Hero } from "@/components/sections/Hero";
+import { About } from "@/components/sections/About";
 import HomeClientSections from "@/components/HomeClientSections";
 import { getGeneralFaqs } from "@/lib/getGeneralFaqs";
-import { Footer } from "@/components/Footer";
+import { Footer } from "@/components/shared/Footer";
 
 const homeSchema = {
   "@context": "https://schema.org",

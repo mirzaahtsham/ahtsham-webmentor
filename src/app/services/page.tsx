@@ -1,7 +1,7 @@
 // import { ThemeProvider } from "ox-theme-switcher";
 import { Services as ServicesComponent } from "../../components/Services";
-import { HeaderWithMegaMenu } from "@/components/Header/HeaderWithMegaMenu";
-import { Footer } from "@/components/Footer";
+import { HeaderWithMegaMenu } from "@/components/shared/header/HeaderWithMegaMenu";
+import { Footer } from "@/components/shared/Footer";
 
 export default function Services() {
   return (

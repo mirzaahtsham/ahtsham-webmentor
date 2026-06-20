@@ -1,43 +1,47 @@
 "use client";
 import {
-  SiGithub,
-  SiLinkedin,
-  SiFiverr,
-  SiUpwork,
-  SiX,
-  SiYoutube,
-  SiFacebook,
-  SiInstagram,
-  SiMedium,
-  SiTiktok,
-  SiWhatsapp,
-  SiQuora,
-  SiUdemy,
-  SiDiscord,
-  SiBuymeacoffee,
-  SiPayoneer,
-  SiNamecheap,
-  SiEnvato,
-  SiPinterest,
-  SiCodechef,
-  SiReddit,
-  SiCodepen,
-  SiBluesky,
-  SiWebflow,
-  Globe,
-  Calendar,
-  PiVideoFill,
-  MdOutlineConnectWithoutContact,
-  RiOpenSourceFill,
-  Mail,
-  FiShare2,
-  ExternalLink,
-  MapPin,
-  Star,
-  GiNewspaper,
-  TbAffiliate,
-  RiUserCommunityLine,
+  GithubIcon,
+  LinkedinIcon,
+  XIcon,
+  FacebookIcon,
+  InstagramIcon,
+  WhatsappIcon,
+  YoutubeIcon,
+  TiktokIcon,
+  PinterestIcon,
+  BlueskyIcon,
+  MediumIcon,
+  QuoraIcon,
+  UdemyIcon,
+  EnvatoIcon,
+  NamecheapIcon,
+  PayoneerIcon,
+  BuyMeACoffeeIcon,
+  DiscordIcon,
+  RedditIcon,
+  UpworkIcon,
+  FiverrIcon,
+  CodepenIcon,
+  CodechefIcon,
+
 } from "@/components/icons";
+import { 
+  Calendar,
+  Mail,
+  MapPin,
+  Globe,
+  Star,
+  ExternalLink,
+  Share2,
+  Newspaper,
+  Clapperboard,
+  Handshake,
+  PanelsTopLeft,
+  UsersRound,
+  GitFork,
+  Contact,
+  Users, 
+  Clock, Sparkles, Video, MessageSquare, Briefcase, Coffee, ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
@@ -52,14 +56,14 @@ interface LinkItem {
 export function Linktree() {
   const mainPlatforms: LinkItem[] = [
     {
-      icon: <SiYoutube className="w-5 h-5" />,
+      icon: <YoutubeIcon className="w-5 h-5" />,
       title: "YouTube Channel",
       description: "Learn from Ahtsham Web Mentor - 6+ Experience",
       url: "https://www.youtube.com/channel/UCECmARzL9NsJiDpe01t6PWw??sub_confirmation=1",
-      iconBg: "bg-red-600"
+      iconBg: "bg-red-400/50"
     },
     {
-      icon: <SiGithub className="w-5 h-5" />,
+      icon: <GithubIcon className="w-5 h-5" />,
       title: "Github Profile",
       description: "Git all resources, courses & more",
       url: "https://github.com/mirzaahtsham/",
@@ -77,49 +81,49 @@ export function Linktree() {
 
   const socialMedia: LinkItem[] = [
     {
-      icon: <SiFacebook className="w-4 h-4" />,
+      icon: <FacebookIcon className="w-4 h-4" />,
       title: "Facebook",
       description: "1K+ Followers",
       url: "https://www.facebook.com/ahtshamwebdesigngenius/",
       iconBg: "bg-blue-600"
     },
     {
-      icon: <SiLinkedin className="w-4 h-4" />,
+      icon: <LinkedinIcon className="w-4 h-4" />,
       title: "LinkedIn",
       description: "1K+ Followers",
       url: "https://www.linkedin.com/in/mirzaahtsham/",
       iconBg: "bg-blue-700"
     },
     {
-      icon: <SiInstagram className="w-4 h-4" />,
+      icon: <InstagramIcon className="w-4 h-4" />,
       title: "Instagram",
       description: "500 Followers",
       url: "https://www.instagram.com/WebsiteDesignGenius/",
       iconBg: "bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500"
     },
     {
-      icon: <SiBluesky className="w-4 h-4" />,
+      icon: <BlueskyIcon className="w-4 h-4" />,
       title: "Blue Sky",
       description: "0 Followers",
       url: "https://bsky.app/profile/ahtshamwebmentor.bsky.social/",
       iconBg: "bg-blue-600"
     },
     {
-      icon: <SiTiktok className="w-4 h-4" />,
+      icon: <TiktokIcon className="w-4 h-4" />,
       title: "TikTok",
       description: "Join for Learn Tips & Tricks",
       url: "https://www.tiktok.com/@webdesigngenius",
       iconBg: "bg-gray-950"
     },
     {
-      icon: <SiX className="w-4 h-4" />,
+      icon: <XIcon className="w-4 h-4" />,
       title: "X (Twitter)",
       description: "Follow for tech updates",
       url: "https://twitter.com/websdesignwala/",
       iconBg: "bg-black"
     },
     {
-      icon: <SiPinterest className="w-4 h-4" />,
+      icon: <PinterestIcon className="w-4 h-4" />,
       title: "Pinterest",
       description: "Follow for Tech & Design Ideas",
       url: "https://www.pinterest.com/mirzaahtsham/",
@@ -129,21 +133,21 @@ export function Linktree() {
 
   const articles: LinkItem[] = [
     {
-      icon: <SiMedium className="w-4 h-4" />,
+      icon: <MediumIcon className="w-4 h-4" />,
       title: "Medium",
       description: "Read my latest articles on Medium",
       url: "https://medium.com/@mirzaahtsham/",
       iconBg: "bg-black"
     },
     {
-      icon: <SiQuora className="w-4 h-4" />,
+      icon: <QuoraIcon className="w-4 h-4" />,
       title: "Quora",
       description: "Read my answers on Quora",
       url: "https://www.quora.com/profile/Mirza-Ahtsham/",
       iconBg: "bg-red-600"
     },
     {
-      icon: <SiLinkedin className="w-4 h-4" />,
+      icon: <LinkedinIcon className="w-4 h-4" />,
       title: "Linkedin Articles",
       description: "Read my latest articles on LinkedIn",
       url: "https://www.linkedin.com/in/mirzaahtsham/recent-activity/articles/",
@@ -167,14 +171,14 @@ export function Linktree() {
 
   const affiliate: LinkItem[] = [
     {
-      icon: <SiEnvato className="w-4 h-4" />,
+      icon: <EnvatoIcon className="w-4 h-4" />,
       title: "Themeforest",
       description: "Find & Buy Premium Website Themes",
       url: "https://1.envato.market/R572r2",
       iconBg: "bg-green-600"
     },
     {
-      icon: <SiNamecheap className="w-4 h-4" />,
+      icon: <NamecheapIcon className="w-4 h-4" />,
       title: "Namecheap",
       description: "Register Your Domain Names Easily",
       url: "https://namecheap.pxf.io/EaBbVP",
@@ -197,14 +201,14 @@ export function Linktree() {
       iconBg: "bg-white/5",
     },
     {
-      icon: <SiPayoneer className="w-4 h-4" />,
+      icon: <PayoneerIcon className="w-4 h-4" />,
       title: "Payoneer",
       description: "Global Payment Solutions for Freelancers",
       url: "http://share.payoneer.com/nav/pUOXZUF_URk3k2r_LSC6J4Ov-GZOhCFvmmn56njGAvzRbPVqHuEJtgmOzrcXwWxlRZOi1daUkfq-PgR20d5IyA2",
       iconBg: "bg-orange-600"
     },
     {
-      icon: <SiBuymeacoffee className="w-4 h-4 text-black" />,
+      icon: <BuyMeACoffeeIcon className="w-4 h-4 text-black" />,
       title: "Buy Me A Coffee",
       description: "Support My Work & Projects",
       url: "https://www.buymeacoffee.com/invite/mirzaahtsham",
@@ -214,28 +218,28 @@ export function Linktree() {
 
   const tutorials: LinkItem[] = [
     {
-      icon: <SiYoutube className="w-4 h-4" />,
+      icon: <YoutubeIcon className="w-4 h-4" />,
       title: "Youtube Channel",
       description: "Watch step-by-step tutorials",
       url: "https://www.youtube.com/channel/UCECmARzL9NsJiDpe01t6PWw??sub_confirmation=1",
       iconBg: "bg-red-600"
     },
     {
-      icon: <SiUdemy className="w-4 h-4" />,
+      icon: <UdemyIcon className="w-4 h-4" />,
       title: "Udemy Courses",
       description: "Learn with in-depth courses",
       url: "https://www.udemy.com/user/mirza-ahtsham/",
       iconBg: "bg-purple-500"
     },
     {
-      icon: <SiFacebook className="w-4 h-4" />,
+      icon: <FacebookIcon className="w-4 h-4" />,
       title: "Facebook Group",
       description: "Learn with Ahtsham Web Mentor - Join our Learning Community",
       url: "https://www.facebook.com/groups/learnwithahtsham/",
       iconBg: "bg-blue-600"
     },
     {
-      icon: <SiWhatsapp className="w-4 h-4" />,
+      icon: <WhatsappIcon className="w-4 h-4" />,
       title: "WhatsApp Channel",
       description: "Learn with Ahtsham Web Mentor - Get Updates & Announcements",
       url: "#",
@@ -252,28 +256,28 @@ export function Linktree() {
 
   const community: LinkItem[] = [
     {
-      icon: <SiDiscord className="w-4 h-4" />,
+      icon: <DiscordIcon className="w-4 h-4" />,
       title: "Discord",
       description: "Join our Developer Community",
       url: "https://discord.gg/4RnpzDGv",
       iconBg: "bg-purple-600"
     },
     {
-      icon: <SiQuora className="w-4 h-4" />,
+      icon: <QuoraIcon className="w-4 h-4" />,
       title: "Quora",
       description: "Direct Message",
       url: "#",
       iconBg: "bg-red-600"
     },
     {
-      icon: <SiReddit className="w-4 h-4" />,
+      icon: <RedditIcon className="w-4 h-4" />,
       title: "Reddit",
       description: "Join Discussions & AMA Sessions",
       url: "https://www.reddit.com/user/mirzaahtsham/",
       iconBg: "bg-orange-600"
     },
     {
-      icon: <SiWhatsapp className="w-4 h-4" />,
+      icon: <WhatsappIcon className="w-4 h-4" />,
       title: "WhatsApp Group",
       description: "Learn with Ahtsham Web Mentor - Get Updates & Announcements",
       url: "#",
@@ -289,14 +293,14 @@ export function Linktree() {
   ];
   const opensource: LinkItem[] = [
     {
-      icon: <SiCodepen className="w-6 h-6" />,
+      icon: <CodepenIcon className="w-6 h-6" />,
       title: "Code Pen",
       description: "Find my open-source projects & pens",
       url: "https://codepen.io/Mirza-Muhammad-Ahtsham",
       iconBg: "bg-gray-800"
     },
     {
-      icon: <SiCodechef className="w-5 h-5" />,
+      icon: <CodechefIcon className="w-5 h-5" />,
       title: "CodeChef ",
       description: "Practice Coding & Problem Solving",
       url: "#",
@@ -321,7 +325,7 @@ export function Linktree() {
 
   const contact: LinkItem[] = [
     {
-      icon: <SiWhatsapp className="w-4 h-4" />,
+      icon: <WhatsappIcon className="w-4 h-4" />,
       title: "WhatsApp",
       description: "Direct Message",
       url: "https://wa.me/923464784039?text=Welcome%20to%20our%20store!%20If%20you%20have%20any%20questions%20or%20need%20assistance%20with%20buying%20a%20product,%20please%20let%20us%20know.",
@@ -339,7 +343,7 @@ export function Linktree() {
 
   const freelancePlatforms: LinkItem[] = [
     {
-      icon: <SiUpwork className="w-4 h-4" />,
+      icon: <UpworkIcon className="w-4 h-4" />,
       // (
       //   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
       //     <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/>
@@ -351,7 +355,7 @@ export function Linktree() {
       iconBg: "bg-green-600"
     },
     {
-      icon: <SiFiverr className="w-4 h-4" />,
+      icon: <FiverrIcon className="w-4 h-4" />,
       // (
       //   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
       //     <circle cx="4" cy="4" r="2"/>
@@ -452,7 +456,7 @@ export function Linktree() {
         {/* Main Platforms */}
         <section className="mb-8">
           <h2 className="text-gray-800 dark:text-gray-100 text-sm mb-4 flex items-center gap-2">
-            <SiWebflow className="w-4 h-4" />
+            <PanelsTopLeft className="w-4 h-4" />
             Main Platforms
           </h2>
           <div className="space-y-3">
@@ -465,7 +469,7 @@ export function Linktree() {
         {/* Social Media */}
         <section className="mb-8">
           <h2 className="text-gray-800 dark:text-gray-100 text-sm mb-4 flex items-center gap-2">
-            <FiShare2 className="w-4 h-4" />
+            <Share2 className="w-4 h-4" />
             Social Media
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -478,7 +482,7 @@ export function Linktree() {
         {/* My Writings & Tutorials */}
         <section className="mb-8">
           <h2 className="text-gray-800 dark:text-gray-100 text-sm mb-4 flex items-center gap-2">
-            <GiNewspaper className="w-4 h-4" />
+            <Newspaper className="w-4 h-4" />
             My Writings
           </h2>
           <div className="space-y-3">
@@ -491,7 +495,7 @@ export function Linktree() {
         {/* Video Tutorials */}
         <section className="mb-8">
           <h2 className="text-gray-800 dark:text-gray-100 text-sm mb-4 flex items-center gap-2">
-            <PiVideoFill className="w-4 h-4" />
+            <Clapperboard className="w-4 h-4" />
             Video Tutorials
           </h2>
           <div className="space-y-3">
@@ -504,7 +508,7 @@ export function Linktree() {
         {/* Partner Platforms */}
         <section className="mb-8">
           <h2 className="text-gray-800 dark:text-gray-100 text-sm mb-1 flex items-center gap-2">
-            <TbAffiliate className="w-4 h-4" />
+            <Handshake className="w-4 h-4" />
             Ahtsham&#39;s Toolkit
           </h2>
           <p className="text-xs text-gray-600 dark:text-gray-200 mb-4">
@@ -520,7 +524,7 @@ export function Linktree() {
         {/* Community */}
         <section className="mb-8">
           <h2 className="text-gray-800 dark:text-gray-100 text-sm mb-4 flex items-center gap-2">
-            <RiUserCommunityLine className="w-4 h-4" />
+            <UsersRound className="w-4 h-4" />
             Community & Networking
           </h2>
           <div className="space-y-3">
@@ -532,7 +536,7 @@ export function Linktree() {
         {/* OpenSource Code */}
         <section className="mb-8">
           <h2 className="text-gray-800 dark:text-gray-100 text-sm mb-4 flex items-center gap-2">
-            <RiOpenSourceFill className="w-4 h-4" />
+            <GitFork className="w-4 h-4" />
             Open Source Widget Get Free Code
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -545,7 +549,7 @@ export function Linktree() {
         {/* Contact */}
         <section className="mb-8">
           <h2 className="text-gray-800 dark:text-gray-100 text-sm mb-4 flex items-center gap-2">
-            <MdOutlineConnectWithoutContact className="w-4 h-4" />
+            <Contact className="w-4 h-4" />
             Contact
           </h2>
           <div className="space-y-3">

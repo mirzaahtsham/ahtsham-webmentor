@@ -1,1 +1,1 @@
-eclare module "*.css";
+declare module "*.css";

@@ -1,7 +1,7 @@
 // import { ThemeProvider } from "ox-theme-switcher";
 import { Linktree as LinktreeComponent } from "../../components/linktree";
-import { HeaderWithMegaMenu } from "@/components/Header/HeaderWithMegaMenu";
-import { Footer } from "@/components/Footer";
+import { HeaderWithMegaMenu } from "@/components/shared/header/HeaderWithMegaMenu";
+import { Footer } from "@/components/shared/Footer";
 import SeoSchema from "./SeoSchema";
 import { ContactModal } from "./ContactModal";
 

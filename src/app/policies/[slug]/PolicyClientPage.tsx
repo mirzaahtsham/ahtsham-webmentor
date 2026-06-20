@@ -3,8 +3,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { HeaderWithMegaMenu } from "@/components/Header/HeaderWithMegaMenu";
-import { Footer } from "@/components/Footer";
+import { HeaderWithMegaMenu } from "@/components/shared/header/HeaderWithMegaMenu";
+import { Footer } from "@/components/shared/Footer";
 import { Check } from "lucide-react";
 import { AuthorProfile } from "@/components/AuthorProfile";
 import ShareButtons from "@/components/ShareButtons";

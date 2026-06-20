@@ -1,6 +1,6 @@
 // src/app/services/[slug]/page.tsx
-import { HeaderWithMegaMenu } from "@/components/Header/HeaderWithMegaMenu";
-import { Footer } from "@/components/Footer";
+import { HeaderWithMegaMenu } from "@/components/shared/header/HeaderWithMegaMenu";
+import { Footer } from "@/components/shared/Footer";
 import { ServiceDetailClient } from "@/components/ServiceDetailsClient";
 import { getServiceBySlug, services } from "@/data/services"; // Add services to import
 

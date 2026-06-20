@@ -4,23 +4,23 @@ import dynamic from "next/dynamic";
 import { useEffect } from "react";
 // Lazy-loaded components for better performance
 const IconMarquee = dynamic(
-  () => import("./IconMarquee").then((mod) => mod.IconMarquee),
+  () => import("../components/sections/IconMarquee").then((mod) => mod.IconMarquee),
 );
 
 const WorkExperience = dynamic(
-  () => import("./Experiences").then((mod) => mod.WorkExperience),
+  () => import("../components/sections/Experiences").then((mod) => mod.WorkExperience),
 );
 
 const Stats = dynamic(
-  () => import("./Stats").then((mod) => mod.Stats),
+  () => import("../components/sections/Stats").then((mod) => mod.Stats),
 );
 
 const TestimonialsMarquee = dynamic(
-  () => import("./TestimonialsMarquee").then((mod) => mod.TestimonialsMarquee),
+  () => import("../components/sections/TestimonialsMarquee").then((mod) => mod.TestimonialsMarquee),
 );
 
 const FAQUpdated = dynamic(
-  () => import("./FAQUpdated").then((mod) => mod.FAQUpdated),
+  () => import("../components/sections/FAQUpdated").then((mod) => mod.FAQUpdated),
 );
 
 /* ---------------- TYPES ---------------- */

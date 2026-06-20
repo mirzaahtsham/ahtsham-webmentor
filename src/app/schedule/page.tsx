@@ -3,8 +3,8 @@ import { useState } from "react";
 import { Calendar, Users, Clock, Sparkles, Video, MessageSquare, Briefcase, Coffee, ArrowLeft } from "lucide-react";
 import { Button } from "../../components/ui/button";
 import { ImageWithFallback } from "../../components/figma/ImageWithFallback";
-import { HeaderWithMegaMenu } from "@/components/Header/HeaderWithMegaMenu";
-import { Footer } from "@/components/Footer";
+import { HeaderWithMegaMenu } from "@/components/shared/header/HeaderWithMegaMenu";
+import { Footer } from "@/components/shared/Footer";
 
 interface MeetingType {
   id: string;
